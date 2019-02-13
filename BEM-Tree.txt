@@ -1,0 +1,125 @@
+
+header
+    header-top
+        menu-top
+        users
+            users__item
+                users__item-icon
+                users__item-title
+    header-bottom
+        logo
+        search
+        contacts tools
+            tools__item tools__item--phone
+menu-main
+megamenu
+
+slider , slider-outer
+    slider-inner
+        slider__dots
+            slider__dots-item ?
+        slider__nav
+            slider__nav-item slider__nav-item--left
+        slider__item (slide)
+
+edges
+    edges__item
+        edges__item-icon
+        edges__item-text
+
+categories
+    categories__item
+        categories__item-title
+        categories__item-link
+        categories__item-image
+
+categories-list
+    categories-list__item
+        categories-list__item-title
+
+actions
+    actions__item
+        actions__item-content
+            actions__item-title
+            actions__item-subtitle
+            actions__item-promocode
+            actions__item-link
+        actions__item-image
+
+news
+    news__item
+        news__item-image-outer
+            news__item-image
+        news__item-content
+            news__item-title
+            news__item-text
+        news__item-footer
+            news__item-link
+            news__item-date
+
+about
+    about__image
+    about__content
+        about__title
+        about__text
+
+subscribe
+    subscribe__title
+    subscribe__form form--subscribe
+    subscribe__social social-links
+
+social-links
+    social-links__item
+
+products-grid
+products
+    products__item product
+        product__image
+        product__title
+        product__parameters
+        product__code
+        product__price
+        product__price-old
+        product__button button button--add
+        product__availability
+
+products-list
+products
+    products__item product ?
+        product__rating
+
+footer
+    footer__contacts contacts-footer ? contacts--footer  footer__item
+        contacts__title  footer__title
+            contacts__item
+            contacts__item-title
+            contacts__item-text
+
+    menu-footer menu
+        menu-footer__title  footer__title
+        menu-footer__item
+            menu-footer__item-link
+
+    blog-footer footer__blog footer__item
+        blog-footer__item   
+            blog-footer__item-image
+            blog-footer__item-conent
+                blog-footer__item-title
+                blog-footer__item-date
+
+    copyrights
+
+    payments
+        payments__item
+
+
+********************************************************************************
+
+
+tools
+    tools__sort sort
+    tools__view view
+        view__item
+
+pagination
+    pagination__item pagination__item--link pagination__item--link--next pagination__item--link--prev
