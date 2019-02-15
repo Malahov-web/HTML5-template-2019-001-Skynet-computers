@@ -1,24 +1,132 @@
 
 // Input data:
 $columns: 12;
+$columns_gap: 10;
 $container_width: 1200;
 
 $column_name: 'ds_';
 
+/* 
+$devices: ( 
+    mobile_horizontal: 480,
+    tablets          : 768,
+    desktop          : 1024,
+    hi_definition    : 1366
+);
 
-// $i: 6;
-// @while $i > 0 {
-//   .item-#{$i} { width: 2em * $i; }
-//   $i: $i - 2;
+$devices_class: ( 
+
+    mobile_horizontal: 'mh_',
+    tablets          : 'tb_',
+    desktop          : 'ds_',
+    hi_definition    : 'hd_'
+);
+ */
+
+$devices: ( 
+    mh_: 480,
+    tb_: 768,
+    ds_: 1024,
+    hd_: 1366
+);
+
+
+
+
+
+/* 1. Structure elements */
+
+.section{
+    width: 100%;
+    float: left; width: 100%; clear: both;
+}
+.container{    
+    max-width: $container_width+px;
+    padding-left: $columns_gap+px;
+    padding-right: $columns_gap+px;
+    margin: 0 auto; box-sizing: border-box;    position: relative;
+}
+.row{
+    margin-left: -$columns_gap+px;
+    margin-right: -$columns_gap+px;
+}
+.line{
+    margin-left: -$columns_gap+px;
+    margin-right: -$columns_gap+px;  
+}
+.flex{
+    display: flex;
+}
+
+// $i: 1;
+// @while $i < ($columns + 1) {
+
+//     .#{$column_name}#{$i} {
+
+//         $width: $i / $columns;
+//         width: $width * 100%;
+//     }
+
+//     $i: $i + 1;
+
 // }
 
 
-$i: 0;
-@while $i < $columns {
+// $column_name: mh_;
+// @media  (min-width : 480px ) {
 
-    .#{$column_name}#{$i} {
+// $i: 1;
+// @while $i < ($columns + 1) {
 
-        width: 1/#{i} * 100%;
+//     .#{$column_name}#{$i} {
+
+//         $width: $i / $columns;
+//         width: $width * 100%;
+//     }
+
+//     $i: $i + 1;
+
+// }
+// }
+
+
+@each $device, $key in $devices {
+
+    @media  (min-width : $key+px ) {
+
+        .container{
+            max-width: $device;
+            // max-width: map-get($device, $key);
+            max-width: $key+px;
+        }
+    }    
+
+
+    $i: 1;
+    @while $i < ($columns + 1) {
+
+        .#{$device}#{$i} {
+
+            $width: $i / $columns;
+            width: $width * 100%;
+        }
+
+        $i: $i + 1;
+
     }
 
 }
+
+
+// @each $animal in puma, sea-slug, egret, salamander {
+//   .#{$animal}-icon {
+//     background-image: url('/images/#{$animal}.png');
+//   }
+// }
+
+
+// @each $key, $value in $colorMap {
+//   .color--#{$key} {
+//     color: #{$value};
+//   }
+// }
