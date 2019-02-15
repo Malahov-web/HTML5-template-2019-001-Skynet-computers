@@ -1,0 +1,90 @@
+@font-face {
+    font-family: "themify";
+    src: url('../fonts/themify/themify.eot');
+    src: url('../fonts/themify/themify.eot?#iefix') format('eot'),
+        url('../fonts/themify/themify.woff2') format('woff2'),
+        url('../fonts/themify/themify.woff') format('woff'),
+        url('../fonts/themify/themify.ttf') format('truetype'),
+        url('../fonts/themify/themify.svg#themify') format('svg');
+}
+
+.themify:before {
+    font-family: "themify";
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    /* speak: none; only necessary if not using the private unicode range (firstGlyph option) */
+    text-decoration: none;
+    text-transform: none;
+}
+
+
+.themify-angle-right:before {
+    content: "\EA01";
+}
+
+.themify-comments-smiley:before {
+    content: "\EA02";
+}
+
+.themify-credit-card:before {
+    content: "\EA03";
+}
+
+.themify-email:before {
+    content: "\EA04";
+}
+
+.themify-gift:before {
+    content: "\EA05";
+}
+
+.themify-headphone-alt:before {
+    content: "\EA06";
+}
+
+.themify-heart:before {
+    content: "\EA07";
+}
+
+.themify-layout-column3-alt:before {
+    content: "\EA08";
+}
+
+.themify-layout-grid2:before {
+    content: "\EA09";
+}
+
+.themify-layout-grid3-alt:before {
+    content: "\EA0A";
+}
+
+.themify-menu:before {
+    content: "\EA0B";
+}
+
+.themify-search:before {
+    content: "\EA0C";
+}
+
+.themify-shopping-cart-full:before {
+    content: "\EA0D";
+}
+
+.themify-shopping-cart:before {
+    content: "\EA0E";
+}
+
+.themify-truck:before {
+    content: "\EA0F";
+}
+
+.themify-user:before {
+    content: "\EA10";
+}
+
+.themify-view-list:before {
+    content: "\EA11";
+}

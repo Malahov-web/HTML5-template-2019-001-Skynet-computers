@@ -7,15 +7,20 @@
     "gulp-uglify": "^3.0.1"
   },
   "devDependencies": {
+    "async": "^2.6.2",
     "browser-sync": "^2.26.3",
     "glob": "^7.1.3",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^6.0.0",
     "gulp-concat": "^2.6.1",
+    "gulp-consolidate": "^0.2.0",
     "gulp-csslint": "^1.0.1",
+    "gulp-iconfont": "^10.0.2",
     "gulp-plumber": "^1.2.0",
+    "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
-    "gulp-sourcemaps": "^2.6.4"
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-svgmin": "^2.1.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

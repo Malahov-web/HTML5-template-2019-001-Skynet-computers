@@ -30,6 +30,16 @@ var gulp = require('gulp'),
 	autoprefixer = require('gulp-autoprefixer'),
 	
 	csslint = require('gulp-csslint');
+
+var iconfont = require('gulp-iconfont');
+var runTimestamp = Math.round(Date.now()/1000);	
+
+var async = require('async');
+var consolidate = require('gulp-consolidate');
+var svgmin = require('gulp-svgmin');
+var rename = require('gulp-rename');
+// переменная с именем нашего шрифта (на выбор)
+var fontName = 'themify';
 	
 	
 	// SASS - компиляция
@@ -92,43 +102,71 @@ var gulp = require('gulp'),
 	
 	
 	
-	
-/*	
-    gulp.task('concatcss', function() {
-        return gulp.src([ // Берем все необходимые библиотеки
-            //'app/libs/jquery/dist/jquery.min.js', // Берем jQuery
-            //'app/libs/magnific-popup/dist/jquery.magnific-popup.min.js' // Берем Magnific Popup
-			
-			'app/css/reset.css',
-			'app/css/grid_24_r6.css',
-			// 'app/css/fonts.css',
-			// 'app/css/ui.css'
-            ])
-            .pipe(concat('default.min.css')) // Собираем их в кучу в новом файле libs.min.js
-            .pipe(gulp.dest('app/css')); // Выгружаем в папку app/js
-    });
-*/
+	// Сборка шрифтов
+/*	gulp.task('Iconfont', function(){
+		return gulp.src(['app/images/svg/*.svg'])
+	    	.pipe(iconfont({
+				fontName: 'myfont', // required
+				prependUnicode: true, // recommended option
+				formats: ['ttf', 'woff', 'woff2', 'svg'], // default, 'woff2' and 'svg' are available
+				timestamp: runTimestamp, // recommended to get consistent builds when watching files
+	   		}))
+	        .on('glyphs', function(glyphs, options) {
+	       		// CSS templating, e.g.
+	        	console.log(glyphs, options);
+	    	})
+	    	.pipe(gulp.dest('app/fonts'));
+	});*/
 
-/*
-	gulp.task('common-js', function(){		
-		return gulp.src([
-				'app/js/common.js'
-			])
-		.pipe(concat('common.min.js')
-		.pipe(uglify())
-		.pipe(gulp.dest('app/js/'));
 
-	});
+gulp.task('Svgmin', function () {
+    return gulp.src('app/images/svg-icons/*')
+        .pipe(svgmin({
+            plugins: [
+                { removeDimensions: true },
+                { cleanupListOfValues: true },
+                { cleanupNumericValues: true }
+            ]
+        }))
+        .pipe(rename(function (path) {
+            path.basename = path.basename.replace(/\ /g, "")
+        }))
+        .pipe(gulp.dest('app/images/svg-min'));
+});
 
-	gulp.task('js', ['common-js'], function() {
-		return gulp.src([
-				'app/libs/jquery/dist/jquery.min.js',
-				// плагины
-				'app/libs/jQuery.mmenu/dist/jquery.mmenu.all.js',
-				'app/js/common.js', // Всегда в конце				
-			])
-		.pipe(concat('scripts_2.min.js')
-		.pipe(gulp.dest('app/js'))
-		//.pipe(browserSync.reload({stream: true}));
-	});
-*/		
+
+gulp.task('Iconfont', function (done) {
+    var iconStream = gulp.src(['app/images/svg-min/*.svg'])
+        .pipe(iconfont({
+            fontName: fontName,
+            formats: ['ttf', 'eot', 'woff', 'svg', 'woff2'],
+            fixedWidth: true,
+            centerHorizontally: true,
+        }));
+    async.parallel([
+        function handleGlyphs(cb) {
+            iconStream.on('glyphs', function (glyphs, options) {
+                // gulp.src('app/images/svgfontstyle/css.css')
+                gulp.src('app/images/svgfontstyle/svgfontstyle.scss')
+                    .pipe(consolidate('lodash', {
+                        glyphs: glyphs,
+                        fontName: fontName,
+                        fontPath: '../fonts/',
+                        className: fontName,
+
+                    }))
+                    // .pipe(gulp.dest('app/css/'))
+                    .pipe(gulp.dest('app/sass/'))
+                    .on('finish', cb);
+            });
+        },
+        function handleFonts(cb) {
+            iconStream
+                .pipe(gulp.dest('app/fonts/'+fontName+'/'))
+                .on('finish', cb);
+        }
+    ], done);
+});
+
+
+gulp.task('makesvgfont', ['Svgmin', 'Iconfont']);   // Срабатывает по частям, за 2 запуска)

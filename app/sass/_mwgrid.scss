@@ -130,3 +130,21 @@ $devices: (
 //     color: #{$value};
 //   }
 // }
+
+
+
+/* 4. Вспомогательные структурные элементы */
+
+.container:before,
+.container:after,
+.row:before,
+.row:after
+{
+    display: table;
+    content: " "; box-sizing: border-box;
+}
+.container:after, 
+.row:after
+{
+    clear : both;
+}

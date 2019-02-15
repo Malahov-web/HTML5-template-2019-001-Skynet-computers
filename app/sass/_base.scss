@@ -11,30 +11,27 @@
  * Variables
 */
 
+
 /* Colors */
-$red : #d31c00;
-$grey : #c4c3c3;
+$accent: #2491dd;
+$accent_light: lighten($accent, 13%);  // #5daee6;   // #5fafe6 
+$accent_dark: darken($accent, 11%); // #1b72ae;  // #1b6aa1
 
-$black : #110c0c;
-$black_t : #343333; /* text */
-$dark : #110c0c;
-$dark_t : #777676;
+$grey : #9b999e;
+$grey_light: lighten($grey, 23%);
+// $grey_super_light: lighten($grey_light, 12%);  // f5f4f5
+$grey_super_light: lighten($grey, 35%);  //  f5f4f5
+$grey_dark: darken($grey, 14%); // 77757b;
+$grey_super_dark: darken($grey, 40%); // 353437
+// https://coolors.co/2491dd-9b999e-dac6b5-f1d6b8-fbacbe
 
-$white : #ffffff;
-$white_t : #f7f6f6;
-$light: #ffffff;
-//$light_t : #575656;
-$light_t :  #575656;
+$text: $grey_super_dark;
+
 
 /* Fonts */
 $fb : 1rem;
-$font_family : "Open Sans",  Verdana,  Arial, sans-serif;
-$font_family_head : "Raleway",  Tahoma,  Arial, sans-serif;
 
-$l_h : 1.375 * $fb;
-$l_h : 1.375em;
-
-$font_coeff : 1.375;
+$font_coeff : 1.19;
 $font_h4    : $fb * $font_coeff;
 $font_h3    : $font_h4 * $font_coeff;
 $font_h2    : $font_h3 * $font_coeff;
@@ -44,21 +41,75 @@ $font_small   : $fb * 1/$font_coeff;
 // $font_smaller : $fb * 1/1.325;
 
 
-$l_s:  0.3em;
+$l_s:  0.025em;
 $l_s_big:  0.05em;
+
+
+$l_h : 1.5em;
+$l_h_head: 1.2em;
+
+
+$font_family : "Roboto",  Verdana,  Arial, sans-serif;
+$font_family_head : "Roboto",  Tahoma,  Arial, sans-serif;
 
 /*
  * Mixins
 */
+@mixin height_leveling($type){
+    $padding_leveling: (1.5em - 1.2em) / 2;
+    // line-height: $l_h_head; 
 
+    @if $type == heading {
+        line-height: $l_h_head;
+        padding-top: $padding_leveling;
+        padding-bottom: $padding_leveling;        
+    } @else if $type == text {
+        line-height: $l_h;
+    } @else {
+        
+    }
+
+}
+
+
+@mixin v_rhytm($type, $lh) {
+
+
+    @if $type == heading {
+        // line-height: $l_h_head;
+        // padding-top: $padding_leveling;
+        // padding-bottom: $padding_leveling;        
+    } @else if $type == text {
+        margin-top: $lh * 0.5;
+        margin-bottom: $lh * 0.5;
+    } @else if $type == section {
+        padding-bottom: $lh * 2;
+    } @else if $type == section-title {
+        // ?
+    } @else if $type == block {
+        padding-bottom: $lh * 2;
+    } @else if $type == item {
+        margin-bottom: $lh * 1;
+    }   @else {
+        
+    }    
+}
 
 
 /*
  * Extends
 */
 %fullscreen{
-    position: relative; height: 100%;
-    // width: 100%;     height: 100vh;    
+    // position: relative; height: 100%;
+    width: 100%; height: 100vh;    
+}
+%clearfix{
+    &:after{
+        // content: "";
+        // display: table;
+        float: left;
+        width: 100%;
+    }
 }
 
 
@@ -85,7 +136,8 @@ html{
     height: 100%;
 }
 body{
-    //font-size : 16px;
+    font-size : inherit;
+    // line-height : $l_h;
     font-family : $font_family;
     height: 100%;   
     margin: 0;
@@ -101,9 +153,10 @@ ul, ol{
 h1, h2, h3, h4,
 .h1, .h2, .h3, .h4{
     margin: 0;
-    line-height: $l_h;
-    font-family: $font_family_head ;
+    line-height: $l_h_head;
+    font-family: $font_family_head;
     font-weight: bold;
+    letter-spacing: $l_s_big;
 }
 h1, .h1{
     font-size: $font_h1;
@@ -118,19 +171,13 @@ h4, .h4{
     font-size: $font_h4;
 }
 
-.h1{
-    text-transform: uppercase;
-    letter-spacing: $l_s;
-}
-.h2{
-    margin-bottom: 0.5em;
-}
-h3, .h3{
-    //padding-bottom: 0.5em;
-    margin-bottom: 0.5em;
-    letter-spacing: 0.05em;
-    font-weight: 600;
-}
+// .h1{
+//     letter-spacing: $l_s;
+// }
+// .h2{
+
+// }
+
 
 p{
     margin-top: 0;

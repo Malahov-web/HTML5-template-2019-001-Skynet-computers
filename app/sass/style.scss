@@ -17,6 +17,7 @@
 @import "mwgrid";
 
 @import 'fonts';   // 
+@import 'svgfontstyle';   // 
 @import 'base';     // 
 //@import 'hexagon';    // 
 //@import 'hexagon_bg';     // 
@@ -49,7 +50,12 @@
     }
 }
 
+.g-title{
+    line-height: $l_h;
+    @include v_rhytm('item', $l_h);
+    color: $grey;
 
+}
 
 /* 1. Header
  * **********************************************************************
@@ -57,22 +63,70 @@
 */
 
 .header{
-    width: 100%;
-    height: 100px;
-    background-color: $grey;
-    padding : 10px;
-}
-.header-top{
 
 }
+.header-top{
+    background-color: $grey_light;
+    background-color: opacify($grey_light, 0.50);
+}
+
+.menu-top{
+    // height: 2em;
+    // background-color: opacify($grey_light, 1);
+
+    @extend %clearfix;
+
+    li{
+        float: left;
+        line-height: $l_h;
+        padding: 0.25em $l_h*0.5;
+        &:first-child{
+            padding-left: 0;
+        }
+
+        a{
+            display: block;
+            color: $text;
+            font-weight: 300;
+            font-size: $font_small;
+            // line-height: $l_h;
+            line-height: inherit;
+
+            &:hover{
+                color: $accent_dark;
+                // text-decoration: underline;
+            }            
+        }
+
+    }
+}
+
+/* 
+.header{
+    width: 100%;
+    height: 100px;
+    background-color: $accent_dark;
+
+    @include height_leveling('text');
+}
+.header-top{
+// background-color: $accent_light;
+height: 50px;
+}
+.header-bottom{
+background-color: $grey_super_dark;
+height: 50px;
+}
+
 .logo{
 width: 100%;
 background-color: #337722;
+font-family: Roboto;
     img{
         width: auto; max-width: 100%; height: auto;
     }
 }
-
+ */
 
 @media (max-width: 768px) {
    
@@ -119,6 +173,27 @@ background-color: #337722;
 
     .slider{
         width: 100%; 
-        height: 100vh;
+        // height: 100vh;
     }
 }
+/* 
+.iconfont:before {
+    font-family: "myfont";
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    // speak: none; only necessary if not using the private unicode range (firstGlyph option) 
+    text-decoration: none;
+    text-transform: none;
+
+    // content: "/uEA0A" ;
+    content: "\EA01" ;
+}
+
+ */
+
+
+/* Font icons */
+
