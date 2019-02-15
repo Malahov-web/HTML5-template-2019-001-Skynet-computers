@@ -1,10 +1,11 @@
 {
-  "name": "skynet-computers-2019-001",
+  "name": "skynet-computers",
   "version": "1.0.0",
   "description": "Design HTML5 template 2019_001 Skynet Computers",
   "main": "gulpfile.js",
   "dependencies": {
-    "gulp-uglify": "^3.0.1"
+    "gulp-uglify": "^3.0.1",
+    "npm": "^6.7.0"
   },
   "devDependencies": {
     "browser-sync": "^2.26.3",

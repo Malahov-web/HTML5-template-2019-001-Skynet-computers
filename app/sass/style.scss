@@ -12,6 +12,7 @@
  *
  */
 
+@import "mwgrid";
 
 @import 'fonts';   // 
 @import 'base';     // 
@@ -54,7 +55,8 @@
 */
 
 .header{
-
+    width: 100%;
+    height: auto;
 }
 .header-top{
 
