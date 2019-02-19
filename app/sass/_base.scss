@@ -52,6 +52,8 @@ $l_h_head: 1.2em;
 $font_family : "Roboto",  Verdana,  Arial, sans-serif;
 $font_family_head : "Roboto",  Tahoma,  Arial, sans-serif;
 
+$zindex_nav: 100;
+
 /*
  * Mixins
 */
@@ -111,6 +113,19 @@ $font_family_head : "Roboto",  Tahoma,  Arial, sans-serif;
         width: 100%;
     }
 }
+%shadow{
+    // box-shadow: 0 0 8px 0px opacify($grey_super_dark, 0.1); 
+    box-shadow: 0 0 8px 0px transparentize($grey_super_dark, 0.75); 
+}
+%top_list_item_link{
+    display: block;
+    color: $text;
+    font-weight: 300;
+    font-size: $font_small;
+    // line-height: $l_h;
+    line-height: inherit;
+    color: $grey_dark;
+}
 
 
 /*
@@ -141,6 +156,7 @@ body{
     font-family : $font_family;
     height: 100%;   
     margin: 0;
+    font-weight: 300;
 }
 
 a{
@@ -189,4 +205,9 @@ p{
 }
 img{
     max-width: 100%; width: 100%; height: auto;
+}
+
+.themify:before,
+.themify:after{
+    vertical-align: middle;
 }

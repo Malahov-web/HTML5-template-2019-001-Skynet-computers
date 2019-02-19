@@ -76,21 +76,55 @@
 
     @extend %clearfix;
 
-    li{
+    &>li{
+        position: relative;
         float: left;
         line-height: $l_h;
-        padding: 0.25em $l_h*0.5;
+        // padding: 0.25em $l_h*0.5;
         &:first-child{
             padding-left: 0;
         }
+        &:hover > a{
+            background-color: $accent; 
+            color: #fff;
+        }
+
+        &>a{ padding: 0.25em $l_h*0.5;
+            @extend %top_list_item_link;
+            // display: block;
+            // color: $text;
+            // font-weight: 300;
+            // font-size: $font_small;
+            // // line-height: $l_h;
+            // line-height: inherit;
+
+            &:hover{
+                color: $accent_dark;
+                // text-decoration: underline;
+                background-color: $accent;
+                color: #fff;
+            }            
+        }
+
+    }
+}
+
+.submenu-top{
+    display: none;
+    z-index: $zindex_nav;
+    @extend %shadow;
+    position: absolute;
+    left: 0 ; //margin-top: 0.25em;
+    min-width: 180px; max-width: 240px;
+    padding: 0.5*$l_h 0;
+
+    li{
+
+        line-height: $l_h;
+        padding: 0.25em $l_h*0.5*2;
 
         a{
-            display: block;
-            color: $text;
-            font-weight: 300;
-            font-size: $font_small;
-            // line-height: $l_h;
-            line-height: inherit;
+            @extend %top_list_item_link;
 
             &:hover{
                 color: $accent_dark;
@@ -100,6 +134,68 @@
 
     }
 }
+
+.menu-top li:hover .submenu-top{
+    display: block;
+}
+
+.users{
+    float: right;
+    line-height: $l_h;
+    &__item{
+        float: left;
+        padding: 0.25em $l_h*0.5;
+        @extend %top_list_item_link;
+
+    &--account{
+        padding-left: $l_h*1.25;
+        position: relative;
+
+        &:before{
+            @include pseudoelement_left_top(0, 50%);
+            transform: translateY(-50%);
+            width: $fb;   
+            height: $fb;   
+            background-color: $grey;
+        }
+    }
+    &--wish{
+        padding-left: $l_h*1.25;
+        position: relative;
+
+        &:before{
+            @include pseudoelement_left_top(0, 50%);
+            transform: translateY(-50%);
+            width: $fb;   
+            height: $fb;   
+            // background-color: $grey;
+        }
+    }
+
+        &:hover{
+            // color: $accent_dark;
+            // // text-decoration: underline;
+            background-color: $accent;
+            color: #fff;
+        }
+    }
+
+    i.users__item-icon{        
+        @include pseudoelement_left_top(0, 50%);
+        transform: translateY(-50%);
+        font-size: 1 * $fb;
+        color: $grey_dark;
+    }
+
+
+}
+
+
+
+
+
+
+
 
 /* 
 .header{
@@ -163,6 +259,8 @@ font-family: Roboto;
     }
 
 
+
+
 /* 3. Slider
  * **********************************************************************
  *
@@ -197,3 +295,53 @@ font-family: Roboto;
 
 /* Font icons */
 
+
+/* 4. edges
+ * **********************************************************************
+ *  
+*/
+
+.edges{
+background-color: transparentize($grey, 0.75);
+        margin-top: -0.5 * $l_h;
+        margin-bottom: -0.5 * $l_h; // перевести в пиксели
+
+    &__item{
+        position: relative;
+        font-size: 1*$fb;
+        margin: 0.5 * $l_h 0;
+        padding-left: 30%; 
+        padding-right: 20%;
+background-color: transparentize($accent, 0.75);
+
+
+        &-icon{
+            // position: absolute;
+            @include pseudoelement_left_top(0, 50%);
+            transform: translateY(-50%);
+
+            width: 30%;
+            font-size: $fb;
+            // width: 2*$fb;
+            // height: 2*$fb;
+            // background-color: $grey;
+
+            color: $grey_dark;        
+
+
+            .themify{
+                @include pseudoelement_left_top(50%, 50%);
+                transform: translate(-50%, -50%);
+
+                width: 30%;
+                font-size: 2 * $fb;
+            }
+        }
+        &-text{
+            font-size: $fb;
+            color: $grey;
+        }
+    }
+
+
+}
