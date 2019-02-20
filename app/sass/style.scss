@@ -345,3 +345,145 @@ background-color: transparentize($accent, 0.75);
 
 
 }
+
+
+/* 6. actions
+ * **********************************************************************
+ *  
+*/
+
+.actions{
+
+    &__item{
+        // @extend %clearfix;
+        $actions_padding_vertical: $fb;
+        flex-direction: column-reverse;
+        @include v_rhytm('item', $l_h);
+
+        @media (min-width: #{map-get($devices, 'mh_')}px) {
+           flex-direction: row;
+        }
+
+        &-content{
+            // @extend %fullheight;
+            position: relative;
+            float: left;
+            // width: 50%; 
+            width: 100%;
+            padding:  $actions_padding_vertical 1*$l_h;
+            background-color: $grey_light;
+
+            @media (min-width: #{map-get($devices, 'mh_')}px) {
+                width: 50%;
+            }
+
+        }
+        &-title{
+            @include height_leveling('heading');
+            @include v_rhytm('text', $l_h);
+            font-weight: 300;
+            color: $text;
+            letter-spacing: $l_s;
+        }
+        &-subtitle{
+            @include height_leveling('text');
+            @include v_rhytm('text', $l_h);
+            color: $text;
+            letter-spacing: $l_s;
+        }
+        &-promocode{            
+            @include height_leveling('text');
+            @include v_rhytm('text', $l_h);
+            font-size: $font_h4;
+            font-weight: 500;
+            letter-spacing: $l_s;
+            color: $accent_dark;
+        }
+        &-link-outer{
+            position: absolute;
+            bottom: 0; margin-bottom: $actions_padding_vertical;
+
+            font-size: $font_small;
+            text-transform: lowercase;
+            letter-spacing: $l_s;            
+            
+        }
+        &-link{
+            
+            padding-right: $fb*1;            
+            color: $text;  
+            @extend %link_decor;
+            @extend %link_with_icon;
+
+        }
+
+        &-image{
+            float: left;
+            width: 100%;
+            @media (min-width: #{map-get($devices, 'mh_')}px) {
+                width: 50%;
+            }            
+        }                    
+    }
+
+}
+
+
+/* 5. categories
+ * **********************************************************************
+ *  
+*/
+
+.categories{
+
+    &__item{
+        position: relative;
+        overflow: hidden;
+        padding: $l_h $l_h;
+        background-color: $accent;
+
+        $categories_padding_horizontal: 0.75 * $fb;
+
+
+        &-title-outer{
+
+        }
+        &-title{
+            @include height_leveling('heading_bg');
+            // @include v_rhytm('text', $l_h); 
+            margin-bottom: 0.5em;
+
+            padding-left: $categories_padding_horizontal;
+            padding-right: $categories_padding_horizontal;
+            display: inline-block;
+            background-color: transparentize($white, 0.5);
+            color: $text;
+            letter-spacing: $l_s_big;            
+        }
+
+
+        &-link-outer{
+            font-size: $font_small;
+            text-transform: lowercase;
+            letter-spacing: $l_s;   
+
+            padding-left: $categories_padding_horizontal;
+            padding-right: $categories_padding_horizontal;
+        }            
+        &-link{
+            
+            padding-right: $fb*1;            
+            color: $white; 
+            @extend %link_decor;
+            @extend %link_with_icon;            
+        }
+        &-image{
+            position: absolute;
+            top: 0; right: 0;
+            // margin-top: 1.5 * $l_h;
+             margin-right: 1 * $l_h;
+        }        
+
+    }
+}
+
