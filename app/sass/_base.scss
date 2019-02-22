@@ -263,3 +263,12 @@ img{
 .themify:after{
     vertical-align: middle;
 }
+
+
+
+
+@import 'components';     // 
+
+.section-component{
+    margin: 2 * $l_h 0;
+}

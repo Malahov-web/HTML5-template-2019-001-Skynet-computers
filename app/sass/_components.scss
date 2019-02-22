@@ -1,0 +1,136 @@
+
+/*
+ * components
+*/
+
+
+@mixin hover_gradient_effect($color_first, $color_second) {
+
+    // background: $color_first;
+    background: linear-gradient(to right, $color_first, $color_first );
+
+    &:before{
+        @include pseudoelement_left_top(0, 0);
+        width: 100%; height: 100%;
+        background: linear-gradient(to right, $color_second, $color_first );
+        transition: all 0.3s ease-in-out;
+        margin-left: -100%;
+    }
+    &:hover,
+    &.hover{
+        &:before{
+            margin-left: 0;
+        }
+    }    
+
+}
+
+
+
+.button{
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.button-buy{
+// $accent_dark : $grey;
+    width: 100%;
+    max-width: 180px;
+    padding: $l_h / 3  1em;
+    // padding: 0.5em  1em;
+    background: $accent; // background: linear-gradient(to right, $accent, $accent );
+    border: 1px solid $accent_dark;
+
+    font-size: $fb;
+    line-height: $l_h;
+    letter-spacing: $l_s_big;
+    color: $white;    
+
+    &:before{
+        @include pseudoelement_left_top(0, 0);
+        width: 100%; height: 100%;
+        background: linear-gradient(to right, $accent_dark, $accent );
+        // transition: all 0.4s ease;
+        transition: all 0.3s ease-in-out;
+        margin-left: -100%;
+    }
+
+    &:hover,
+    &.hover{
+        &:before{
+            margin-left: 0;
+        }
+    }
+
+    // &:hover{
+    //     background: linear-gradient(to right, $accent_dark, $accent );
+    // }
+
+    &:active,
+    &.active{
+
+        &:before{
+            margin-left: 0;
+            background: $accent_dark; // с подмигиванием
+            // background: linear-gradient(to right, $accent_dark, $accent_dark ); // резко
+        }
+    }
+
+    &:disabled,
+    &.disabled{
+
+        border-color: $grey;
+        background: $grey_light;
+        color: $grey;
+
+        &:before{
+            margin-left: -100%;
+            // background: linear-gradient(to right, $grey, $grey );
+        }
+    }    
+
+    span{
+        position: relative;
+    }
+
+}
+
+
+
+/* 
+.button-filter{
+
+    width: 100%;
+    max-width: 180px;
+    padding: $l_h / 3  1em;
+    // padding: 0.5em  1em;
+    // background: $accent;
+    border: 1px solid $accent_dark;
+
+    font-size: $fb;
+    line-height: $l_h;
+    letter-spacing: $l_s_big;
+    color: $white;
+    // color: transparent;
+
+    background: linear-gradient(to right, $accent, $accent );
+    transition: all 2s ease-in-out;
+
+    &:hover,
+    &.hover{
+
+        background: linear-gradient(to right, $grey, $accent );
+
+    }
+
+    &:active,
+    &.active{
+
+        background: linear-gradient(to right, $grey, $grey );
+
+    }
+
+
+} */

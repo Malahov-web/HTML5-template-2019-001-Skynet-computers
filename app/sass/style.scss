@@ -302,7 +302,7 @@ font-family: Roboto;
 */
 
 .edges{
-background-color: transparentize($grey, 0.75);
+        background-color: transparentize($grey, 0.75);
         margin-top: -0.5 * $l_h;
         margin-bottom: -0.5 * $l_h; // перевести в пиксели
 
@@ -312,7 +312,7 @@ background-color: transparentize($grey, 0.75);
         margin: 0.5 * $l_h 0;
         padding-left: 30%; 
         padding-right: 20%;
-background-color: transparentize($accent, 0.75);
+        background-color: transparentize($accent, 0.75);
 
 
         &-icon{
@@ -434,6 +434,14 @@ background-color: transparentize($accent, 0.75);
  *  
 */
 
+@mixin pallete_colors($main_color, $deg) {
+
+    // $color_1: adjust-hue($main_color, 30deg);
+    $color_1: adjust-hue($main_color, $deg);
+    background-color: $color_1;
+    
+}
+
 .categories{
 
     &__item{
@@ -446,12 +454,13 @@ background-color: transparentize($accent, 0.75);
 
 
         &-title-outer{
-
+             @include v_rhytm('text', $l_h);
+             margin-top: 0;
         }
         &-title{
             @include height_leveling('heading_bg');
             // @include v_rhytm('text', $l_h); 
-            margin-bottom: 0.5em;
+            // margin-bottom: 0.5em;
 
             padding-left: $categories_padding_horizontal;
             padding-right: $categories_padding_horizontal;
@@ -463,6 +472,7 @@ background-color: transparentize($accent, 0.75);
 
 
         &-link-outer{
+            @include v_rhytm('text', $l_h);
             font-size: $font_small;
             text-transform: lowercase;
             letter-spacing: $l_s;   
@@ -480,10 +490,40 @@ background-color: transparentize($accent, 0.75);
         &-image{
             position: absolute;
             top: 0; right: 0;
-            // margin-top: 1.5 * $l_h;
-             margin-right: 1 * $l_h;
-        }        
+            margin-top: 1 * $l_h;
+            margin-right: 1 * $l_h;
+        } 
+
+
+/*         &-1{
+    // background-color: color_1;
+    @include pallete_colors($accent, 30deg);
+
+}
+&-2{
+    // background-color: color_1;
+    @include pallete_colors($accent, 60deg);
+    
+} 
+&-3{
+    // background-color: color_1;
+    @include pallete_colors($accent, 90deg);
+    
+}    */
+
+
+        $hue_ratio: 30;
+        $hue_steps: 360 / $hue_ratio;
+        @for $i from 1 through $hue_steps {
+
+
+            &-#{$i} {
+                @include pallete_colors($accent, $i * $hue_ratio );
+            }
+        }
 
     }
 }
+
+
 
