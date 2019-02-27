@@ -437,11 +437,51 @@ font-family: Roboto;
  *  
 */
 
+@function generate-pallete-color($main_color, $deg) {
+    
+    $generated_color: adjust-hue($main_color, $deg);
+    
+    @return $generated_color;
+}
 
+@mixin categories_hover_gradient_effect($color_first, $color_second) {
+
+    // background: $color_first;
+    // background: linear-gradient(to right, $color_first, $color_second );
+    background: none;
+
+    &:before{
+        @include pseudoelement_left_top(0, 0);
+        width: 100%; height: 100%;
+        background: linear-gradient(to right, $color_first, $color_first );
+        transition: all 0.3s ease-in-out;
+        margin-left: -100%;
+        //
+        width: 200%;
+        margin-left: -100%;
+        background: linear-gradient(to right, $color_first 0%, $color_first 50%, $color_second 100% );
+    }
+    &:hover,
+    &.hover{
+
+        // background-position: 100% 0;
+        &:before{
+            // margin-left: 0;
+            margin-left: 0%;
+        }
+    }    
+
+}
 
 .categories{
+    @include v_rhytm('block', $l_h);
+
+    &-inner{
+
+    }
 
     &__item{
+        @include v_rhytm('card', $l_h);
         position: relative;
         overflow: hidden;
         padding: $l_h $l_h;
@@ -449,10 +489,14 @@ font-family: Roboto;
 
         $categories_padding_horizontal: 0.75 * $fb;
 
+        // @include hover_gradient_effect($accent, $accent_dark);
+        // @include categories_hover_gradient_effect($accent, transparentize($accent, 0.5));
+
 
         &-title-outer{
-             @include v_rhytm('text', $l_h);
-             margin-top: 0;
+            @include v_rhytm('text', $l_h);
+            margin-top: 0;
+            position: relative;
         }
         &-title{
             @include height_leveling('heading_bg');
@@ -492,32 +536,34 @@ font-family: Roboto;
         } 
 
 
-/*         &-1{
-    // background-color: color_1;
-    @include pallete_colors($accent, 30deg);
-
-}
-&-2{
-    // background-color: color_1;
-    @include pallete_colors($accent, 60deg);
-    
-} 
-&-3{
-    // background-color: color_1;
-    @include pallete_colors($accent, 90deg);
-    
-}    */
-
-
         $hue_ratio: 30;
         $hue_steps: 360 / $hue_ratio;
+        // @for $i from 1 through $hue_steps {
+
+
+        //     &-#{$i} {
+        //         @include pallete_colors($accent, $i * $hue_ratio );
+        //     }
+        // }
+
         @for $i from 1 through $hue_steps {
 
 
             &-#{$i} {
-                @include pallete_colors($accent, $i * $hue_ratio );
+                // @include pallete_colors($accent, $i * $hue_ratio );
+                // @include categories_hover_gradient_effect($accent, transparentize($accent, 0.5));
+
+                $current_color: generate-pallete-color($accent, $i * $hue_ratio);
+
+                @include categories_hover_gradient_effect( $current_color, transparentize($current_color, 0.25)
+
+                    // generate-pallete-color($accent, $i * $hue_ratio), 
+                    // transparentize(generate-pallete-color($accent, $i * $hue_ratio), 0.25)
+                );
+
             }
         }
+        
 
     }
 }
@@ -535,3 +581,26 @@ font-family: Roboto;
         } 
 }
 
+
+@function str-replace($string, $search, $replace: "") {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}
+
+
+// @function strip-unit($num) { 
+
+//     @return $num/($num * 0 + 1); 
+// } 
+
+// @function generate-pallete-color($main_color, $deg) {
+    
+//     $generated_color: adjust-hue($main_color, $deg);
+    
+//     @return $generated_color;
+// }
