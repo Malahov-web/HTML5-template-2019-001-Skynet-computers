@@ -18,16 +18,31 @@ $accent_light: lighten($accent, 13%);  // #5daee6;   // #5fafe6
 $accent_dark: darken($accent, 11%); // #1b72ae;  // #1b6aa1
 
 $grey : #9b999e;
-$grey_light: lighten($grey, 23%);
-// $grey_super_light: lighten($grey_light, 12%);  // f5f4f5
+$grey_light: lighten($grey, 23%); // $grey_super_light: lighten($grey_light, 12%);  // f5f4f5
 $grey_super_light: lighten($grey, 35%);  //  f5f4f5
 $grey_dark: darken($grey, 14%); // 77757b;
 $grey_super_dark: darken($grey, 40%); // 353437
 // https://coolors.co/2491dd-9b999e-dac6b5-f1d6b8-fbacbe
 //eae8eb
 
+// Semantic colors
 $text: $grey_super_dark;
 $white: #ffffff;
+
+
+@mixin pallete_colors($main_color, $deg) {
+
+    // $color_1: adjust-hue($main_color, 30deg);
+    $color_1: adjust-hue($main_color, $deg);
+    background-color: $color_1;
+    
+}
+
+
+$success_color: #35dd24;
+$error_color  : #dd2435;
+$warning_color: #ddcd24;
+$info_color   : #2491dd;
 
 
 /* Fonts */
@@ -41,6 +56,9 @@ $font_h1    : $font_h2 * $font_coeff;
 
 $font_small   : $fb * 1/$font_coeff;
 // $font_smaller : $fb * 1/1.325;
+
+// Semantical fonts
+$font_forms_elements: $fb;
 
 
 $l_s:  0.025em;
@@ -73,6 +91,10 @@ $zindex_nav: 100;
         padding-bottom: $padding_leveling;
     } @else if $type == text {
         line-height: $l_h;
+    } @else if $type == forms_element {
+        line-height: $l_h;
+        padding-top: 0.333334 * $l_h;
+        padding-bottom: 0.333334 * $l_h;
     } @else {
         
     }
@@ -100,16 +122,20 @@ $zindex_nav: 100;
         // margin-bottom: $lh * 1;
         margin-top: $lh * 0.5;
         margin-bottom: $lh * 0.5;
-    }   @else {
+    } @else {
         
     }    
 }
 
-/* 
-@mixin v_rhytm($h_rhytm, ...) {
+@mixin h_rhytm($type, $fs) {
 
+    @if $type == forms_element {
+        padding-left: 20px;  
+        padding-right: 20px;
+        padding-left: $fs * 1.25;
+        padding-right: $fs * 1.25;         
+    }  
 }
-*/
 
 
 @mixin pseudoelement_left_top($value1, $value2){
@@ -188,6 +214,13 @@ $zindex_nav: 100;
 //     position : absolute; right : $value1; top : $value2; 
 // }
 
+/*
+ * Mixins
+*/
+$browser-context: 16;
+@function em($pixels, $context: $browser-context) {
+    @return #{$pixels/$context}em;
+}
 
 /*
  * Base
@@ -262,6 +295,7 @@ img{
 .themify:before,
 .themify:after{
     vertical-align: middle;
+    display: block;
 }
 
 

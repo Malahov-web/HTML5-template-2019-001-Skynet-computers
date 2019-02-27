@@ -58,7 +58,7 @@ var fontName = 'themify';
 
 	// SCSS - компиляция
 	gulp.task('scss', function(){ // Создаем таск "scss"		
-		return gulp.src('app/sass/*.scss') // Берем все scss файлы из папки sass 
+		return gulp.src('app/sass/**/*.scss') // Берем все scss файлы из папки sass 
 
 		.pipe(sourcemaps.init())
 		.pipe(plumber())
@@ -69,7 +69,18 @@ var fontName = 'themify';
 		.pipe(gulp.dest('app/css')) // Выгружаем результата в папку app/css
 		.pipe(browserSync.reload({stream: true})) // Обновляем CSS на странице при изменении			
 	});	
-
+// var gulp = require('gulp');
+// var sass = require('gulp-sass');
+ 
+// gulp.task('sass', function () {
+//   gulp.src('./sass/**/*.scss')
+//     .pipe(sass().on('error', sass.logError))
+//     .pipe(gulp.dest('./css'));
+// });
+ 
+// gulp.task('sass:watch', function () {
+//   gulp.watch('./sass/**/*.scss', ['sass']);
+// });
 	
 
 
@@ -95,7 +106,7 @@ var fontName = 'themify';
 		
 		//gulp.watch('app/sass/*.+(sass|scss)', ['sass', 'scss']);  // 24.07
 		gulp
-			.watch('app/sass/*.+(scss|scss)', [ 'scss']); // Наблюдение за sass файлами в папке app/sass
+			.watch('app/sass/**/*.+(scss|scss)', [ 'scss']); // Наблюдение за sass файлами в папке app/sass
 		//gulp.watch('app/*.html', browserSync.reload); // Наблюдение за HTML файлами в корне проекта
 		
 	});

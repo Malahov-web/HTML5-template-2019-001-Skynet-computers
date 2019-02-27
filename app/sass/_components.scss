@@ -1,8 +1,18 @@
-
 /*
- * components
+ * Components
+ *
 */
 
+/*
+ * 1. Buttons
+ * 2. Forms elements
+ * 3. Components 
+*/
+
+
+/*
+ * 1. Buttons
+*/
 
 @mixin hover_gradient_effect($color_first, $color_second) {
 
@@ -134,3 +144,379 @@
 
 
 } */
+
+
+/*
+ * 2. Forms elements
+*/
+
+input,
+textarea{
+    width: 100%;
+    background-color: $white;
+
+    margin: 0;
+    line-height: $l_h;
+    font-family: $font_family;
+    font-weight: 300; 
+}
+input[type="text"]{
+
+}
+input.field-text{
+
+    @include height_leveling('forms_element');
+    @include h_rhytm('forms_element', $font_forms_elements);    
+
+    max-width: 240px;
+
+    font-size: $font_forms_elements;
+    border: 1px solid $grey_light;
+    color: $text;
+
+    &:focus,
+    &.focus{
+        border-color: $accent;
+        border-color: $info_color;
+    }
+ 
+    &.error{
+        border-color: $error_color;
+        border-color: $error_color;
+        background-color: transparentize($error_color, 0.95);
+    }    
+   
+}
+
+textarea.textarea{
+    @include height_leveling('forms_element');
+    @include h_rhytm('forms_element', $font_forms_elements);  
+
+    max-width: 440px;
+    min-height: 4 * $l_h;
+    resize: vertical;
+    max-height: 50vh;
+
+    font-size: $font_forms_elements;
+    border: 1px solid $grey_light;
+    color: $text; 
+
+    &:focus,
+    &.focus{
+        border-color: $accent;
+        border-color: $info_color;
+    }  
+}
+
+label,
+.label{
+    font-size: $font_small;
+    line-height: $l_h;
+
+}
+
+
+%input_radio_checkbox_style{
+
+        position: relative;
+        padding-left: 2em;
+
+        &:before{
+            @include pseudoelement_left_top(0, 50%);
+            transform: translateY(-50%);
+
+            width: 1em;
+            height: 1em;
+            border: 1px solid $accent;
+        }
+
+        &:hover:before,
+        &.hover:before {
+            border: 1px solid $accent_dark;
+        }
+
+        &:checked:before,
+        &.checked:before {
+            border: 1px solid $accent_dark;
+            background: linear-gradient(to right, $accent_dark, $accent);    
+        }  
+}
+
+input[type="checkbox"],
+input.field-checkbox{
+
+    opacity: 0.5;
+    display: none;
+
+
+    &+label{
+
+    display: block;
+    font-size: $fb;
+    // line-height: $l_h;
+    line-height: normal;
+
+
+
+        @extend %input_radio_checkbox_style;
+
+        &:before{
+
+        }
+/* 
+        &:before{
+            @include pseudoelement_left_top(0, 50%);
+            transform: translateY(-50%);
+
+            width: 1em;
+            height: 1em;
+            border: 1px solid $accent;
+        }
+
+        &:hover:before,
+        &.hover:before {
+            border: 1px solid $accent_dark;  
+        }
+
+        &:checked:before,
+        &.checked:before {
+            border: 1px solid $accent_dark;
+            background: linear-gradient(to right, $accent_dark, $accent);    
+        }  
+ */
+
+    }
+    &:checked{
+        &+label{
+            &:before,
+            &:before {
+                border: 1px solid $accent_dark;
+                background: linear-gradient(to right, $accent_dark, $accent);    
+            } 
+        }
+    }    
+}
+
+
+input[type="radio"],
+input.field-radio{
+
+    opacity: 0.5;
+    display: none;
+
+
+    &+label{
+
+    display: block;
+    font-size: $fb;
+    // line-height: $l_h;
+    line-height: normal;
+
+        position: relative;
+        padding-left: 2em;
+
+        @extend %input_radio_checkbox_style;
+
+        &:before{
+            border-radius: 50%;
+        }        
+/* 
+        &:before{
+            @include pseudoelement_left_top(0, 50%);
+            transform: translateY(-50%);
+
+            width: 1em;
+            height: 1em;
+            border: 1px solid $accent;
+
+            border-radius: 50%;
+        }
+
+        &:hover:before,
+        &.hover:before {
+            border: 1px solid $accent_dark;   
+        }
+
+        &:checked:before,
+        &.checked:before {
+            border: 1px solid $accent_dark;
+            background: linear-gradient(to right, $accent_dark, $accent);    
+        }        
+ */
+    }
+
+    &:checked{
+        &+label{
+            &:before,
+            &:before {
+                border: 1px solid $accent_dark;
+                background: linear-gradient(to right, $accent_dark, $accent);    
+            } 
+        }
+    }
+
+}
+
+/*
+ * 3. Components
+*/
+
+.select{
+
+    border: 1px solid $accent; 
+
+    &__title{
+        @include height_leveling('forms_element');
+        @include h_rhytm('forms_element', $font_forms_elements); 
+
+        position: relative;
+        padding-right: 2 * $fb;
+        color: $grey_dark;
+
+        .themify{        
+            @include pseudoelement_right_top(0, 50%);
+            transform: translateY(-50%) rotate(-90deg);
+            font-size: $font_small;
+            color: $grey_dark;
+            margin-right: 1*$fb;
+
+        }   
+    }
+    &__list{
+        // display: none;
+        &-item{
+            @include height_leveling('forms_element');
+            @include h_rhytm('forms_element', $font_forms_elements); 
+
+            // background: linear-gradient(to right, $accent, $accent_light);
+            color: $text;
+
+            &:hover,
+            &.hover{
+                background: linear-gradient(to right, $accent, $accent_light);
+                color: $white;
+            }
+        }
+    }  
+
+    &--closed{
+        border-color: $grey_light;
+    }
+        &--closed &__title{
+            .themify{
+                transform: translateY(-50%) rotate(90deg);
+             }        
+        }   
+
+        &--closed &__list{
+            display: none;
+            &-item.hover{
+                // background: transparent;
+            }   
+        }   
+    
+}
+
+.range{
+
+    width: 100%; max-width: 200px;
+    height: 4px;
+    background-color: $grey_light;
+
+    &__scale{
+        position: relative;
+        height: 4px;
+        background-color: $accent;
+    }
+        &__handle{
+            position: relative;
+            font-size: 1 * $fb;
+            // box-shadow: inset 0 0 1px 10px $accent;
+
+            &--min{
+                position: absolute;
+                left: 0; top: 50%;
+                transform: translate(-50%, -50%);
+            }
+            &--max{
+                position: absolute;
+                right: 0; top: 50%;
+                transform: translate(50%, -50%);
+            }
+
+            .hexagon{
+                display: inline-block;
+                // @include hexagon_bg(280px, #c4c3c3, 2px, #575656);
+                @include hexagon(0.8 * $l_h, $white, 1px, $accent);
+            }
+        }    
+}
+
+
+.search{
+    padding-right: 60px;
+    position: relative;
+    
+    &__field{
+        max-width: none!important;
+        // padding-right: 60px;
+    } 
+    &__button{
+
+        width: 60px;
+        position: absolute;
+        right : 0; top : 0;
+    }  
+}
+
+.button-search{
+    padding: $l_h / 3  1em;
+    // padding: 0.5em  1em;
+    // background: $accent; // background: linear-gradient(to right, $accent, $accent );
+    border: 1px solid $accent_dark;
+
+    font-size: $fb;
+    line-height: $l_h;
+    letter-spacing: $l_s_big;
+    color: $white;  
+
+    //
+    @include hover_gradient_effect($accent, $accent_dark);
+
+    .themify{
+        position: relative;
+        font-size: $font_h4;
+        z-index: 300;
+    }
+}
+
+%hamburger{
+    // padding: 20px;
+    // background-color: $accent;
+
+
+    @include pseudoelement_left_top(50%, 50%);
+    transform: translate(-50%, -50%);
+
+}
+
+.button-menu{
+    @include height_leveling('forms_element');
+    @include h_rhytm('forms_element', $font_forms_elements);    
+
+    // max-width: 240px;
+    position: relative;
+    box-sizing: border-box;
+    width: 50px; height: 50px;
+
+    font-size: $font_h4;
+    background-color: $accent;
+    border: 1px solid $grey_light;
+    color: transparent; 
+
+
+    
+    .hamburger{
+        @extend %hamburger; 
+    }
+}

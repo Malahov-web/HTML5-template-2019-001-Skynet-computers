@@ -18,12 +18,15 @@
 
 @import 'fonts';   // 
 @import 'svgfontstyle';   // 
+@import 'mixins';     // 
 @import 'base';     // 
 //@import 'hexagon';    // 
 //@import 'hexagon_bg';     // 
 // @import 'phone';    // 
 @import 'media';    // 
 @import 'libs';     //
+
+@import 'hamburgers/hamburgers';     //
 
 
 
@@ -434,13 +437,7 @@ font-family: Roboto;
  *  
 */
 
-@mixin pallete_colors($main_color, $deg) {
 
-    // $color_1: adjust-hue($main_color, 30deg);
-    $color_1: adjust-hue($main_color, $deg);
-    background-color: $color_1;
-    
-}
 
 .categories{
 
@@ -526,4 +523,15 @@ font-family: Roboto;
 }
 
 
+.pallete_color{
+
+        $hue_ratio: 30;
+        $hue_steps: 360 / $hue_ratio;
+        @for $i from 1 through $hue_steps {
+
+            &-#{$i} {
+                @include pallete_colors($accent, $i * $hue_ratio );
+            }
+        } 
+}
 
