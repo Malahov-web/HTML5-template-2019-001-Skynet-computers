@@ -73,11 +73,14 @@ social-links
 
 products-grid
 products
-    products__item product
+    products__item || product
         product__image
         product__title
         product__parameters
+            product__parameters-list
         product__code
+            product__code-value
+        product__rating
         product__price
         product__price-old
         product__button button button--add

@@ -568,7 +568,6 @@ font-family: Roboto;
     }
 }
 
-
 .pallete_color{
 
         $hue_ratio: 30;
@@ -582,25 +581,113 @@ font-family: Roboto;
 }
 
 
-@function str-replace($string, $search, $replace: "") {
-  $index: str-index($string, $search);
+/* 7. products
+ * **********************************************************************
+ *  
+*/
 
-  @if $index {
-    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
-  }
+.products-grid{
 
-  @return $string;
 }
 
+.product-outer{
 
-// @function strip-unit($num) { 
+}
+.product{
 
-//     @return $num/($num * 0 + 1); 
-// } 
+    &__image{        
+        display: flex;
+        justify-content: center; align-items: center;
+        height: 220px;
+        border: 1px solid #ccc;
 
-// @function generate-pallete-color($main_color, $deg) {
-    
-//     $generated_color: adjust-hue($main_color, $deg);
-    
-//     @return $generated_color;
-// }
+        img{
+            width: auto; max-width: 80%; max-height: 80%;
+        }
+        &:hover{
+            opacity: 0.85;
+        }
+    }
+    &__content{
+
+    }
+    &__title-outer{
+        // display: flex; 
+        display: inline-block;
+    }
+        &__title{
+            @include height_leveling('heading');
+            @include v_rhytm('text', $l_h);            
+            font-size: $font_h4;
+            font-weight: 400;
+            color: $text;
+
+        }   
+
+    &__parameters{
+        &-list{
+            @include height_leveling('text');            
+            @include v_rhytm('text', $l_h);
+            font-size: $fb;
+
+            li{
+                font-size: inherit;
+                color: $grey_dark;
+                
+                &:before{
+                    content: "";
+                    margin: 0 0.5em;
+                    width: 2px;
+                    height: 2px;
+                    border-radius: 50%;
+                    background-color: $grey_light;
+                    display: inline-block; vertical-align: middle;
+                }
+
+            }
+        }
+    }   
+
+    &__code{
+        @include height_leveling('text');            
+        @include v_rhytm('text', $l_h);        
+        font-size: $font_small;
+        font-size: $font_smaller;
+        font-weight: 400;
+        color: $text;
+
+        &-value{
+            font-weight: 300;
+        }
+    } 
+
+    &__price{
+        @include height_leveling('text');            
+        @include v_rhytm('text', $l_h);         
+        font-size: $font_h4;
+        font-weight: bold;
+        color: $text;
+    }
+
+    &__availability{
+        @include height_leveling('text');            
+        @include v_rhytm('text', $l_h);        
+        font-size: $font_small;
+        font-weight: 400;
+        color: $text;
+
+        &-value{
+            font-weight: 500;
+
+            &--in-stock{
+                color: $accent_dark;
+            }
+            &--in-stock{
+                
+            }
+            &--none{
+                
+            }
+        }
+    }
+}
