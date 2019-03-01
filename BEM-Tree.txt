@@ -95,8 +95,8 @@ footer
     footer__contacts contacts-footer ? contacts--footer  footer__item
         contacts__title  footer__title
             contacts__item
-            contacts__item-title
-            contacts__item-text
+                contacts__item-title
+                contacts__item-text
 
     menu-footer menu
         menu-footer__title  footer__title
