@@ -45,7 +45,6 @@
 }
 
 .button-buy{
-// $accent_dark : $grey;
     width: 100%;
     max-width: 180px;
     padding: $l_h / 3  1em;
@@ -107,6 +106,82 @@
 
 }
 
+.button-buy--small{
+    padding: 0!important;
+    display: block;
+    font-size: 1 * $fb;
+    line-height: $l_h;
+    width: 1.75 * $l_h;
+    height: 1.75 * $l_h;
+
+    i{
+
+        @include pseudoelement_left_top(50%, 50%);
+        transform: translate(-50%, -50%);
+        font-size: $font_h4; 
+        // font-size: 85%;
+
+        position: absolute;
+        z-index: 1000;
+
+    }
+}
+
+.button-send{
+    width: 100%;
+    max-width: 180px;
+    padding: $l_h / 3  1em;
+    background: $accent_light;
+    border: 1px solid $accent_dark;
+
+    font-size: $fb;
+    line-height: $l_h;
+    letter-spacing: $l_s_big;
+    color: $white; 
+
+    &:before{
+        @include pseudoelement_left_top(0, 0);
+        width: 100%; height: 100%;
+        background: linear-gradient(to right, $accent_dark, $accent_light );
+        // transition: all 0.4s ease;
+        transition: all 0.3s ease-in-out;
+        margin-left: -100%;
+    }
+
+    &:hover,
+    &.hover{
+        &:before{
+            margin-left: 0;
+        }
+    }
+
+    &:active,
+    &.active{
+
+        &:before{
+            margin-left: 0;
+            background: $accent_dark; // с подмигиванием
+            // background: linear-gradient(to right, $accent_dark, $accent_dark ); // резко
+        }
+    }
+
+    &:disabled,
+    &.disabled{
+
+        border-color: $grey;
+        background: $grey_light;
+        color: $grey;
+
+        &:before{
+            margin-left: -100%;
+            // background: linear-gradient(to right, $grey, $grey );
+        }
+    }    
+
+    span{
+        position: relative;
+    }    
+}
 
 
 /* 

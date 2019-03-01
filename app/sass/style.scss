@@ -408,8 +408,7 @@ font-family: Roboto;
 
             font-size: $font_small;
             text-transform: lowercase;
-            letter-spacing: $l_s;            
-            
+            letter-spacing: $l_s;
         }
         &-link{
             
@@ -417,7 +416,6 @@ font-family: Roboto;
             color: $text;  
             @extend %link_decor;
             @extend %link_with_icon;
-
         }
 
         &-image{
@@ -613,7 +611,7 @@ font-family: Roboto;
     }
     &__title-outer{
         // display: flex; 
-        display: inline-block;
+        // display: inline-block;
     }
         &__title{
             @include height_leveling('heading');
@@ -621,7 +619,11 @@ font-family: Roboto;
             font-size: $font_h4;
             font-weight: 400;
             color: $text;
+            display: block;
 
+            &:hover{
+                color: $accent_dark;
+            }
         }   
 
     &__parameters{
@@ -690,4 +692,200 @@ font-family: Roboto;
             }
         }
     }
+}
+
+.product--viewed{
+
+    .product__price-outer{
+        float: left;
+    }
+    .product__button-outer{
+        float: right;
+    }
+}
+
+/* 8. news
+ * **********************************************************************
+ *  
+*/
+
+.news{
+
+    &__item{
+
+        &-image-outer{
+
+        }
+        &-image{
+            img{
+
+            }
+        }
+
+        &-content{
+
+        }
+            &-title-outer{
+
+                @include height_leveling('heading');
+                // @include height_leveling('text');
+                @include v_rhytm('text', $l_h);
+                font-size: $font_h3;                
+                font-weight: 300;
+                letter-spacing: $l_s;                
+                color: $text;                 
+            }            
+            &-title{
+                color: $text;    
+            }
+            &-text{
+                @include v_rhytm('text', $l_h);
+                font-size: $fb;
+                line-height: $l_h;
+            }        
+
+        &-footer{
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5 * $l_h 0;
+            border-top: 1px solid $grey_light;
+        }   
+            &-link-outer{
+                float: left;
+                font-size: $font_small;
+                line-height: $l_h;
+                text-transform: lowercase;
+                letter-spacing: $l_s_big;
+            }
+            
+            &-link{                
+                padding-right: $fb*1;            
+                color: $text;  
+                @extend %link_decor;
+                @extend %link_with_icon;
+            }
+            &-date{
+                align-self : flex-end;
+                float: right;
+                font-size: $font_small;
+                line-height: $l_h;
+                color: $text; 
+            }
+    }
+
+}
+
+
+/* 9. about
+ * **********************************************************************
+ *  
+*/
+
+.about{
+    
+    &__image{
+
+        img{
+
+        }
+    }
+    &__content{
+    }
+        &__title{
+            @include height_leveling('heading');
+            @include v_rhytm('text', $l_h);
+            margin-top: 0;
+            font-size: $font_h3;
+            font-weight: 300;
+            letter-spacing: $l_s;            
+            color: $text;
+        }
+        &__text{
+
+        }    
+}
+
+
+/* 10. subscribe
+ * **********************************************************************
+ *  
+*/
+  
+.section-subscribe{
+    background-color: $accent;
+    padding: 1.5 * $l_h 0;
+} 
+
+.subscribe{
+    
+    &__title{
+        font-size: $font_h4;
+        line-height: $l_h;
+        font-weight: 500;
+        color: $accent_dark;
+
+        // padding-left: $l_h*1.25;
+        padding-left: $fb*(3+1);
+        position: relative;
+
+        // &:before{
+        //     @include pseudoelement_left_top(0, 50%);
+        //     transform: translateY(-50%);
+        //     width: $fb;   
+        //     height: $fb;   
+        //     background-color: $grey;
+        // }  
+        
+        i.themify{        
+            @include pseudoelement_left_top(0, 50%);
+            transform: translateY(-50%);
+            font-size: 3 * $fb;
+            color: $accent_dark;
+        }
+    }
+    &__form{
+
+
+        .field-outer{
+            float: left;
+            padding-left: $columns_gap+px;
+            padding-right: $columns_gap+px;
+        }
+    }
+    &__social{
+        
+    }    
+}
+
+.form--subscribe{
+
+    input.field-text{
+        border-color: $accent_dark;
+    }
+}
+
+
+/* 11. social-links
+ * **********************************************************************
+ *  
+*/
+
+.social-links{
+
+}
+
+
+/* 12. footer
+ * **********************************************************************
+ *  
+*/
+
+.footer{
+
+    background-color: $grey_lighter;
+}
+
+.footer{
+    // float: left;  width: 100%;
+    height: 200px;
 }

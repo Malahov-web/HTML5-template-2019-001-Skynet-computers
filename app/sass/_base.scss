@@ -19,6 +19,7 @@ $accent_dark: darken($accent, 11%); // #1b72ae;  // #1b6aa1
 
 $grey : #9b999e;
 $grey_light: lighten($grey, 23%); // $grey_super_light: lighten($grey_light, 12%);  // f5f4f5
+$grey_lighter: lighten($grey, 30%);  //  f5f4f5
 $grey_super_light: lighten($grey, 35%);  //  f5f4f5
 $grey_dark: darken($grey, 14%); // 77757b;
 $grey_super_dark: darken($grey, 40%); // 353437
