@@ -59,6 +59,20 @@
     color: $grey;
 
 }
+.section{
+    // margin-top: 2*$l_h;
+}
+.section__title{
+    @include v_rhytm('section-title', $l_h) ;
+
+    .h1, .h2, .h3{
+        font-weight: 400;
+    }
+}
+.section__block{
+    @include v_rhytm('section-block', $l_h) ;
+}
+
 
 /* 1. Header
  * **********************************************************************
@@ -306,6 +320,8 @@ font-family: Roboto;
 */  
 
 .menu-main-outer{
+    background-color: $accent;
+    height: 48px;
 }
 .menu-control{
     display: none;
@@ -341,6 +357,7 @@ font-family: Roboto;
     .slider{
         width: 100%; 
         // height: 100vh;
+        height: 414px;
     }
 }
 /* 
@@ -371,18 +388,23 @@ font-family: Roboto;
 */
 
 .edges{
-        background-color: transparentize($grey, 0.75);
-        margin-top: -0.5 * $l_h;
-        margin-bottom: -0.5 * $l_h; // перевести в пиксели
+        // background-color: transparentize($grey, 0.75);
+        // margin-top: -0.5 * $l_h;
+        // margin-bottom: -0.5 * $l_h; // перевести в пиксели
+
+        &-outer{
+            // margin-top: -12px;
+            // margin-bottom: -12px;
+            @include v_rhytm('block', $l_h);
+        }
 
     &__item{
         position: relative;
         font-size: 1*$fb;
-        margin: 0.5 * $l_h 0;
+        @include v_rhytm('item', $l_h);
         padding-left: 30%; 
         padding-right: 20%;
-        background-color: transparentize($accent, 0.75);
-
+        // background-color: transparentize($accent, 0.75);
 
         &-icon{
             // position: absolute;
@@ -395,8 +417,7 @@ font-family: Roboto;
             // height: 2*$fb;
             // background-color: $grey;
 
-            color: $grey_dark;        
-
+            color: $grey_dark;
 
             .themify{
                 @include pseudoelement_left_top(50%, 50%);
@@ -425,9 +446,11 @@ font-family: Roboto;
 
     &__item{
         // @extend %clearfix;
-        $actions_padding_vertical: $fb;
-        flex-direction: column-reverse;
+
         @include v_rhytm('item', $l_h);
+        $actions_padding_vertical: $fb;
+        margin-left: 0; margin-right: 0;
+        flex-direction: column-reverse;        
 
         @media (min-width: #{map-get($devices, 'mh_')}px) {
            flex-direction: row;
@@ -538,10 +561,10 @@ font-family: Roboto;
 }
 
 .categories{
-    @include v_rhytm('block', $l_h);
+    
 
-    &-inner{
-
+    &-outer{
+        @include v_rhytm('block-card', $l_h);
     }
 
     &__item{
@@ -655,15 +678,24 @@ font-family: Roboto;
 }
 
 .product-outer{
-
+    
+    &.ds_3{
+        border-right: 1px solid $grey_super_light;
+        &:last-child{
+            border-right: none;
+        }
+    }
 }
 .product{
+
+    padding-left: $columns_gap+px;
+    padding-right: $columns_gap+px;
 
     &__image{        
         display: flex;
         justify-content: center; align-items: center;
         height: 220px;
-        border: 1px solid #ccc;
+        // border: 1px solid #ccc;
 
         img{
             width: auto; max-width: 80%; max-height: 80%;
@@ -777,7 +809,12 @@ font-family: Roboto;
 
 .news{
 
+    &-outer{
+        @include v_rhytm('block', $l_h);
+    }
+
     &__item{
+        @include v_rhytm('item', $l_h);
 
         &-image-outer{
 

@@ -105,20 +105,60 @@ $zindex_nav: 100;
 
 
 @mixin v_rhytm($type, $lh) {
+/* 
+//
+margin-top: -10px;
+margin-bottom: -10px;
+
+row: 
+    - margin-top - 
+        работает в padding, 
+        НЕ работает в content
+        НЕ работает в margin
+    - margin-bottom - не работает
+row-line:
+    - margin-bottom - работает
+row-flex:
+    - margin-top - НЕ работате, верстка ломается если нет margin у соседа
+    - margin-bottom - работает
+;
 
 
+Итог:
+
+для -flex и -line отрицательные маргины работют,
+если они уезжают на место других margin.
+
+
+Вывод:
+
+Возможно использовать компенсирующие -margin,
+если
+
+
+*/
     @if $type == heading {
         // line-height: $l_h_head;
         // padding-top: $padding_leveling;
-        // padding-bottom: $padding_leveling;        
+        // padding-bottom: $padding_leveling;  
+
     } @else if $type == text {
         margin-top: $lh * 0.5;
         margin-bottom: $lh * 0.5;
-    } @else if $type == section {
+    } 
+
+      @else if $type == section {
         padding-bottom: $lh * 2;
     } @else if $type == section-title {
-        // ?
-    } @else if $type == block {
+        margin-top: 2 * $l_h;
+        margin-bottom: 2 * $l_h;
+  
+    } @else if $type == section-block {
+        margin-top: 2 * $l_h;
+        // margin-bottom: 2 * $l_h;
+  
+    }
+     @else if $type == block {
         // padding-bottom: $lh * 2;
         margin-top: -0.5 * $l_h;
         margin-bottom: -0.5 * $l_h;         
@@ -126,7 +166,11 @@ $zindex_nav: 100;
         // margin-bottom: $lh * 1;
         margin-top: $lh * 0.5;
         margin-bottom: $lh * 0.5;
-    } @else if $type == card {
+    }
+     @else if $type == block-card {
+        margin-top: -$columns_gap+px;
+        margin-bottom: -$columns_gap+px;
+    }     @else if $type == card {
         margin-top: $columns_gap+px;
         margin-bottom: $columns_gap+px;
     } @else {
@@ -310,6 +354,6 @@ img{
 
 @import 'components';     // 
 
-.section-component{
+.section-component {
     margin: 2 * $l_h 0;
 }
