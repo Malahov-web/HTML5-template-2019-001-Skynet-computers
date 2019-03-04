@@ -71,6 +71,7 @@
 .header-top{
     background-color: $grey_light;
     background-color: opacify($grey_light, 0.50);
+    background-color: $grey_lighter;
 }
 
 .menu-top{
@@ -153,26 +154,26 @@
     &--account{
         padding-left: $l_h*1.25;
         position: relative;
-
+/* 
         &:before{
             @include pseudoelement_left_top(0, 50%);
             transform: translateY(-50%);
             width: $fb;   
             height: $fb;   
             background-color: $grey;
-        }
+        } */
     }
     &--wish{
         padding-left: $l_h*1.25;
         position: relative;
-
+/* 
         &:before{
             @include pseudoelement_left_top(0, 50%);
             transform: translateY(-50%);
             width: $fb;   
             height: $fb;   
             // background-color: $grey;
-        }
+        } */
     }
 
         &:hover{
@@ -190,10 +191,15 @@
         color: $grey_dark;
     }
 
-
 }
 
-
+.logo{
+    // db
+    img{
+        display: block;
+        width: auto;
+    }
+}
 
 
 
@@ -228,11 +234,71 @@ font-family: Roboto;
  */
 
 @media (max-width: 768px) {
-   
+
     
 } /* media end */
 
+.header-bottom{
+    padding: $l_h 0;
+}
 
+.tools{
+    justify-content: flex-end;
+
+    &__item{  
+        padding-left: 1.5 * $l_h;
+        font-size: $fb;
+        font-weight: 400;
+        letter-spacing: $l_s;
+
+        i.themify{        
+            @include pseudoelement_left_top(0, 50%);
+            transform: translateY(-50%);
+            font-size: 2 * $fb;
+            color: $black;
+        }  
+
+        &:hover{
+            color: $accent_dark;
+            i.themify{
+               color: $accent_dark; 
+            }
+        }      
+    }
+
+    @media (min-width: #{map-get($devices, 'ds_')}px) {
+       justify-content: flex-start;
+    }    
+}
+
+.contacts{
+    &__phone{
+        padding-left: 0;
+        padding-right: 0;
+        a{
+            color: $black;
+            &:hover{
+                color: $accent_dark;
+            }
+        }
+    }
+}
+.cart{
+    &__title{
+        padding-left: 0;
+        padding-right: 0;
+    }
+    &__counter{
+        display: inline-block;
+        width:  $l_h;
+        height:  $l_h;
+        border-radius: 50%;
+        background-color: $grey_lighter;
+        font-size: $fb;
+        line-height: $l_h;
+        text-align: center;
+    }
+}
 
 /* 2. Menu main
  * **********************************************************************

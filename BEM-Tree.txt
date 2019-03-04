@@ -11,6 +11,8 @@ header
         search
         contacts tools
             tools__item tools__item--phone
+            tools__item tools__item--cart
+        header__cart cart  (cart-header )
 menu-main
 megamenu
 

@@ -58,6 +58,8 @@ $devices: (
 }
 .row-flex{
     display: flex; flex-wrap: wrap;
+    margin-left: -$columns_gap+px;
+    margin-right: -$columns_gap+px;    
 }
 
 .row>div{ float : left; }
@@ -120,6 +122,10 @@ $devices: (
         }
   
 
+        .#{$device}offset_0 { 
+            margin-left:  0;
+        }
+
         $i: 1;
         @while $i < ($columns + 1) {
 
@@ -128,6 +134,11 @@ $devices: (
                 $width: $i / $columns;
                 width: $width * 100%;
             }
+            .#{$device}offset_#{$i} {
+
+                $width: $i / $columns;
+                margin-left:  $width * 100%;
+            }            
 
             $i: $i + 1;
 
@@ -182,4 +193,30 @@ $devices: (
 .row:after
 {
     clear : both;
+}
+
+
+
+/* 4. Утилиты адаптации  */
+@each $device, $key in $devices {
+
+    @media  (max-width : $key+px ) {
+
+        .container .#{$device}hidden {
+            display: none;
+        }
+
+        // @while $i < ($columns + 1) {
+
+        //     .#{$device}#{$i} {
+
+        //         $width: $i / $columns;
+        //         width: $width * 100%;
+        //     }
+
+        //     $i: $i + 1;
+
+        // }
+
+    } 
 }
