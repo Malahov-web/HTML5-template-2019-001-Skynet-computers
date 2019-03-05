@@ -38,28 +38,48 @@
         <div class="container">
             <div class="row">
                 <div class="tb_6">
-                    <ul class="menu-top">
-                        <li><a href="#">О компании</a></li>
-                        <li><a href="#">Доставка</a></li>
-                        <li><a href="#">Оплата</a></li>
-                        <li><a href="#">Гарантия</a>
-                            <ul class="submenu-top">
-                                <li><a href="#">О компании</a></li>
-                                <li><a href="#">Доставка</a></li>
-                                <li><a href="#">Оплата</a></li>
-                                <li><a href="#">Гарантия</a></li>
-                                <li><a href="#">Магазины</a></li>
-                                <li><a href="#">Новости</a></li>
-                            </ul>                            
-                        </li>
-                        <li><a href="#">Магазины</a></li>
-                        <li><a href="#">Новости</a></li>
-                    </ul>
+
+                    <div class="menu-top-outer">
+                        <div class="menu-top-trigger "><span>
+                            <i class="users__item-icon themify  themify-menu"></i>
+                            <!-- menu -->
+                        </span></div>
+                        <ul class="menu-top">
+                            <li><a href="#">О компании</a></li>
+                            <li><a href="#">Доставка</a></li>
+                            <li><a href="#">Оплата</a></li>
+                            <li><a href="#">Гарантия</a>
+                                <ul class="submenu-top">
+                                    <li><a href="#">О компании</a></li>
+                                    <li><a href="#">Доставка</a></li>
+                                    <li><a href="#">Оплата</a></li>
+                                    <li><a href="#">Гарантия</a></li>
+                                    <li><a href="#">Магазины</a></li>
+                                    <li><a href="#">Новости</a></li>
+                                </ul>                            
+                            </li>
+                            <li><a href="#">Магазины</a></li>
+                            <li><a href="#">Новости</a></li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="tb_6">
                     <div class="users">
                         <div class="users__item users__item--account">
-                            <i class="users__item-icon themify  themify-user"></i> Личный кабинет                            
+                            <i class="users__item-icon themify  themify-user"></i> Личный кабинет    
+                            <div class="users__form-outer">
+                                 <form class="users__form form--users">                                
+                                    <div class="field-outer">
+                                        <input type="text" class="field-text" placeholder="E-mail">
+                                    </div>
+                                    <div class="field-outer">
+                                        <input type="text" class="field-text" placeholder="Пароль">
+                                    </div>                                    
+                                    <div class="field-outer">
+                                        <a href="#" class="button button-send"><span>Войти</span></a>
+                                    </div>                                        
+                                 </form>
+                            </div>                    
                         </div>
                         <a href="#" class="users__item users__item--wish">
                             <i class="users__item-icon themify  themify-heart"></i>Избранное</a>
@@ -111,21 +131,61 @@
 
 <div class="menu-main-outer section">
     <div class="container">
+        <ul class="menu-main megamenu" data-js="menu-responsive">
+            <li class="menu-main__item"><a href="#" class="menu-main__link">Notebooks</a>
+                <ul class="submenu">
+                    <li data-image-url="uploads/products-grid/0185414_3.JPG" title="Изображение категории Office">
+                        <span class="submenu__item-image"><img src="uploads/products-grid/0185414_3.JPG"></span>                        
+                        <a href="">Office</a>
+                        <ul class="sub-submenu">
+                            <li><a href="#">Apple</a></li>
+                            <li><a href="#">Digma</a></li>
+                            <li><a href="#">HP</a></li>
+                            <li><a href="#">Huawei</a></li>
+                            <li><a href="#">IRBIS</a></li>
+                            <li><a href="#">LG</a></li>
+                            <li><a href="#">Prestigio</a></li>
+                        </ul>
+                    </li>
+                    <li data-image-url="uploads/categories/comp.png" title="url(../images/item_1.jpg)">
+                        <span class="submenu__item-image"><img src="uploads/products-grid/0282409_4.jpg"></span>                        
+                        <a href="">Home</a>
+                        <ul class="sub-submenu">
+                            <li><a href="#">Apple</a></li>
+                            <li><a href="#">Digma</a></li>
+                            <li><a href="#">HP</a></li>
+                            <li><a href="#">Huawei</a></li>
+                            <li><a href="#">IRBIS</a></li>
+                            <li><a href="#">LG</a></li>
+                            <li><a href="#">Prestigio</a></li>
+                        </ul>
+                    </li>
+                    <li data-image-url="uploads/categories/phone.png"><a href="">Pro</a></li>
+                </ul>
+            </li>
+            <li class="menu-main__item"><a href="#" class="menu-main__link">PC</a></li>
+            <li class="menu-main__item"><a href="#" class="menu-main__link">Tablets & Phones</a></li>
+            <li class="menu-main__item"><a href="#" class="menu-main__link">Peripherals</a></li>
+            <li class="menu-main__item"><a href="#" class="menu-main__link">Motherboards</a></li>
+            <li class="menu-main__item"><a href="#" class="menu-main__link">Video</a></li>
+            <li class="menu-main__item"><a href="#" class="menu-main__link">HDD</a></li>
+            <li class="menu-main__item"><a href="#" class="menu-main__link">Cables</a></li>
+        </ul>
         
     </div>
 </div>
 
 
-<section class="section section-slider owl-carousel">
+<section class="section section-slider  ">
     <div class="container">
-        <!-- <div class="slider-outer"> -->
-            <!--div class="slider" style="background: #fff url('uploads/slides/slide_1.jpg') center center no-repeat; background-size: cover;">
+        <div class="slider-outer owl-carousel">
+            <div class="slider" style="background: #fff url('uploads/slides/slide_1.jpg') center center no-repeat; background-size: cover;">
                 
-            </div-->
+            </div>
             <div class="slider" style="background: #fff url('uploads/slides/slide_2.jpg') center top no-repeat; background-size: cover;">            
             </div>
 
-        <!-- </div> -->      
+        </div>      
     </div>
 
 </section>
@@ -546,26 +606,26 @@
 
             <div class="mv_12 mh_6 tb_4 ds_3 product-outer">
                 <div class="product">
-                    <div class="product__image"><img src="uploads/news/news_item_image_2.jpg" alt=""></div>
+                    <a href="#" class="product__image"><img src="uploads/products-grid/0282409_4.jpg" alt=""></a>
                     <div class="product__title-outer">
-                        <a href="#" class="product__title">title</a>
+                        <a href="#" class="product__title">Материнская плата ASUS M5A78L-M LX3</a>
                     </div>
                     <div class="product__parameters">
                         <ul class="product__parameters-list">
-                            <li>param</li>
-                            <li>param</li>
-                            <li>param</li>
-                            <li>param</li>
+                            <li>AMD 760G + SB710</li>
+                            <li>2*DDR3</li>
+                            <li>PCI-E16x</li>
+                            <li>SVGA</li>
                         </ul>
                     </div>
-                    <div class="product__code">code <span class="product__code-value">val</span></div>
+                    <div class="product__code">код: <span class="product__code-value">181350</span></div>
                     <div class="product__rating--outer">
                         <div class="product__rating rating"></div>
                     </div>
                     <div class="product__price-outer">
                         <div class="product__price">
-                            <span class="product__price-value"></span>
-                            <span class="product__price-currency">P</span>
+                            <span class="product__price-value">3 530</span>
+                            <span class="product__price-currency">₽</span>
                         </div>
                     </div>
                     <!-- <div class="product__price-outer">
@@ -575,10 +635,10 @@
                         </div>
                     </div> -->
                     <div class="product__button-outer">
-                        <a href="" class="product__button button button-buy">В корзину</a>
+                        <a href="" class="product__button button button-buy"><span>В корзину</span></a>
                     </div>
-                    <div class="product__availability product__availability-yes">Наличие
-                        <div class="product__availability-value">val</div>
+                    <div class="product__availability product__availability">наличие:
+                        <span class="product__availability-value product__availability-value--in-stock">в магазине</span>
                     </div>
                     
                 </div>
@@ -586,26 +646,26 @@
 
             <div class="mv_12 mh_6 tb_4 ds_3 product-outer">
                 <div class="product">
-                    <div class="product__image"><img src="uploads/products-grid/" alt=""></div>
+                    <a href="#" class="product__image"><img src="uploads/products-grid/0647699_01.png" alt=""></a>
                     <div class="product__title-outer">
-                        <a href="#" class="product__title">title</a>
+                        <a href="#" class="product__title">Материнская плата ASUS M5A78L-M LX3</a>
                     </div>
                     <div class="product__parameters">
                         <ul class="product__parameters-list">
-                            <li>param</li>
-                            <li>param</li>
-                            <li>param</li>
-                            <li>param</li>
+                            <li>AMD 760G + SB710</li>
+                            <li>2*DDR3</li>
+                            <li>PCI-E16x</li>
+                            <li>SVGA</li>
                         </ul>
                     </div>
-                    <div class="product__code">code <span class="product__code-value">val</span></div>
+                    <div class="product__code">код: <span class="product__code-value">181350</span></div>
                     <div class="product__rating--outer">
                         <div class="product__rating rating"></div>
                     </div>
                     <div class="product__price-outer">
                         <div class="product__price">
-                            <span class="product__price-value"></span>
-                            <span class="product__price-currency">P</span>
+                            <span class="product__price-value">3 530</span>
+                            <span class="product__price-currency">₽</span>
                         </div>
                     </div>
                     <!-- <div class="product__price-outer">
@@ -615,10 +675,10 @@
                         </div>
                     </div> -->
                     <div class="product__button-outer">
-                        <a href="" class="product__button button button-buy">В корзину</a>
+                        <a href="" class="product__button button button-buy"><span>В корзину</span></a>
                     </div>
-                    <div class="product__availability product__availability-yes">Наличие
-                        <div class="product__availability-value">val</div>
+                    <div class="product__availability product__availability">наличие:
+                        <span class="product__availability-value product__availability-value--in-stock">в магазине</span>
                     </div>
                     
                 </div>
@@ -626,26 +686,26 @@
 
             <div class="mv_12 mh_6 tb_4 ds_3 product-outer">
                 <div class="product">
-                    <div class="product__image"><img src="uploads/products-grid/" alt=""></div>
+                    <a href="#" class="product__image"><img src="uploads/products-grid/0651522_01.jpg" alt=""></a>
                     <div class="product__title-outer">
-                        <a href="#" class="product__title">title</a>
+                        <a href="#" class="product__title">Материнская плата ASUS M5A78L-M LX3</a>
                     </div>
                     <div class="product__parameters">
                         <ul class="product__parameters-list">
-                            <li>param</li>
-                            <li>param</li>
-                            <li>param</li>
-                            <li>param</li>
+                            <li>AMD 760G + SB710</li>
+                            <li>2*DDR3</li>
+                            <li>PCI-E16x</li>
+                            <li>SVGA</li>
                         </ul>
                     </div>
-                    <div class="product__code">code <span class="product__code-value">val</span></div>
+                    <div class="product__code">код: <span class="product__code-value">181350</span></div>
                     <div class="product__rating--outer">
                         <div class="product__rating rating"></div>
                     </div>
                     <div class="product__price-outer">
                         <div class="product__price">
-                            <span class="product__price-value"></span>
-                            <span class="product__price-currency">P</span>
+                            <span class="product__price-value">3 530</span>
+                            <span class="product__price-currency">₽</span>
                         </div>
                     </div>
                     <!-- <div class="product__price-outer">
@@ -655,10 +715,10 @@
                         </div>
                     </div> -->
                     <div class="product__button-outer">
-                        <a href="" class="product__button button button-buy">В корзину</a>
+                        <a href="" class="product__button button button-buy"><span>В корзину</span></a>
                     </div>
-                    <div class="product__availability product__availability-yes">Наличие
-                        <div class="product__availability-value">val</div>
+                    <div class="product__availability product__availability">наличие:
+                        <span class="product__availability-value product__availability-value--in-stock">в магазине</span>
                     </div>
                     
                 </div>
@@ -873,7 +933,7 @@
 <section class="section section-subscribe section__block">
     <div class="container">
         <div class="row row-flex middle subscribe">
-            <div class="mv_12 tb_12 ds_2">
+            <div class="mv_12 tb_12 ds_2 ds_hidden">
                 <div class="subscribe__title"><i class="users__item-icon themify themify-email"></i>Куда слать?</div>
             </div>
             <div class="mv_12 tb_12 ds_7">
@@ -1034,7 +1094,6 @@
 <!-- owl -->
     <link href="libs/owl.carousel/dist/assets/owl.carousel.min.css" rel="stylesheet">
     <script src="libs/owl.carousel/dist/owl.carousel.min.js"></script>
-    
 
 
 
