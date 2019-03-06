@@ -110,7 +110,8 @@
             padding-left: 0;
         }
         &:hover > a{
-            background-color: $accent; 
+            // background-color: $accent; 
+            background-color: $accent_light; 
             color: #fff;
         }
 
@@ -127,6 +128,7 @@
                 color: $accent_dark;
                 // text-decoration: underline;
                 background-color: $accent;
+                background-color: $accent_light;
                 color: #fff;
             }            
         }
@@ -469,7 +471,8 @@ font-family: Roboto;
                 position: relative;
                 float: left;
                 width: 33%;
-                padding-left: 96px;
+                // padding-left: 96px;
+                padding-left: 104px;
                 // border-left: 1px solid $accent_light;
                 // background-color: #eee;
 
@@ -496,8 +499,11 @@ font-family: Roboto;
                 }
                 .submenu__item-image{
                     position: absolute; left : 0; top : 0;
-                    width: 64px;
-                    height: 64px;
+                    // width: 64px;
+                    // height: 64px;
+                    width: 80px;
+                    height: 80px;                    
+                    padding: 8px;
                     display: flex; align-items: center; 
                     border: 1px solid $grey_lighter;
                 }
@@ -872,6 +878,9 @@ font-family: Roboto;
             border-right: none;
         }
     }
+}
+.owl-item .product-outer{
+    width: 100%;
 }
 .product{
 

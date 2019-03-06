@@ -41,6 +41,8 @@ var rename = require('gulp-rename');
 // переменная с именем нашего шрифта (на выбор)
 var fontName = 'themify';
 	
+
+var js_owl = 'app/libs/owl.carousel/dist/owl.carousel.min.js';
 	
 	// SASS - компиляция
 	gulp.task('css', function(){ // Создаем таск "sass"
@@ -63,6 +65,7 @@ var fontName = 'themify';
 		.pipe(sourcemaps.init())
 		.pipe(plumber())
 		.pipe(sass()) // Преобразуем scss в CSS посредством gulp-sass
+		// .pipe(sass().on('error', sass.logError))
 		.pipe(autoprefixer())
 		.pipe(sourcemaps.write())
 		
@@ -110,6 +113,12 @@ var fontName = 'themify';
 		//gulp.watch('app/*.html', browserSync.reload); // Наблюдение за HTML файлами в корне проекта
 		
 	});
+
+	gulp.task('watchjs', ['browser-sync', 'js'], function() {
+		
+		gulp.watch('app/js/*.js', ['js']);		
+		
+	});	
 	
 	
 	
@@ -181,3 +190,26 @@ gulp.task('Iconfont', function (done) {
 
 
 gulp.task('makesvgfont', ['Svgmin', 'Iconfont']);   // Срабатывает по частям, за 2 запуска)
+
+
+// gulp.task('minify', function () {
+//     gulp.src('app/js/min/scripts.js')
+//         .pipe(uglify())
+//         .pipe(gulp.dest('app/js/min'));
+// });
+
+
+// JS - сборка
+gulp.task('js', function() {
+  return  gulp.src(
+  	[
+  		js_owl,
+  		'app/js/*.js'
+
+  		//, 'app/js/menu-responsive/js/menu-responsive.js'
+  	]
+  	)
+    .pipe(concat('scripts.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest('app/js/min/'));
+});

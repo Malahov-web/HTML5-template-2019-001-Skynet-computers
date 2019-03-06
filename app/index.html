@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
     <title>Skynet Computers</title>
     <meta charset="utf-8">
@@ -40,11 +40,11 @@
                 <div class="tb_6">
 
                     <div class="menu-top-outer">
-                        <div class="menu-top-trigger "><span>
+                        <div class="menu-top-trigger js-mobile_menu__title"><span>
                             <i class="users__item-icon themify  themify-menu"></i>
                             <!-- menu -->
                         </span></div>
-                        <ul class="menu-top">
+                        <ul class="menu-top js-mobile_menu">
                             <li><a href="#">О компании</a></li>
                             <li><a href="#">Доставка</a></li>
                             <li><a href="#">Оплата</a></li>
@@ -135,7 +135,7 @@
             <li class="menu-main__item"><a href="#" class="menu-main__link">Notebooks</a>
                 <ul class="submenu">
                     <li data-image-url="uploads/products-grid/0185414_3.JPG" title="Изображение категории Office">
-                        <span class="submenu__item-image"><img src="uploads/products-grid/0185414_3.JPG"></span>                        
+                        <!-- <span class="submenu__item-image"><img src="uploads/products-grid/0185414_3.JPG"></span> -->                        
                         <a href="">Office</a>
                         <ul class="sub-submenu">
                             <li><a href="#">Apple</a></li>
@@ -148,7 +148,7 @@
                         </ul>
                     </li>
                     <li data-image-url="uploads/categories/comp.png" title="url(../images/item_1.jpg)">
-                        <span class="submenu__item-image"><img src="uploads/products-grid/0282409_4.jpg"></span>                        
+                        <!-- <span class="submenu__item-image"><img src="uploads/products-grid/0282409_4.jpg"></span> -->                        
                         <a href="">Home</a>
                         <ul class="sub-submenu">
                             <li><a href="#">Apple</a></li>
@@ -160,7 +160,16 @@
                             <li><a href="#">Prestigio</a></li>
                         </ul>
                     </li>
-                    <li data-image-url="uploads/categories/phone.png"><a href="">Pro</a></li>
+                    <li data-image-url="uploads/categories/phone.png">
+                        <a href="">Pro</a>
+                        <ul class="sub-submenu">
+                            <li><a href="#">Apple</a></li>
+                            <li><a href="#">Digma</a></li>
+                            <li><a href="#">HP</a></li>
+                            <li><a href="#">Huawei</a></li>
+                            <li><a href="#">IRBIS</a></li>
+                        </ul>                        
+                    </li>
                 </ul>
             </li>
             <li class="menu-main__item"><a href="#" class="menu-main__link">PC</a></li>
@@ -329,7 +338,7 @@
         </div>
     </div>        
     <div class="container section__block">
-        <div class="row row-line top products-grid">
+        <div class="row row-line top products-grid owl-carousel">
             <div class="mv_12 mh_6 tb_4 ds_3 product-outer">
                 <div class="product">
                     <a href="#" class="product__image"><img src="uploads/products-grid/0185414_3.JPG" alt=""></a>
@@ -1088,17 +1097,18 @@
 
 <!-- mmenu -->  
     <!-- <script src="path/to/jquery.js"></script> -->
-    <script src="libs/jQuery.mmenu/dist/jquery.mmenu.all.js"></script>
-    <link href="libs/jQuery.mmenu/dist/jquery.mmenu.all.css" rel="stylesheet">
+<!--     <script src="libs/jQuery.mmenu/dist/jquery.mmenu.all.js"></script>
+    <link href="libs/jQuery.mmenu/dist/jquery.mmenu.all.css" rel="stylesheet"> -->
 
 <!-- owl -->
     <link href="libs/owl.carousel/dist/assets/owl.carousel.min.css" rel="stylesheet">
-    <script src="libs/owl.carousel/dist/owl.carousel.min.js"></script>
+    <!-- <script src="libs/owl.carousel/dist/owl.carousel.min.js"></script> -->
 
 
 
 
-    <script src="js/scripts.js"> </script> 
+    <script src="js/min/scripts.js"> </script> 
+    <!-- <script src="js/mobile_menu.js"> </script>  -->
 
 </body>
 </html>
