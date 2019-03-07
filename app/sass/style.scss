@@ -73,6 +73,10 @@
     @include v_rhytm('section-block', $l_h) ;
 }
 
+.container{
+    min-width: 300px;
+    // width: calc(100% - 20px);
+}
 
 /* 1. Header
  * **********************************************************************
@@ -93,7 +97,11 @@
     font-size: $fb;
     line-height: $l_h;
     padding: 0.25em $l_h*0.5;
-    @extend %top_list_item_link;     
+    @extend %top_list_item_link;   
+
+    &:active{
+        color: $accent;
+    }  
 }  
 .menu-top{
     // height: 2em;
@@ -171,7 +179,7 @@
 
 }    
 .menu-top{
-    // display: none;
+    display: none;
     @include pseudoelement_left_top(0, 0);
     z-index: $zindex_nav;
     top: 100%;
@@ -206,6 +214,7 @@
     // position: absolute; left: 0 ; //margin-top: 0.25em;
     position: static;
     max-width: none;
+    float: left; width: 100%;
     // padding-left: ;
     padding-left: $l_h*0.5*2;
   
@@ -225,6 +234,31 @@
 
     }
 }
+/* 
+// Pligins integration
+.menu-top{
+    &>li{
+
+        &.menu-item-has-children a:before{
+            @include pseudoelement_right_top(0, 50%);
+            transform: translateY(-50%);
+            right: 0.5*$l_h;
+            width: 2px;
+            height: 2px;
+            background-color: $grey;            
+            border-radius: 50%;
+            content: "";
+        }
+        &>a{
+            float: left; clear: both;
+            &:hover{
+                color: $accent_dark;
+            }            
+        }
+
+    }
+}
+ */
 }  // media end
 
 
@@ -300,9 +334,15 @@
                 @include v_rhytm('item', $l_h);
                 max-width: none;
             }
-        }    
+        }
+}
+
+@media (max-width: #{map-get($devices, 'tb_')-1}px) {
+.users{
 
 }
+
+}  // media end
 
 .logo{
     // db
@@ -424,6 +464,11 @@ font-family: Roboto;
 .menu-control{
     display: none;
 }
+.menu-main-trigger{
+    @extend .dropdown;
+    float: left!important;
+
+}
 .menu-main{
     float: left;
     width: 100%;
@@ -432,14 +477,14 @@ font-family: Roboto;
     .menu-main > li{
         // display: inline-block;
         float: left;
-        border-left: 1px solid $accent_light;
-        
+                
         &:last-child{
             margin-right: 0;
         }
         >a{
             display: block;
             padding: 0.75em 2em;
+            border-left: 1px solid $accent_light;
             font-size: $fb; line-height: $l_h;
             letter-spacing: $l_s;
             color: $white;
@@ -453,6 +498,10 @@ font-family: Roboto;
 
 /* megamenu */
         .submenu{
+            @extend %shadow;
+        }
+@media (min-width: #{map-get($devices, 'tb_')}px) {
+        .submenu{
             display: none;
             z-index: $zindex_nav;
             position: relative;
@@ -462,7 +511,6 @@ font-family: Roboto;
 
             padding: $l_h 1.5 * $l_h;
             background-color: $white;
-            box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.2);
         }
         .menu-main>li:hover>.submenu{
             display: block;
@@ -523,7 +571,138 @@ font-family: Roboto;
                         }
                     }
                 }
+} // media                
   
+.dropdown{
+            padding: $l_h/2+0.75em $l_h/2+0.75em ;
+            border-left: 1px solid $accent_light;
+            font-size: $fb; line-height: $l_h;
+            color: $white;
+            transition: all 0.3s;
+            position: relative;
+
+            &:before{
+                @include pseudoelement_left_top(50%, 50%);
+                transform: translate(-50%, -50%);
+                content: "\EA0B";
+                font-family: "themify";
+            }
+
+    display: none;
+    // width: 48px;
+    // height: 48px;
+    // line-height: 48px;
+    background-color: $accent_light;
+
+}       
+.dropdown{
+    position: relative;
+    float: right;
+
+    &.visible{
+        display: block;
+    }
+    &__list{
+        display: none;
+        
+        @include pseudoelement_right_top(0, 100%);
+        z-index: $zindex_nav;
+        width: 300px;
+        background-color: $accent_light;
+
+        &>li{
+            &>a{
+            display: block;
+            padding: 0.75em 2em;
+            border-left: 1px solid $accent_light;
+            font-size: $fb; line-height: $l_h;
+            letter-spacing: $l_s;
+            color: $white;
+            transition: all 0.3s; 
+                &:hover{
+                    background-color: $accent;
+                }
+            }
+        }
+
+    }
+    // &:hover{
+    //     &__list{
+    //         display: block;
+    //     }
+    // }
+}
+.dropdown:hover{
+    .dropdown__list{
+        display: block;
+    }
+}
+/*
+// использование responsive-menu как mobile-menu
+@media (max-width: #{map-get($devices, 'tb_')-1}px) {
+.menu-main{
+    border-left: 1px solid $accent_light;
+    border: none;
+}   
+.dropdown{
+    float: none;
+    margin: 0 auto;
+    width: 90%;
+    // width: 30%;
+    background-color: $accent;
+    border: none;
+   &__list{
+        width: 100%;
+   }    
+}
+} // media
+*/
+
+@media (max-width: #{map-get($devices, 'tb_')-1}px) {
+
+.menu-main-trigger{
+    display: block;
+}
+.menu-main{
+    display: none;
+    position: absolute;
+    left: 0; top: 100%;
+    width: 100%;
+    z-index: $zindex_nav; 
+
+    background-color: $accent;
+
+    li{
+        float: left; width: 100%;
+
+        a{
+            background-color: $accent;
+            // color: $accent;
+
+            display: block;
+            padding: 0.75em 2em;
+            border-left: 1px solid $accent_light;
+            font-size: $fb; line-height: $l_h;
+            letter-spacing: $l_s;
+            color: $white;
+            transition: all 0.3s; 
+
+            &:hover, &:active{
+                background-color: $accent_light;
+            } 
+        }
+
+        ul, img{
+            // display: none;
+            padding-left: 2em;
+        }
+        img{
+            display: none;
+        }
+    }
+}
+
+}
 
 /* 3. Slider
  * **********************************************************************
@@ -584,6 +763,7 @@ font-family: Roboto;
         padding-left: 30%; 
         padding-right: 20%;
         // background-color: transparentize($accent, 0.75);
+        padding-left: 2 * $fb + $fb;
 
         &-icon{
             // position: absolute;
@@ -591,6 +771,7 @@ font-family: Roboto;
             transform: translateY(-50%);
 
             width: 30%;
+            width: auto;
             font-size: $fb;
             // width: 2*$fb;
             // height: 2*$fb;
@@ -611,9 +792,24 @@ font-family: Roboto;
             color: $grey;
         }
     }
-
-
 }
+
+@media (min-width: #{map-get($devices, 'tb_')}px) {
+.edges{
+
+    &__item{
+        padding-left: 30%;
+        border-right: 1px solid $grey_super_light;
+
+        &-icon{
+            width: 30%;
+        }
+    }
+    &>div:last-child>&__item{
+        border: none;
+    }
+}
+}  // media end
 
 
 /* 6. actions
@@ -867,11 +1063,11 @@ font-family: Roboto;
 */
 
 .products-grid{
-
+    @include v_rhytm('block-card', $l_h);
 }
 
 .product-outer{
-    
+    @include v_rhytm('card', $l_h); 
     &.ds_3{
         border-right: 1px solid $grey_super_light;
         &:last-child{
@@ -879,11 +1075,24 @@ font-family: Roboto;
         }
     }
 }
-.owl-item .product-outer{
-    width: 100%;
+.owl-item{
+    .product-outer{
+        width: 100%; 
+    }
+    &.active{
+        .product-outer{
+            border-right: 1px solid $grey_super_light;
+        }
+        &:last-child{
+            .product-outer{
+               border: none;
+            }        
+        }
+    }
+    
 }
 .product{
-
+  
     padding-left: $columns_gap+px;
     padding-right: $columns_gap+px;
 
@@ -1030,6 +1239,7 @@ font-family: Roboto;
                 // @include height_leveling('text');
                 @include v_rhytm('text', $l_h);
                 font-size: $font_h3;                
+                font-size: $font_h4;                
                 font-weight: 300;
                 letter-spacing: $l_s;                
                 color: $text;                 
@@ -1250,7 +1460,11 @@ font-family: Roboto;
         letter-spacing: $l_s_big; 
 
         @include height_leveling('text');
-        @include v_rhytm('text', $l_h);    
+        @include v_rhytm('text', $l_h);  
+
+        i.themify{
+            display: none;
+        }
     }
 
     &-bottom{
@@ -1365,4 +1579,46 @@ font-family: Roboto;
     font-size: $font_small;
     font-weight: 100;
     color: $grey_dark;
+}
+
+
+/* Plugins integration */
+@media (max-width: #{map-get($devices, 'tb_')-1}px) {
+.footer{
+    &__column{
+        margin-bottom: 1 * $l_h;
+    }    
+    &__title{
+        &.js-accordeon__title{
+            position: relative;
+            border-bottom: 1px solid $grey_light;
+            cursor: pointer;
+            i.themify{      
+                @include pseudoelement_right_top(0, 50%);
+                transform: translateY(-50%);
+                font-size: inherit;
+                color: inherit;
+                display: block;
+                content: "\EA0D";       
+            }
+            &.opened{
+                i.themify:before{     
+                    content: "\EA0C";
+                }
+            }
+        } 
+    }
+}
+} // media
+
+/* A. Plugins
+ * **********************************************************************
+ *  
+*/
+
+body .owl-carousel{
+    overflow: hidden;
+}
+body .owl-carousel .owl-item img {
+    width: auto;
 }

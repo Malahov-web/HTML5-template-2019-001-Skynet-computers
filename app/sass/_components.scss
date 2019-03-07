@@ -561,7 +561,8 @@ input.field-radio{
     .themify{
         position: relative;
         font-size: $font_h4;
-        z-index: 300;
+        // z-index: 300;
+        z-index: zindex_icon;
     }
 }
 

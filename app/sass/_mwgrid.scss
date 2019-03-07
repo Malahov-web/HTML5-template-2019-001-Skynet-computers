@@ -116,9 +116,9 @@ $devices: (
     @media  (min-width : $key+px ) {
 
         .container{
-            max-width: $device;
+            // max-width: $device;
             // max-width: map-get($device, $key);
-            max-width: $key+px;
+            // max-width: $key+px;
         }
   
 

@@ -65,26 +65,34 @@
     content: "\EA0B";
 }
 
-.themify-search:before {
+.themify-minus:before {
     content: "\EA0C";
 }
 
-.themify-shopping-cart-full:before {
+.themify-plus:before {
     content: "\EA0D";
 }
 
-.themify-shopping-cart:before {
+.themify-search:before {
     content: "\EA0E";
 }
 
-.themify-truck:before {
+.themify-shopping-cart-full:before {
     content: "\EA0F";
 }
 
-.themify-user:before {
+.themify-shopping-cart:before {
     content: "\EA10";
 }
 
-.themify-view-list:before {
+.themify-truck:before {
     content: "\EA11";
 }
+
+.themify-user:before {
+    content: "\EA12";
+}
+
+.themify-view-list:before {
+    content: "\EA13";
+}
