@@ -42,8 +42,10 @@ $black: #000000;
 
 
 $success_color: #35dd24;
-$error_color  : #dd2435;
-$warning_color: #ddcd24;
+// $error_color  : #dd2435;
+$error_color  : #ae1b28;
+// $warning_color: #ddcd24; // #fbaf1c
+$warning_color: #aea11b; //
 $info_color   : #2491dd;
 
 
@@ -76,6 +78,7 @@ $font_family_head : "Roboto",  Tahoma,  Arial, sans-serif;
 
 $zindex_icon: 100;
 $zindex_nav: 200;
+$zindex_modal: 300;
 
 /*
  * Mixins
@@ -88,6 +91,17 @@ $zindex_nav: 200;
         line-height: $l_h_head;
         padding-top: $padding_leveling;
         padding-bottom: $padding_leveling;        
+    } @if $type == heading_double {
+        line-height: $l_h_head;
+        padding-top: $padding_leveling;
+        padding-bottom: $padding_leveling;
+        height: 1 * $l_h_head + 2 * $padding_leveling;
+        overflow: hidden; position: relative;
+        text-overflow:  ellipsis;
+        // &:after{
+        //     content: "..";
+        //     position: absolute; right: 0; bottom : 0; line-height: $l_h_head;
+        // }  
     } @else if $type == heading_bg {
         line-height: $l_h_head;
         padding-top: $padding_leveling;
@@ -297,6 +311,9 @@ body{
 
 a{
     text-decoration : none;
+    &:hover{
+        // color: $accent_dark; // Иконки в кнопках <a> задевает
+    }
 }
 ul, ol{
     margin: 0 ; padding: 0;

@@ -115,6 +115,7 @@ var js_owl = 'app/libs/owl.carousel/dist/owl.carousel.min.js';
 	});
 
 	gulp.task('watchjs', ['browser-sync', 'js'], function() {
+	// gulp.task('watchjs', ['browser-sync'], function() {
 		
 		gulp.watch('app/js/*.js', ['js']);		
 		
@@ -210,6 +211,6 @@ gulp.task('js', function() {
   	]
   	)
     .pipe(concat('scripts.js'))
-    .pipe(uglify())
+    // .pipe(uglify())
     .pipe(gulp.dest('app/js/min/'));
 });

@@ -151,6 +151,7 @@
     position: absolute; left: 0 ; //margin-top: 0.25em;
     min-width: 180px; max-width: 240px;
     padding: 0.5*$l_h 0;
+
     background-color: transparentize($white, 0.05);
 
     li{
@@ -192,15 +193,37 @@
         // float: left;
         // line-height: $l_h;
         width: 100%;
+        &:active, &:hover,{
+            background-color: $accent_light;
+            color: $white;
+        }
 
         &:first-child{
         }
         &:hover > a{
+            background: none;
+            // color: $grey_dark;
         }
 
         &>a{
+            float: left;
             padding: 0.5*$l_h $l_h;
         }
+        &.menu-item-has-children>a{
+            position: relative;
+
+            &:before{
+                @include pseudoelement_right_top(0, 50%);
+                transform: translate(0, -50%) rotate(90deg);                
+                // @extend .themify;
+                // @extend .themify-angle-right;  
+                content: "\EA01";
+                font-size: 0.5 * $fb;
+                font-family: "themify";
+            }
+
+
+        }        
 
     }    
 
@@ -217,8 +240,10 @@
     float: left; width: 100%;
     // padding-left: ;
     padding-left: $l_h*0.5*2;
+    padding: 0 0 0 $l_h*0.5*2;
   
-    background-color: transparentize($white, 0.5);
+    // background-color: transparentize($white, 0.5);
+    background-color: $grey_lighter;
 
     li{
         padding: 0;
@@ -226,9 +251,13 @@
         a{
             // @extend %top_list_item_link;
             // line-height: $l_h;
-            padding: 0.5em $l_h*0.5*2;
+            // padding: 0.5em $l_h*0.5*2; // def
+            padding: 0.5*$l_h $l_h; // menu-top
+            border-left: 1px solid $grey_light;            
             &:hover{
-                color: $accent_dark;
+                background-color: $accent_light;
+                // color: $accent_dark;
+                color: $white;
             }            
         }
 
@@ -339,19 +368,29 @@
 
 @media (max-width: #{map-get($devices, 'tb_')-1}px) {
 .users{
-
+    i.users__item-icon{        
+        position: relative;
+    }
+    &__form-outer{
+        left: auto; right: 0;
+    }    
 }
 
 }  // media end
 
 .logo{
-    // db
+    padding-bottom: $l_h;
+    display: block;
     img{
         display: block;
         width: auto;
     }
 }
-
+@media (min-width: #{map-get($devices, 'mh_')}px) {
+.logo{
+    padding-bottom: 0;
+}
+} // media end
 
 
 
@@ -390,6 +429,7 @@ font-family: Roboto;
 } /* media end */
 
 .header-bottom{
+    position: relative;
     padding: $l_h 0;
 }
 
@@ -450,6 +490,75 @@ font-family: Roboto;
         text-align: center;
     }
 }
+
+.search-trigger{
+    text-align: center;
+    i.themify{
+        position: relative;
+        font-size: $font_h4;
+        font-size: 2 * $fb;
+        z-index: $zindex_icon;
+    }  
+}
+.search{
+    display: none;
+}
+.search-modal{
+    
+    @extend %shadow;
+    position: absolute;
+    left: 0; top: 0;
+    z-index: $zindex_modal;
+
+    width: 100%;
+    height: 100%;
+    background-color: $white;
+display: none;
+    &.active{
+        display: flex!important;
+        align-items: center;    
+    }
+    .container{        
+        display: flex;
+        justify-content: center; 
+        width: 100%;      
+    }
+    .search{
+        width: calc(100% - 60px);
+    }
+    &-close{
+        float: right;
+        position: relative;        
+        width: 40px;
+        height: 40px;
+        color: $black;
+        cursor: pointer;
+        i.themify{
+            @include pseudoelement_left_top(50%, 50%);
+            transform: translate(-50%, -50%);
+            // font-size: 3 * $fb;
+            // color: $accent_dark;
+
+            font-size: $font_h4;
+            color: inherit;
+        }
+        &:hover{
+            color: $accent_dark;
+        }
+    }
+}
+@media (min-width: #{map-get($devices, 'tb_')}px) {
+.search-trigger{
+    display: none;
+}
+.search{
+    display: block;
+}
+.search-modal{
+    display: none;
+}
+} // media
+
 
 /* 2. Menu main
  * **********************************************************************
@@ -513,7 +622,7 @@ font-family: Roboto;
             background-color: $white;
         }
         .menu-main>li:hover>.submenu{
-            display: block;
+            display: block!important;
         }
             .submenu>li{
                 position: relative;
@@ -584,7 +693,7 @@ font-family: Roboto;
             &:before{
                 @include pseudoelement_left_top(50%, 50%);
                 transform: translate(-50%, -50%);
-                content: "\EA0B";
+                content: "\EA0C";
                 font-family: "themify";
             }
 
@@ -835,7 +944,6 @@ font-family: Roboto;
             // @extend %fullheight;
             position: relative;
             float: left;
-            // width: 50%; 
             width: 100%;
             padding:  $actions_padding_vertical 1*$l_h;
             background-color: $grey_light;
@@ -843,7 +951,6 @@ font-family: Roboto;
             @media (min-width: #{map-get($devices, 'mh_')}px) {
                 width: 50%;
             }
-
         }
         &-title{
             @include height_leveling('heading');
@@ -867,19 +974,21 @@ font-family: Roboto;
             color: $accent_dark;
         }
         &-link-outer{
-            position: absolute;
-            bottom: 0; margin-bottom: $actions_padding_vertical;
-
+            margin-bottom: $actions_padding_vertical;
             font-size: $font_small;
             text-transform: lowercase;
             letter-spacing: $l_s;
+
+            @media (min-width: #{map-get($devices, 'mh_')}px) {
+                position: absolute;
+                bottom: 0;
+            }
         }
-        &-link{
-            
-            padding-right: $fb*1;            
-            color: $text;  
+        &-link{             
             @extend %link_decor;
             @extend %link_with_icon;
+            padding-right: $fb*1;            
+            color: $text; 
         }
 
         &-image{
@@ -931,7 +1040,10 @@ font-family: Roboto;
             // margin-left: 0;
             margin-left: 0%;
         }
-    }    
+    }
+    &:hover .categories__item-title{    
+        color: $color_first;
+    } 
 
 }
 
@@ -969,10 +1081,10 @@ font-family: Roboto;
             padding-right: $categories_padding_horizontal;
             display: inline-block;
             background-color: transparentize($white, 0.5);
-            color: $text;
-            letter-spacing: $l_s_big;            
+            letter-spacing: $l_s_big;
+            color: $text;            
+            transition: all, 0.3s;          
         }
-
 
         &-link-outer{
             @include v_rhytm('text', $l_h);
@@ -984,11 +1096,19 @@ font-family: Roboto;
             padding-right: $categories_padding_horizontal;
         }            
         &-link{
-            
-            padding-right: $fb*1;            
-            color: $white; 
             @extend %link_decor;
-            @extend %link_with_icon;            
+            @extend %link_with_icon;  
+            padding-right: $fb*1;            
+            color: transparentize($white, 0.25);
+            transition: all, 0.3s;
+
+            &:hover{
+                color: transparentize($white, 0.0);
+                i.themify{
+                    transition: all, 0.3s;
+                    right: -4px;
+                }
+            }          
         }
         &-image{
             position: absolute;
@@ -996,7 +1116,6 @@ font-family: Roboto;
             margin-top: 1 * $l_h;
             margin-right: 1 * $l_h;
         } 
-
 
         $hue_ratio: 30;
         $hue_steps: 360 / $hue_ratio;
@@ -1042,7 +1161,7 @@ font-family: Roboto;
             height: 70px;
         }      
     }
-} 
+} // media end
 
 .pallete_color{
 
@@ -1052,6 +1171,17 @@ font-family: Roboto;
 
             &-#{$i} {
                 @include pallete_colors($accent, $i * $hue_ratio );
+            }
+        } 
+}
+.pallete_color-dark{
+
+        $hue_ratio: 30;
+        $hue_steps: 360 / $hue_ratio;
+        @for $i from 1 through $hue_steps {
+
+            &-#{$i} {
+                @include pallete_colors($accent_dark, $i * $hue_ratio );
             }
         } 
 }
@@ -1187,11 +1317,11 @@ font-family: Roboto;
             &--in-stock{
                 color: $accent_dark;
             }
-            &--in-stock{
-                
+            &--awaiting{
+                color: $warning_color;
             }
             &--none{
-                
+                color: $error_color;
             }
         }
     }
@@ -1235,7 +1365,8 @@ font-family: Roboto;
         }
             &-title-outer{
 
-                @include height_leveling('heading');
+                // @include height_leveling('heading');
+                @include height_leveling('heading_double');
                 // @include height_leveling('text');
                 @include v_rhytm('text', $l_h);
                 font-size: $font_h3;                
@@ -1245,7 +1376,7 @@ font-family: Roboto;
                 color: $text;                 
             }            
             &-title{
-                color: $text;    
+                color: $text;
             }
             &-text{
                 @include v_rhytm('text', $l_h);
@@ -1355,12 +1486,13 @@ font-family: Roboto;
     &__form{
 
 
-        .field-outer{            
+        .field-outer{
+            // display: inline-block;       
             padding-left: $columns_gap+px;
             padding-right: $columns_gap+px;
 
-                margin: 0 auto;
-                float: none;
+            margin: $l_h auto;
+            float: none;
             @media (min-width: #{map-get($devices, 'ds_')}px) {
 
                 float: left;
@@ -1525,6 +1657,9 @@ font-family: Roboto;
         font-weight: 100;
         a{
             color: $grey_dark;
+            &:hover{
+                color: $accent_dark;
+            }
         }
     }  
 }
@@ -1549,26 +1684,24 @@ font-family: Roboto;
             display: inline-block; vertical-align: middle;
             width: calc(100% - 104px - #{$l_h});
             // flex-grow: 0;
-            font-size: $fb;
-            
+            font-size: $fb;            
         }     
-            &-title{
-                
+            &-title{                
                 // @include v_rhytm('text', 1.2em); 
                 margin-bottom: 0.5em;
                 font-size: $font_small;
                 line-height: auto;
                 font-weight: 100;    
                 color: $grey_dark;
+                &:hover{
+                    color: $accent_dark;
+                }
             }
-            &-date{
-                
+            &-date{                
                 font-size: $font_small;
                 line-height: auto;
                 font-weight: 100;    
                 color: $grey_dark;
-
-
             } 
     }
 }
@@ -1617,8 +1750,65 @@ font-family: Roboto;
 */
 
 body .owl-carousel{
-    overflow: hidden;
+    // overflow: hidden;
+
+    .owl-stage-outer{
+        width: 100%;
+    }
 }
+
 body .owl-carousel .owl-item img {
     width: auto;
+}
+
+body .owl-carousel .owl-nav{
+    position: absolute;
+    top: 50%; left: 0;
+    width: 100%; 
+    
+    button.owl-prev,
+    button.owl-next{
+        position: absolute;
+        top: 50%;
+        font-size: 0;
+
+        span{ 
+            @extend .themify;           
+            // font-size: 0;
+            color: transparent;
+        }    
+
+        &.owl-prev{
+            left: 0;
+            transform: translateX(-100%);
+            span:before {
+                @extend .themify-angle-right;
+                transform: rotate(180deg);
+                font-size: 3 * $fb;
+                color: $grey;
+            }
+        }        
+        &.owl-next{
+            right: 0;
+            transform: translateX(100%);
+            span:before {
+                @extend .themify-angle-right;
+                font-size: 3 * $fb;
+                color: $grey;
+            }
+            
+        }
+        &:hover span:before{
+            color: $accent_dark;
+        }
+    }
+
+}
+
+// body .owl-carousel .owl-stage>.active{  // Работает
+// body .owl-carousel .owl-stage>.active:last-child{
+// body .owl-carousel .owl-stage>.active:last-of-type{
+// body .owl-carousel .owl-stage>div:last-of-type.active{
+body .owl-carousel .owl-stage>.active:nth-child(4){  // считает все слайды, не учитывая .active
+    background-color: #ccc;
 }

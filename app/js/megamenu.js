@@ -3,30 +3,21 @@
  * ----------------------------------------------------------------- 
  */ 
 
-/*
-Алгоритм
 
-рендер изображений категорий
+    // megaMenu();
 
-hover
-    показать с анимацией и блокировкой
-    скрыть
+    function megaMenu(argument) {
 
-*/
+        var megamenu = $('.megamenu');
+        var imageTemplate = '<span class="submenu__item-image"><img src="images/product-cap.jpg"></span>';
+        var itemsWithImages = megamenu.find('[data-image-url]');
+        // console.log(itemsWithImages);
 
-jQuery(document).ready(function(){
+        itemsWithImages.each( function() {
 
-    var megamenu = $('.megamenu');
-    var imageTemplate = '<span class="submenu__item-image"><img src="images/product-cap.jpg"></span>';
-    var itemsWithImages = megamenu.find('[data-image-url]');
-    // console.log(itemsWithImages);
+            currentItemImageSrc = $(this).attr('data-image-url');
+            $(this).append(imageTemplate);
+            $(this).find('img').attr('src', currentItemImageSrc);
 
-    itemsWithImages.each( function() {
-
-        currentItemImageSrc = $(this).attr('data-image-url');
-        $(this).append(imageTemplate);
-        $(this).find('img').attr('src', currentItemImageSrc);
-
-    });
-
- });
+        });
+    }

@@ -3,37 +3,40 @@
  * ----------------------------------------------------------------- 
 */
  
-jQuery(document).ready(function(){
- 
-container_width = jQuery(".container").innerWidth(); //console.log(container_width);	
-mobile_width = 768;
+// jQuery(document).ready(function(){ 
 
-if ( container_width <= mobile_width ){ 
 
-	var temp = 400;
-	
-	// Скрываем контент аккордеонов
-	jQuery('.js-accordeon__content').hide();
 
-	// Обрабатываем 
-    jQuery('.js-accordeon__title').click(function (e) {
-	
-		accordeon__content = jQuery(this).closest('.js-accordeon').find('.js-accordeon__content');
+	function accordeonMobile(argument) {
+
+		var temp = 400;
+        var animationTempDefault = 400;		
 		
-		// Открываем если скрыт
-		if  ( !accordeon__content.is(':visible') ) {
-			accordeon__content.slideDown(temp);		
-			jQuery(this).addClass('opened')
-		}
-		else{
-			if  ( (accordeon__content.is(':visible')) ) {
-				accordeon__content.slideUp(temp);
-				jQuery(this).removeClass('opened')				
-			}		
-		}			
+		// Скрываем контент аккордеонов
+		$('.js-accordeon__content').hide();
 
-    });  
+		// Обрабатываем 
+	    $('.js-accordeon__title').click(function (e) {
+		
+			accordeon__content = $(this).closest('.js-accordeon').find('.js-accordeon__content');
+            animationTemp = parseInt(accordeon__content.attr('data-animation-temp'));
+            animationTemp = animationTemp || animationTempDefault;			
+			
+			// Открываем если скрыт
+			if  ( !accordeon__content.is(':visible') ) {
+				accordeon__content.slideDown(animationTemp);		
+				$(this).addClass('opened')
+			}
+			else{
+				if  ( (accordeon__content.is(':visible')) ) {
+					accordeon__content.slideUp(animationTemp);
+					$(this).removeClass('opened')				
+				}
+			}			
 
-}// end if
+	    });  
+	}
 
-});
+
+
+// });
