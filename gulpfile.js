@@ -38,12 +38,22 @@ var async = require('async');
 var consolidate = require('gulp-consolidate');
 var svgmin = require('gulp-svgmin');
 var rename = require('gulp-rename');
+
+
+/* Post CSS */
+// var postcss = require('postcss');
+// // var postcss = require('postcss');
+// var syntax_scss = require('postcss-scss');	
+// var reporter = require('postcss-browser-reporter')
+
+
+
 // переменная с именем нашего шрифта (на выбор)
-var fontName = 'themify';
-	
+var fontName = 'themify';	
 
 var js_owl = 'app/libs/owl.carousel/dist/owl.carousel.min.js';
 	
+
 	// SASS - компиляция
 	gulp.task('css', function(){ // Создаем таск "sass"
 		
@@ -64,6 +74,7 @@ var js_owl = 'app/libs/owl.carousel/dist/owl.carousel.min.js';
 
 		.pipe(sourcemaps.init())
 		.pipe(plumber())
+		// .pipe(postcss(processors, {syntax: syntax_scss}))
 		.pipe(sass()) // Преобразуем scss в CSS посредством gulp-sass
 		// .pipe(sass().on('error', sass.logError))
 		.pipe(autoprefixer())
@@ -214,3 +225,26 @@ gulp.task('js', function() {
     // .pipe(uglify())
     .pipe(gulp.dest('app/js/min/'));
 });
+
+
+// Lint - stylelint
+var gulpStylelint = require('gulp-stylelint');
+var stylelint = require('stylelint');
+var postcss = require('gulp-postcss');
+var messages = require('postcss-browser-reporter');
+var syntax_scss = require('postcss-scss');
+
+var processors = [
+    // gulpStylelint()
+    stylelint({
+        reporters: [
+            {formatter: 'string', console: true}
+        ]
+        // ,fix: true
+    }),
+    messages({
+        selector: 'body:before'
+    })
+];
+
+
