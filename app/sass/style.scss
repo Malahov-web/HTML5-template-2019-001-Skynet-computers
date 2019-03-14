@@ -6,16 +6,23 @@
  *  1. Header
  *  2. Menu main
  *  3. Slider
- *  4.
-
- *  14.
+ *  4. edges
+ *  5. categories
+ *  6. actions
+ *  7. products
+ *  8. news
+ *  9. about
+ *  10. subscribe
+ *  11. social-links
+ *  12. footer
+ *  A. JS. 
+ *  B. Plugins
  *
  */
 
 @import 'mwgrid';
 @import 'fonts'; //
 @import 'svgfontstyle'; //
-@import 'mixins'; //
 @import 'base'; //
 @import 'media'; //
 @import 'libs'; //
@@ -26,8 +33,7 @@
 */
 
 .collapse {
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: 0; // padding-right: 0;
     & > .row {
         margin-left: 0;
         margin-right: 0;
@@ -80,8 +86,6 @@
 .header {}
 
 .header-top {
-    background-color: $grey_light;
-    background-color: opacify($grey_light, 0.5);
     background-color: $grey_lighter;
 }
 
@@ -97,38 +101,27 @@
 }
 
 .menu-top {
-    // height: 2em;
-    // background-color: opacify($grey_light, 1);
     @extend %clearfix;
     & > li {
         position: relative;
         float: left;
-        line-height: $l_h; // padding: 0.25em $l_h*0.5;
+        line-height: $l_h;
         & > a {
             @extend %top_list_item_link;
-            padding: 0.25em $l_h*0.5; // display: block;
-            // color: $text;
-            // font-weight: 300;
-            // font-size: $font_small;
-            // // line-height: $l_h;
-            // line-height: inherit;
+            padding: 0.25em $l_h*0.5;
             &:hover {
-                // text-decoration: underline;
-                // color: $accent_dark;
-                // background-color: $accent;
                 background-color: $accent_light;
                 color: $white;
             }
         }
         &:hover > a {
-            // background-color: $accent;
             background-color: $accent_light;
             color: $white;
         }
     }
 }
 
-.menu-top .submenu-top {
+.submenu-top {
     @extend %shadow;
     display: none;
     z-index: $zindex_nav;
@@ -138,10 +131,10 @@
     max-width: 240px;
     padding: 0.5*$l_h 0;
     background-color: transparentize($white, 0.05);
-    & > li {
+    li {
         line-height: $l_h;
         padding: 0.25em $l_h*0.5*2;
-        & > a {
+        a {
             @extend %top_list_item_link;
             &:hover {
                 color: $accent_dark;
@@ -227,6 +220,9 @@
         &--account {
             position: relative;
             padding-left: $l_h*1.25;
+            &:hover .users__form-outer {
+                display: block;
+            }
         }
         &--wish {
             position: relative;
@@ -244,9 +240,6 @@
         transform: translateY(-50%);
         font-size: 1 * $fb;
         color: $grey_dark;
-    }
-    &:hover &__form-outer {
-        display: block;
     }
     &__form-outer {
         @include pseudoelement_left_top(0, 0%);
@@ -312,7 +305,7 @@
         }
         &:hover {
             color: $accent_dark;
-            i.themify {
+            i.themify, a {
                 color: $accent_dark;
             }
         }
@@ -585,11 +578,7 @@
                 }
             }
         }
-    } // &:hover{
-    //     &__list{
-    //         display: block;
-    //     }
-    // }
+    }
 }
 
 .dropdown:hover {
@@ -597,27 +586,6 @@
         display: block;
     }
 }
-
-/*
-// использование responsive-menu как mobile-menu
-@media (max-width: #{map-get($devices, 'tb_')-1}px) {
-.menu-main{
-    border-left: 1px solid $accent_light;
-    border: none;
-}   
-.dropdown{
-    float: none;
-    margin: 0 auto;
-    width: 90%;
-    // width: 30%;
-    background-color: $accent;
-    border: none;
-   &__list{
-        width: 100%;
-   }    
-}
-} // media
-*/
 
 @media (max-width: #{map-get($devices, 'tb_')-1}px) {
     .menu-main-trigger {
@@ -937,10 +905,9 @@
     }
 }
 
-@media (max-width: #{map-get($devices, 'tb_')}px) {
+@media (max-width: #{map-get($devices, 'tb_')-1}px) {
     .categories {
         &-outer {
-            // @include v_rhytm('block-card', 0);
             margin: 0;
         }
         &__item {
@@ -1198,23 +1165,17 @@
 
 .section-subscribe {
     background-color: $accent;
-    padding: 1.5 * $l_h 0;
+    padding: 1 * $l_h 0;
 }
 
 .subscribe {
     &__title {
+        position: relative;
+        padding-left: $fb*(3+1);
         font-size: $font_h4;
         line-height: $l_h;
         font-weight: 500;
-        color: $accent_dark; // padding-left: $l_h*1.25;
-        padding-left: $fb*(3+1);
-        position: relative; // &:before{
-        //     @include pseudoelement_left_top(0, 50%);
-        //     transform: translateY(-50%);
-        //     width: $fb;   
-        //     height: $fb;   
-        //     background-color: $grey;
-        // }  
+        color: $accent_dark;
         i.themify {
             @include pseudoelement_left_top(0, 50%);
             transform: translateY(-50%);
@@ -1224,18 +1185,16 @@
     }
     &__form {
         .field-outer {
-            // display: inline-block;       
-            padding-left: $columns_gap+px;
-            padding-right: $columns_gap+px;
             margin: $l_h auto;
             float: none;
+            padding-left: $columns_gap+px;
+            padding-right: $columns_gap+px;
             @media (min-width: #{map-get($devices, 'ds_')}px) {
                 float: left;
             }
         }
     }
     &__social {
-        // float: right;
         margin: 0 auto;
         display: flex;
         justify-content: center;
@@ -1264,6 +1223,7 @@
         display: inline-block;
         a {
             display: block;
+            position: relative;
             margin: 0.5 * $fb;
             font-size: $fb;
             line-height: $l_h;
@@ -1271,6 +1231,20 @@
             height: 2 * $fb;
             background-color: $accent_dark;
             border-radius: 50%;
+            color: $accent_light;
+            transition: all 0.3s;
+            &:hover {
+                color: $white;
+            }
+            i {
+                @include pseudoelement_left_top(50%, 50%);
+                transform: translate(-50%, -50%);
+                font-size: $fb;
+                color: inherit;
+                &:before {
+                    vertical-align: middle;
+                }
+            }
         }
     }
 }
@@ -1304,12 +1278,12 @@
     }
     &__blog {}
     &__title {
+        @include height_leveling('text');
+        @include v_rhytm('text', $l_h);
         font-size: $fb; // line-height: $l_h;
         font-weight: 400;
         color: $grey_dark;
         letter-spacing: $l_s_big;
-        @include height_leveling('text');
-        @include v_rhytm('text', $l_h);
         i.themify {
             display: none;
         }
@@ -1366,9 +1340,6 @@
 
 .blog-footer {
     &__item {
-        // display: flex;
-        // align-items: center;
-        // font-size: 0;
         @include v_rhytm('item', $l_h);
         &-image {
             display: inline-block;
@@ -1381,7 +1352,7 @@
         &-conent {
             display: inline-block;
             vertical-align: middle;
-            width: calc(100% - 104px - #{$l_h}); // flex-grow: 0;
+            width: calc(100% - 104px - #{$l_h});
             font-size: $fb;
         }
         &-title {
@@ -1393,6 +1364,9 @@
             color: $grey_dark;
             &:hover {
                 color: $accent_dark;
+            }
+            a {
+                color: inherit;
             }
         }
         &-date {
@@ -1412,7 +1386,11 @@
     color: $grey_dark;
 }
 
-/* Plugins integration */
+
+/* A. JS
+ * **********************************************************************
+ *  
+*/
 
 @media (max-width: #{map-get($devices, 'tb_')-1}px) {
     .footer {
@@ -1441,13 +1419,13 @@
         }
     }
 } // media
-/* A. Plugins
+
+/* B. Plugins
  * **********************************************************************
  *  
 */
 
 body .owl-carousel {
-    // overflow: hidden;
     .owl-stage-outer {
         width: 100%;
         width: calc(100% - 1px);
@@ -1473,7 +1451,9 @@ body .owl-carousel .owl-nav {
         }
         &.owl-prev {
             left: 0;
-            transform: translateX(-100%);
+            @media (min-width: #{map-get($devices, 'ds_')}px) {
+                transform: translateX(-100%);
+            }
             span:before {
                 @extend .themify-angle-right;
                 transform: rotate(180deg);
@@ -1483,7 +1463,9 @@ body .owl-carousel .owl-nav {
         }
         &.owl-next {
             right: 0;
-            transform: translateX(100%);
+            @media (min-width: #{map-get($devices, 'ds_')}px) {
+                transform: translateX(100%);
+            }
             span:before {
                 @extend .themify-angle-right;
                 font-size: 3 * $fb;

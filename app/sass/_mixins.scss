@@ -1,10 +1,6 @@
-
-$mixins_path: 'mixins/';
-
-// @import $mixins_path + 'hexagon';
-// @import $mixins_path + 'hexagon_bg';
-
 @import 'mixins/hexagon';
 @import 'mixins/hexagon_bg';
 @import 'mixins/services';
-
+@import 'mixins/design';
+@import 'mixins/theme';
+@import 'mixins/extends';
