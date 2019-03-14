@@ -4,6 +4,8 @@
   "description": "Design HTML5 template 2019_001 Skynet Computers",
   "main": "gulpfile.js",
   "dependencies": {
+    "del": "^4.0.0",
+    "gulp-clean-css": "^4.0.0",
     "gulp-uglify": "^3.0.1"
   },
   "devDependencies": {

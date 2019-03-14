@@ -31,6 +31,10 @@ var svgmin = require('gulp-svgmin');
 
 var rename = require('gulp-rename');
 
+var del = require('del'); // Подключаем библиотеку для удаления файлов и папок
+
+var cleanCSS = require('gulp-clean-css');
+
 
 // Vars
 var fontName = 'themify';	
@@ -151,7 +155,11 @@ var js_owl = 'app/libs/owl.carousel/dist/owl.carousel.min.js';
 	    messages({
 	        selector: 'body:before'
 	    })
-	];	
+	];
+
+	gulp.task('clean', function() {
+	    return del.sync('dist'); // Удаляем папку dist перед сборкой
+	});
 
 
 // Вызовы
@@ -167,8 +175,30 @@ gulp.task('watchjs', ['browser-sync', 'js'], function() {
 
 gulp.task('makesvgfont', ['Svgmin', 'Iconfont']);
 
+gulp.task('build', ['clean'],  function () {
 
+	gulp.src('app/*.html')
+		.pipe(gulp.dest('dist'))		
 
+	gulp.src('app/css/**/*.css')
+		.pipe(cleanCSS({compatibility: 'ie10'}))
+		.pipe(gulp.dest('dist/css'))
+
+	gulp.src('app/js/min/scripts.min.js')
+		.pipe(gulp.dest('dist/js/min'))
+
+	gulp.src('app/fonts/**/*')
+		.pipe(gulp.dest('dist/fonts'))
+
+	gulp.src('app/images/**/*')
+		.pipe(gulp.dest('dist/images'))
+
+	gulp.src('app/uploads/**/*')
+		.pipe(gulp.dest('dist/uploads'))	
+	
+});
+
+gulp.task('default', ['watch']);
 
 
 
