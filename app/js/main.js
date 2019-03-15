@@ -119,5 +119,5 @@ function isMobileResolution(mobile_breakpoint) {
     var mobile_width = mobile_breakpoint;
 
     console.log('isMobileResolution(): Hi, container_width: ' + container_width);
-    return ( container_width <= mobile_width );
+    return ( container_width < mobile_width );
 }
