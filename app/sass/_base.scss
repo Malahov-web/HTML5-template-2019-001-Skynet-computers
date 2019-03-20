@@ -45,9 +45,12 @@ h1, h2, h3, h4,
     font-family: $font_family_head;
     // font-weight: bold;
     // letter-spacing: $l_s_big;
+    font-weight: 400;
+    color: $text;
 }
 h1, .h1{
     font-size: $font_h1;
+    letter-spacing: $l_s_big;
 }
 h2, .h2{
     font-size: $font_h2;

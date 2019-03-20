@@ -10,10 +10,10 @@ $accent_dark: darken($accent, 11%); // #1b72ae;  // #1b6aa1
 
 $grey : #9b999e;
 $grey_light: lighten($grey, 23%); // $grey_super_light: lighten($grey_light, 12%);  // f5f4f5
-$grey_lighter: lighten($grey, 30%);  //  e8e7e9
-$grey_super_light: lighten($grey, 35%);  //  f5f4f5
-$grey_dark: darken($grey, 14%); // 77757b;
-$grey_super_dark: darken($grey, 40%); // 353437
+$grey_lighter: lighten($grey, 30%);  //  #e8e7e9
+$grey_super_light: lighten($grey, 35%);  //  #f5f4f5
+$grey_dark: darken($grey, 14%); // #77757b;
+$grey_super_dark: darken($grey, 40%); // #353437
 
 // Semantic colors
 $text: $grey_super_dark;
@@ -58,4 +58,9 @@ $font_family_head : "Roboto",  Tahoma,  Arial, sans-serif;
 $zindex_icon: 100;
 $zindex_nav: 200;
 $zindex_modal: 300;
+
+
+$sidebar_width: 260;
+// $sidebar_offset: (40 - $columns_gap)+px;
+$sidebar_offset: 40px;
 
