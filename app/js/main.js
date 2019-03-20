@@ -92,6 +92,8 @@ jQuery(document).ready(function($) {
 
     var mobile_breakpoint = 768;   
 
+    $('[name="select-brand"]').selectric();
+
 
     if ( isMobileResolution(mobile_breakpoint) ) {
 
@@ -102,6 +104,8 @@ jQuery(document).ready(function($) {
         accordeonMobile();
 
         dropdownList();
+
+        triggerShowHide();
         
     } else {
 
@@ -115,9 +119,9 @@ jQuery(document).ready(function($) {
 
 function isMobileResolution(mobile_breakpoint) {
 
-    var container_width = jQuery(".container").innerWidth(); //console.log(container_width);   
+    var container_width = jQuery(".container").innerWidth();
     var mobile_width = mobile_breakpoint;
 
-    console.log('isMobileResolution(): Hi, container_width: ' + container_width);
+    // console.log('isMobileResolution(): Hi, container_width: ' + container_width);
     return ( container_width < mobile_width );
 }

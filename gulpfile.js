@@ -36,9 +36,9 @@ var cleanCSS = require('gulp-clean-css');
 
 
 // Vars
-var fontName = 'themify';	
-
+var fontName = 'themify';
 var js_owl = 'app/libs/owl.carousel/dist/owl.carousel.min.js';
+var js_selectric = 'app/libs/jquery-selectric/public/jquery.selectric.min.js';
 	
 
 	// SCSS - компиляция
@@ -126,6 +126,7 @@ var js_owl = 'app/libs/owl.carousel/dist/owl.carousel.min.js';
 	  return  gulp.src(
 	  	[
 	  		js_owl,
+	  		js_selectric,
 	  		'app/js/*.js'
 
 	  		//, 'app/js/menu-responsive/js/menu-responsive.js'

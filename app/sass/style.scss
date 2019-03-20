@@ -15,6 +15,10 @@
  *  10. subscribe
  *  11. social-links
  *  12. footer
+ *  14. category-text
+ *  14. filter
+ *  15. toolbar
+ *  16. pagination
  *  A. JS. 
  *  B. Plugins
  *
@@ -871,8 +875,9 @@
         // @include categories_hover_gradient_effect($accent, transparentize($accent, 0.5));
         &-title-outer {
             @include v_rhytm('text', $l_h);
-            margin-top: 0;
+            z-index: $zindex_icon;
             position: relative;
+            margin-top: 0;            
         }
         &-title {
             @include height_leveling('heading_bg'); // @include v_rhytm('text', $l_h); 
@@ -888,6 +893,7 @@
         }
         &-link-outer {
             @include v_rhytm('text', $l_h);
+            z-index: $zindex_icon;
             font-size: $font_small;
             text-transform: lowercase;
             letter-spacing: $l_s;
@@ -1097,9 +1103,10 @@
     }
 }
 
+.products-list{
+    @include v_rhytm('block-card', $l_h);
+}
 .products-list .product-outer {
-
-
 }
 .products-list .product{
     display: flex;
@@ -1387,6 +1394,10 @@
 .footer {
     padding-top: 2*$l_h;
     background-color: $grey_lighter;
+    @extend .section__block;
+}
+.home .footer  {
+    margin: 0;
 }
 
 .footer {
@@ -1555,6 +1566,8 @@
  *  
 */
 
+// B.1 owl-carousel
+
 body .owl-carousel {
     .owl-stage-outer {
         width: 100%;
@@ -1608,6 +1621,61 @@ body .owl-carousel .owl-nav {
     }
 }
 
+// B.2 selectric
+
+body .selectric{
+    max-width: 240px;
+    border: 1px solid $grey_light; 
+    background-color: lighten($grey_light, 15%); 
+
+    &-hover{
+        .selectric {
+            border-color: $grey_light; 
+        }
+    }
+    &-open,
+    &-focus{
+        .selectric {
+            border-color: $accent; 
+        }
+    }    
+
+    .label{
+        @include height_leveling('forms_element');
+        @include h_rhytm('forms_element', $font_forms_elements); 
+
+        position: relative;
+        padding-right: 1 * $fb; //
+        color: $grey_dark;
+
+        margin-left: 0;
+        font-size: $fb;
+    }
+}
+body .selectric-items {
+    @extend %shadow;
+    border: none;
+
+    .selectric-scroll {
+        ul{
+            li{
+                @include height_leveling('forms_element');
+                // @include height_leveling('heading');
+                @include h_rhytm('forms_element', $font_forms_elements); 
+                color: $text;
+                font-size: $fb;
+
+                &:hover,
+                &.hover,
+                &.highlighted{
+                    background: linear-gradient(to right, $accent, $accent_light);
+                    color: $white;
+                }                    
+            }
+        }
+    }
+}
+
 
 /* 14. filter
  * **********************************************************************
@@ -1619,6 +1687,7 @@ body .owl-carousel .owl-nav {
     font-size: 2*$fb;
 }
 .filter-title{
+    
     font-size: $font_h4;
     line-height: $l_h;
     font-weight: 400;
@@ -1627,10 +1696,27 @@ body .owl-carousel .owl-nav {
     @media (min-width: #{map-get($devices, 'ds_')}px) {
         display: none;
     }
+
+        span {
+            position: relative; 
+            padding-right: 1em;
+            i.themify {
+                @include pseudoelement_right_top(0, 50%);
+                transform: translateY(-50%);
+                font-size: $font_small;
+                color: $black;
+            }
+        }
+    &.active span i:before {
+        transform: rotate(90deg);
+    }    
 }
 
 .filter {
    
+    @media (max-width: #{map-get($devices, 'tb_')-1}px) {
+        display: none;
+    }
     &-outer{
 
     }
@@ -1781,29 +1867,33 @@ body .owl-carousel .owl-nav {
 
     &__item{
         float: left;
-        // margin-right: 1px;
 
         a, span{
+            $pagination__item_side: 2.5;
             display: block;
-            width: 2.5em;
-            height: 2.5em;
+            position: relative;
+            width: $pagination__item_side * 1em;
+            height: $pagination__item_side * 1em;
             background-color: $accent;
             border-right: 1px solid $accent_light;
             font-size: $font_h4;
             font-size: $fb;
-            line-height: $l_h;
-            line-height: 2.5em;            
+            line-height: $pagination__item_side * 1em;         
             text-align: center;
             color: $white;
-
         }
         &--active span{
-            background-color: $accent_dark;
             background-color: $accent_light;
         }
+        &--prev a,
         &--next a{
-            
+            @extend .themify; 
+
+            &:before{
+                @extend .themify-angle-right;
+            }
         }
+        &--prev a:before { transform: rotate(180deg); }
         &:hover a{
             background-color: $accent_light;
         }
