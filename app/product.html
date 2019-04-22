@@ -314,46 +314,54 @@
 
         </main>
 
-        <aside class="sidebar">
+        <aside class="sidebar sidebar--productfull">
             <div class="sidebar-inner">
 
-                <div class="product__price-outer">
-                    <div class="product__price-old">
-                        <span class="product__price-old-value">90 500</span>
-                        <span class="product__price-old-currency">₽</span>
-                    </div>
-                </div>
+                <div class="row">
 
-                <div class="product__price-outer">
-                    <div class="product__price product__price--productfull">
-                        <span class="product__price-value">75 500</span>
-                        <span class="product__price-currency">₽</span>
-                    </div>
-                </div>
-
-                <div class="product__button-outer">
-                    <a href="" class="product__button button button-buy"><span>В корзину</span></a>
-                </div>
-
-                <div class="product__availability product__availability">наличие:
-                    <span class="product__availability-value product__availability-value--in-stock">в магазине</span>
-                </div>
-
-                <div class="productfull__tools-outer">
-                    <div class="productfull__tools">
-                        <div class="productfull__tools-item">
-                            <i class="themify themify-split-v"></i>
-                            <span class="">Количество</span>                          
+                    <div class="mv_12 mh_6 tb_6 ds_12">
+                        <div class="product__price-outer">
+                            <div class="product__price-old">
+                                <span class="product__price-old-value">90 500</span>
+                                <span class="product__price-old-currency">₽</span>
+                            </div>
                         </div>
-                        <div class="productfull__tools-item">
-                            <i class="themify themify-heart"></i>
-                            <span class="">Добавить в избранное</span>                    
+                        
+                        <div class="product__price-outer">
+                            <div class="product__price product__price--productfull">
+                                <span class="product__price-value">75 500</span>
+                                <span class="product__price-currency">₽</span>
+                            </div>
                         </div>
-                        <div class="productfull__tools-item">
-                            <i class="themify themify-bar-chart"></i>
-                            <span class="">Сравнение</span>                          
+                        
+                        <div class="product__button-outer">
+                            <a href="" class="product__button button button-buy"><span>В корзину</span></a>
                         </div>
                     </div>
+                    
+                    <div class="mv_12 mh_6 tb_6 ds_12">
+                        <div class="product__availability product__availability">наличие:
+                            <span class="product__availability-value product__availability-value--in-stock">в магазине</span>
+                        </div>
+                        
+                        <div class="productfull__tools-outer">
+                            <div class="productfull__tools">
+                                <div class="productfull__tools-item">
+                                    <i class="themify themify-split-v"></i>
+                                    <span class="">Количество</span>                          
+                                </div>
+                                <div class="productfull__tools-item">
+                                    <i class="themify themify-heart"></i>
+                                    <span class="">Добавить в избранное</span>                    
+                                </div>
+                                <div class="productfull__tools-item">
+                                    <i class="themify themify-bar-chart"></i>
+                                    <span class="">Сравнение</span>                          
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
 
@@ -363,15 +371,16 @@
         <div class="bottomline">
 
             <div class="main main--sidebar--right">
-                <div class="tabs">
-                    <ul class="tabs__controls">
-                        <li class="tabs__controls-button " data-target="#description"><a href="#">Описание</a></li>
-                        <li class="tabs__controls-button "><a href="#">Характеристики</a></li>
-                        <li class="tabs__controls-button active"><a href="#">Отзывы</a></li>
-                        <li class="tabs__controls-button"><a href="#">Доставка и оплата</a></li>
+                <div class="tabs js-tabs">
+                    <ul class="tabs__controls js-tabs__controls">
+                        <li class="tabs__controls-button" data-target="#description"><a href="#">Описание</a></li>
+                        <li class="tabs__controls-button " data-target="#specs"><a href="#">Характеристики</a></li>
+                        <li class="tabs__controls-button active" data-target="#reviews"><a href="#">Отзывы</a></li>
+                        <li class="tabs__controls-button" data-target="#delivery"><a href="#">Доставка и оплата</a></li>
                     </ul>
-                    <div class="tabs__content">
-                        <div class="tabs__content-item js-tabs__content-item ">
+                    <div class="tabs__content  js-tabs__content">
+
+                        <div class="tabs__content-item js-tabs__content-item " id="description">
                             <div class="productfull__description">
                                 <div class="productfull__description-text">
                                     <p>Моноблок - крайне практичная и удобная в пользовании вещь. Это монитор и системный блок, объединенные в рамках одного корпуса. Таким образом, вы экономите место на рабочем столе.</p>
@@ -384,7 +393,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tabs__content-item js-tabs__content-item">
+
+                        <div class="tabs__content-item js-tabs__content-item" id="specs">
                             <div class="productfull__description-title g-subtitle h4">Общие характеристики:</div>
                 
                             <div class="productfull__specifications">
@@ -421,19 +431,19 @@
                             </div>
                         </div>
                 
-                        <div class="tabs__content-item js-tabs__content-item active">
+                        <div class="tabs__content-item js-tabs__content-item active"  id="reviews">
                             <div class="productfull__reviews reviews">
 
                                 <div class="reviews__header">
                                     <div class="row-flex middle">
-                                        <div class="reviews__item-left">
+                                        <div class="reviews-left">
                                             <div class="reviews__counter">
                                                 <span class="reviews__counter-value">2</span> 
                                                 <span class="reviews__counter-text">отзыва</span>                                          
                                             </div>
                                         </div>
 
-                                        <div class="reviews__item-right">
+                                        <div class="reviews-right">
                                             <div class="reviews__rating-average-title">
                                                 <div class="reviews__rating-average-title">
                                                     Средняя оценка: <span class="reviews__rating-average-value">4.3</span>
@@ -467,7 +477,7 @@
 
                                         <div class="reviews__item">
                                             <div class="row">
-                                                <div class="reviews__item-left">
+                                                <div class="reviews-left reviews__item-header">
                                                     <div class="reviews__item-rating">
                                                         <div class="rating" data-value="4">
                                                            <ul>
@@ -482,7 +492,7 @@
                                                     <div class="reviews__item-author">Александр Иванов</div>
                                                     <time class="reviews__item-date" datetime="2019-04-18">18.04.2019</time>
                                                 </div>
-                                                <div class="reviews__item-right">
+                                                <div class="reviews-right">
                                                     <div class="reviews__item-content">
                                                         <div class="reviews__item-title reviews__item-title--advantages">
                                                             <i class="themify themify-plus"></i>
@@ -510,7 +520,7 @@
 
                                         <div class="reviews__item ">
                                             <div class="row">
-                                                <div class="reviews__item-left">
+                                                <div class="reviews-left  reviews__item-header">
                                                     <div class="reviews__item-rating">
                                                         <div class="rating" data-value="4">
                                                            <ul>
@@ -525,7 +535,7 @@
                                                     <div class="reviews__item-author">Алевтина </div>
                                                     <time class="reviews__item-date" datetime="2019-04-18">18.04.2018</time>
                                                 </div>
-                                                <div class="reviews__item-right">
+                                                <div class="reviews-right">
                                                     <div class="reviews__item-content">
                                                         <div class="reviews__item-title reviews__item-title--advantages">
                                                             <i class="themify themify-plus"></i>
@@ -552,12 +562,12 @@
                                         </div>
 
                                         <!--div class="reviews__item">
-                                            <div class="reviews__item-left">
+                                            <div class="reviews-left">
                                                 <div class="reviews__item-rating"></div>
                                                 <div class="reviews__item-author"></div>
                                                 <time class="reviews__item-date" datetime="2018-04-18">18.04.2018</time>
                                             </div>
-                                            <div class="reviews__item-right">
+                                            <div class="reviews-right">
                                                 <div class="reviews__item-content">
                                                     <div class="reviews__item-title"></div>
                                                     <p class="reviews__item-text"></p>
@@ -618,7 +628,9 @@
                             </div>
                         </div>
 
-                        <div class="tabs__content-item js-tabs__content-item"></div>
+                        <div class="tabs__content-item js-tabs__content-item" id="delivery">
+                           <div class="productfull__description-title g-subtitle h4">Доставка и оплата</div>                            
+                        </div>
                     </div>
                 </div>
             </div>

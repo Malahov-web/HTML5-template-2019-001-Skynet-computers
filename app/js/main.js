@@ -94,6 +94,8 @@ jQuery(document).ready(function($) {
 
     $('[name="select-brand"]').selectric();
 
+    tabs();
+
 
     if ( isMobileResolution(mobile_breakpoint) ) {
 

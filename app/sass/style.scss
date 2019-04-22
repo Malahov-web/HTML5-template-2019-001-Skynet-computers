@@ -118,6 +118,15 @@
     }
 
 }
+.sidebar--productfull .sidebar-inner {
+
+    @media (max-width: #{map-get($devices, 'ds_')-1}px) {        
+        background: none;
+        border-top: 1px solid $grey_super_light;
+    } 
+}
+
+
 .main--sidebar--left {
     float: right;
 }
@@ -610,11 +619,16 @@
     color: $white;
     transition: all 0.3s;
     position: relative;
+    @extend .themify;
+
     &:before {
         @include pseudoelement_left_top(50%, 50%);
         transform: translate(-50%, -50%);
-        content: "\EA0C";
+        position: absolute;
+        content: "\EA0F";
         font-family: "themify";
+        @extend .themify-menu;
+        
     }
     display: none; // width: 48px;
     // height: 48px;
@@ -1163,6 +1177,11 @@
                 color: $error_color;
             }
         }
+    }
+    &__rating {
+        @include v_rhytm('text', $l_h);
+        font-size: $fb;
+        font-size: $font_small;
     }
 }
 
@@ -1714,6 +1733,21 @@ body .selectric{
         margin-left: 0;
         font-size: $fb;
     }
+    .button {
+        @extend .themify;
+        @extend .themify-angle-right;
+        &:before {
+            transform: translate(-50%, -50%) rotate(90deg);
+            position: absolute;
+            top: 50%; left: 50%;
+            
+            font-size: $fb;
+            font-size: $font_small;
+        }
+        &:after {
+            display: none;
+        }
+    }
 }
 body .selectric-items {
     @extend %shadow;
@@ -2022,34 +2056,62 @@ body .selectric-items {
 }
 
 .productfull-left {
-    width: 44.444444%;    
+    width: 100%;
     @extend [class*="mv_"];
+
+    @media (min-width: #{map-get($devices, 'tb_')}px) {
+        width: 44.444444%;  
+    }      
 
 }
 .productfull-right {
-    width: 55.555556%;    
+    width: 100%;
     @extend [class*="mv_"];
+    @extend .section__block;
+
+    @media (min-width: #{map-get($devices, 'tb_')}px) {
+        width: 55.555556%;
+        margin-top: 0;
+    }
+
+    & > div:first-child {
+        margin-top: 0;
+    }
 }
 .productfull-left-inner {
-    border-right: 1px solid $grey_super_light;
+    border-bottom: 1px solid $grey_super_light;
+
+    @media (min-width: #{map-get($devices, 'tb_')}px) {
+        border-right: 1px solid $grey_super_light;
+        border-bottom: 0;
+    }    
 }
 
 .productfull__image {
 
-    // display: block;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin-bottom: $l_h;
 
+    @media (min-width: #{map-get($devices, 'tb_')}px) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    } 
+
     img {
+        display: block;
         width: auto;
         max-width: 100%;
         height: auto;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
 .productfull-gallery {
+
+    // @include v_rhytm('item', $l_h);
+    @extend .section__title;
+
 
     &-inner {
         display: flex;
@@ -2064,21 +2126,25 @@ body .selectric-items {
         margin: 0 8px;
         border: 1px solid $grey_lighter;
 
+        &:hover {
+            border-color: $accent;
+        }
+
         img {
             width: auto;
             max-width: 100%;
         }
+
     }
 }
 
 .productfull__brand {
 
-    @include v_rhytm('text', $l_h);
-    height: 2 * $l_h;
-
     &-outer {
-        
+        @include v_rhytm('text', $l_h);   
     }
+
+    height: 2 * $l_h;
 
     img {
         width: auto;
@@ -2119,6 +2185,7 @@ body .selectric-items {
 
 .productfull__rating {
     //@include v_rhytm('text', $l_h);
+
     &-outer {
         
     }
@@ -2184,7 +2251,7 @@ body .selectric-items {
     }
     &-text {
         @include v_rhytm('text', $l_h);
-        
+        @include height_leveling('text');
     }
 }
 
@@ -2264,11 +2331,30 @@ body .selectric-items {
 
 .reviews {
 
-    &__header {
-        padding-bottom: 1 * $l_h;
-        border-bottom: 1px solid $grey_super_light;
+    &-left {
+        @extend [class*="mv_"];
+        width: 100%;
 
-        & .reviews__item-right {
+        @media (min-width: #{map-get($devices, 'tb_')}px) {        
+            width: 250px;
+        }  
+    }
+    &-right {
+        @extend [class*="mv_"];
+        width: 100%;
+
+        @media (min-width: #{map-get($devices, 'tb_')}px) {        
+            width: calc(100% - 250px);
+        }  
+    } 
+
+    &__header {
+
+        padding-bottom: 1 * $l_h;
+
+        @include border_fullwidth('bottom', $grey_super_light);
+
+        & .reviews-right {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -2309,16 +2395,25 @@ body .selectric-items {
         }
             &__item {
                 padding: 0.5 * $l_h 0;
-                border-bottom: 1px solid $grey_super_light;                 
+                border-bottom: 1px solid $grey_super_light; 
 
-                &-left {
-                    @extend [class*="mv_"];
-                    width: 250px;
+                &:last-child {
+                    border: none;
+                }               
+
+                // &-left {
+                //     @extend [class*="mv_"];
+                //     width: 250px;
+                // }
+                // &-right {
+                //     @extend [class*="mv_"];
+                //     width: calc(100% - 250px);
+                // }
+
+                &-header {
+                    @include v_rhytm('item', $l_h);
+                    margin-top: 0;
                 }
-                &-right {
-                    @extend [class*="mv_"];
-                    width: calc(100% - 250px);
-                }  
 
                 &-rating {
                     @include v_rhytm('text', $l_h);
@@ -2340,14 +2435,22 @@ body .selectric-items {
                 &-content {
                     // @include v_rhytm('item', $l_h);  
                     margin-bottom: $l_h;
+                    padding-left: 2 * $fb;
+
+                    @media (min-width: #{map-get($devices, 'tb_')}px) {        
+                        padding-left: 0;
+                    } 
                 }
                     &-title {
                         @include v_rhytm('text', $l_h);
                         @include height_leveling('text');
                         position: relative;
+                        //left: 2em;
                         font-size: $fb; 
 
-                        // @extend .themify;
+                        @media (min-width: #{map-get($devices, 'tb_')}px) {        
+                            //left: 0em;
+                        }  
 
                         i.themify {
                             @include pseudoelement_left_top(0, 50%);
@@ -2377,6 +2480,8 @@ body .selectric-items {
     &__form {
         
         &-header {
+            @include border_fullwidth('top', $grey_super_light);
+            @include border_fullwidth('bottom', $grey_super_light);
             padding: 0.41666667 * $l_h  0;
             display: flex;
             border-bottom: 1px solid $grey_super_light;

@@ -623,7 +623,8 @@ input.field-radio{
 
 .rating {
     ul {
-        text-align: left;
+        // text-align: left;
+        text-align: inherit;
 
         li {
             display: inline-block;
@@ -674,9 +675,13 @@ input.field-radio{
         width: 100%;        
 
         &-button {
-            float: left;
+            // float: left;
             background-color: $grey_lighter;
             margin-right: 1px;
+
+            @media (min-width: #{map-get($devices, 'tb_')}px) {
+                float: left;
+            }
 
             a {
                 @extend %nav_primary_item;
@@ -689,6 +694,7 @@ input.field-radio{
                     color: $white;
                 }
             }
+
 
         }
         &-button.active {
@@ -708,7 +714,7 @@ input.field-radio{
             @include h_rhytm('nav_element', $fb);
             padding-top: 1 * $l_h;
             padding-bottom: 1 * $l_h;
-            
+            overflow: hidden;
 
         }
 
