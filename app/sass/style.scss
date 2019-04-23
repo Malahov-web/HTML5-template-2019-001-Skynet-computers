@@ -19,7 +19,7 @@
  *  14. filter
  *  15. toolbar
  *  16. pagination
- *  A. JS. 
+ *  A. JS.
  *  B. Plugins
  *
  */
@@ -62,6 +62,7 @@
     line-height: $l_h;
     color: $grey;
 }
+
 .g-subtitle {
     @include v_rhytm('text', $l_h);
 }
@@ -86,62 +87,59 @@
 }
 
 .main {
-    float: right;    
+    float: right;
     width: 100%;
-
-    @media (min-width: #{map-get($devices, 'ds_')}px) {        
+    @media (min-width: #{map-get($devices, 'ds_')}px) {
         width: calc(100% - #{$sidebar_width}px - #{$sidebar_offset});
-    }    
+    }
 }
-.sidebar{
+
+.sidebar {
     @extend .section__block;
     float: left;
     width: 100%;
-
-    &-inner{
-        
+    &-inner {
         padding: 1px 30px;
-        padding: $l_h 30px;
-        // background-color: $grey_lighter;
+        padding: $l_h 30px; // background-color: $grey_lighter;
         background-color: $grey_super_light;
-        &>div:first-child {
+        & > div:first-child {
             margin-top: 0;
         }
-        @media (min-width: #{map-get($devices, 'ds_')}px) {        
-           min-height: 400px;
-        }        
+        @media (min-width: #{map-get($devices, 'ds_')}px) {
+            min-height: 400px;
+        }
     }
-
-    @media (min-width: #{map-get($devices, 'ds_')}px) {        
+    @media (min-width: #{map-get($devices, 'ds_')}px) {
         margin: 0;
-        width: $sidebar_width+px; 
+        width: $sidebar_width+px;
     }
-
 }
-.sidebar--productfull .sidebar-inner {
 
-    @media (max-width: #{map-get($devices, 'ds_')-1}px) {        
+.sidebar--productfull .sidebar-inner {
+    @media (max-width: #{map-get($devices, 'ds_')-1}px) {
         background: none;
         border-top: 1px solid $grey_super_light;
-    } 
+    }
 }
-
 
 .main--sidebar--left {
     float: right;
 }
+
 .main--sidebar--right {
     float: left;
 }
-.main--sidebar--right + .sidebar{
+
+.main--sidebar--right + .sidebar {
     float: right;
 }
 
-.page-title{    
+.page-title {
     @include v_rhytm('text', $l_h);
     margin-top: 0;
 }
-.breadcrumbs-outer + .page-title{    
+
+.breadcrumbs-outer + .page-title {
     @include v_rhytm('text', $l_h);
 }
 
@@ -229,7 +227,6 @@
         display: none;
         z-index: $zindex_nav;
         top: 100%;
-        width: 100%;
         width: 100vw;
         background-color: $grey_lighter;
         & > li {
@@ -483,6 +480,9 @@
         display: none;
     }
 } // media
+
+
+
 /* 2. Menu main
  * **********************************************************************
  *
@@ -534,6 +534,10 @@
             background-color: $accent_light;
         }
     }
+}
+.menu-main > li.menu-main__item--active > a,
+.menu-main  > li.menu-main__item--active > a:hover {
+    background-color: $accent_dark;
 }
 
 /* megamenu */
@@ -1661,6 +1665,7 @@ body .owl-carousel .owl-item img {
     width: auto;
 }
 
+// Slider standart
 body .owl-carousel .owl-nav {
     position: absolute;
     top: 50%;
@@ -1700,6 +1705,41 @@ body .owl-carousel .owl-nav {
         &:hover span:before {
             color: $accent_dark;
         }
+    }
+}
+
+// Slider small
+body .gallery .owl-carousel .owl-nav {
+
+    button.owl-prev, button.owl-next {
+
+        span {
+           // transform: translateY(-50%); 
+        }
+        &.owl-prev {
+            left: 0;
+            @media (min-width: #{map-get($devices, 'ds_')}px) {
+                transform: translate(-100%, -50%);
+            }
+            span:before {
+                @extend .themify-angle-right;
+                transform: rotate(180deg);
+                font-size: 1 * $fb;
+
+            }
+        }
+        &.owl-next {
+            right: 0;
+            @media (min-width: #{map-get($devices, 'ds_')}px) {
+                transform: translate(100%, -50%);
+            }
+            span:before {
+                @extend .themify-angle-right;
+                font-size: 1 * $fb;
+
+            }
+        }
+
     }
 }
 
@@ -2109,6 +2149,10 @@ body .selectric-items {
 
 .productfull-gallery {
 
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+
     // @include v_rhytm('item', $l_h);
     @extend .section__title;
 
@@ -2119,15 +2163,21 @@ body .selectric-items {
         align-items: center; 
     }
 
-    &__item {        
+    &__item {
+        display: block;    
         width: 80px;
         height: 60px;
         padding: 8px;
         margin: 0 8px;
         border: 1px solid $grey_lighter;
 
+        &.active {
+            //border-color: $accent;
+        }
         &:hover {
-            border-color: $accent;
+            img {
+                opacity: 0.85;
+            }
         }
 
         img {
@@ -2135,6 +2185,9 @@ body .selectric-items {
             max-width: 100%;
         }
 
+    }
+    .current &__item {
+        border-color: $accent;
     }
 }
 

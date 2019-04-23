@@ -47,7 +47,7 @@ var js_selectric = 'app/libs/jquery-selectric/public/jquery.selectric.min.js';
 
 		.pipe(sourcemaps.init())
 		.pipe(plumber())
-		// .pipe(postcss(processors, {syntax: syntax_scss}))
+		// .pipe(postcss(processors, {syntax: syntax_scss})) // linting
 		.pipe(sass()) // Преобразуем scss в CSS посредством gulp-sass
 		// .pipe(sass().on('error', sass.logError))
 		.pipe(autoprefixer())
@@ -173,7 +173,8 @@ gulp.task('watchjs', ['browser-sync', 'js'], function() {
 	gulp.watch('app/js/*.js', ['js']);		
 });	
 
-gulp.task('makesvgfont', ['Svgmin', 'Iconfont']);
+// gulp.task('makesvgfont', ['Svgmin', 'Iconfont']);
+gulp.task('makesvgfont', ['Iconfont']);
 
 gulp.task('build', ['clean'],  function () {
 
