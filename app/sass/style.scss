@@ -101,7 +101,7 @@
     &-inner {
         padding: 1px 30px;
         padding: $l_h 30px; // background-color: $grey_lighter;
-        background-color: $grey_super_light;
+        @include color_scheme('grey_light');
         & > div:first-child {
             margin-top: 0;
         }
@@ -157,7 +157,8 @@
 .header {}
 
 .header-top {
-    background-color: $grey_lighter;
+    // background-color: $grey_lighter;
+    @include color_scheme('grey');
 }
 
 .menu-top-trigger {
@@ -181,13 +182,15 @@
             @extend %top_list_item_link;
             padding: 0.25em $l_h*0.5;
             &:hover {
-                background-color: $accent_light;
-                color: $white;
+                // background-color: $accent_light;
+                // color: $white;
+                @include color_scheme('accent_light');
             }
         }
         &:hover > a {
-            background-color: $accent_light;
-            color: $white;
+            // background-color: $accent_light;
+            // color: $white;
+            @include color_scheme('accent_light');
         }
     }
 }
@@ -245,7 +248,7 @@
             }
             &.menu-item-has-children > a {
                 position: relative;
-                &::before {
+                &:before {
                     @include pseudoelement_right_top(0, 50%);
                     transform: translate(0, -50%) rotate(90deg); // @extend .themify;
                     // @extend .themify-angle-right;
@@ -365,8 +368,8 @@
     &__item {
         padding-left: 1.5 * $l_h;
         font-size: $fb;
-        font-weight: 400;
-        letter-spacing: $l_s;
+        // font-weight: 400;
+        // letter-spacing: $l_s;
         i.themify {
             @include pseudoelement_left_top(0, 50%);
             transform: translateY(-50%);
@@ -479,9 +482,9 @@
     .search-modal {
         display: none;
     }
-} // media
+}
 
-
+/* media */
 
 /* 2. Menu main
  * **********************************************************************
@@ -499,7 +502,7 @@
 
 .menu-main-trigger {
     @extend .dropdown;
-    float: left!important;
+    float: left !important;
 }
 
 .menu-main {
@@ -515,8 +518,7 @@
         margin-right: 0;
     }
     > a {
-
-/* 
+        /* 
         display: block;
         padding: 0.75em 2em;
         border-left: 1px solid $accent_light;
@@ -525,18 +527,16 @@
         letter-spacing: $l_s;
         color: $white;
         transition: all 0.3s; */
-
         @extend %nav_primary_item;
         border-left: 1px solid $accent_light;
         color: $white;
-
         &:hover {
             background-color: $accent_light;
         }
     }
 }
-.menu-main > li.menu-main__item--active > a,
-.menu-main  > li.menu-main__item--active > a:hover {
+
+.menu-main > li.menu-main__item--active > a, .menu-main > li.menu-main__item--active > a:hover {
     background-color: $accent_dark;
 }
 
@@ -559,7 +559,7 @@
         background-color: $white;
     }
     .menu-main > li:hover > .submenu {
-        display: block!important;
+        display: block !important;
     }
     .submenu > li {
         position: relative;
@@ -582,9 +582,10 @@
             margin-top: 0;
             display: inline-block;
             font-size: $font_h4;
-            line-height: $l_h;
-            font-weight: 500;
-            letter-spacing: $l_s_big;
+            // line-height: $l_h;
+            @include height_leveling('text');
+            // font-weight: 500;
+            // letter-spacing: $l_s_big;
             color: $text;
         }
         .submenu__item-image {
@@ -616,7 +617,7 @@
     }
 } // media                
 .dropdown {
-    padding: $l_h/2+0.75em $l_h/2+0.75em;
+    padding: $l_h/2 + 0.75em  $l_h/2 + 0.75em;
     border-left: 1px solid $accent_light;
     font-size: $fb;
     line-height: $l_h;
@@ -624,15 +625,14 @@
     transition: all 0.3s;
     position: relative;
     @extend .themify;
-
     &:before {
         @include pseudoelement_left_top(50%, 50%);
         transform: translate(-50%, -50%);
         position: absolute;
         content: "\EA0F";
+        // font-family: "themify", sans-serif;
         font-family: "themify";
         @extend .themify-menu;
-        
     }
     display: none; // width: 48px;
     // height: 48px;
@@ -692,13 +692,13 @@
             float: left;
             width: 100%;
             a {
-                background-color: $accent; // color: $accent;
                 display: block;
                 padding: 0.75em 2em;
                 border-left: 1px solid $accent_light;
                 font-size: $fb;
                 line-height: $l_h;
                 letter-spacing: $l_s;
+                background-color: $accent; // color: $accent;
                 color: $white;
                 transition: all 0.3s;
                 &:hover, &:active {
@@ -715,6 +715,8 @@
         }
     }
 }
+
+
 
 /* 3. Slider
  * **********************************************************************
@@ -829,7 +831,7 @@
             float: left;
             width: 100%;
             padding: $actions_padding_vertical 1*$l_h;
-            background-color: $grey_light;
+            @include color_scheme('grey');
             @media (min-width: #{map-get($devices, 'mh_')}px) {
                 width: 50%;
             }
@@ -850,16 +852,14 @@
         &-promocode {
             @include height_leveling('text');
             @include v_rhytm('text', $l_h);
+            @include typo_scheme('promocode');
             font-size: $font_h4;
-            font-weight: 500;
-            letter-spacing: $l_s;
             color: $accent_dark;
         }
         &-link-outer {
+            @include typo_scheme('link');
             margin-bottom: $actions_padding_vertical;
-            font-size: $font_small;
-            text-transform: lowercase;
-            letter-spacing: $l_s;
+            font-size: $font_small;            
             @media (min-width: #{map-get($devices, 'mh_')}px) {
                 position: absolute;
                 bottom: 0;
@@ -916,6 +916,9 @@
     &:hover .categories__item-title {
         color: $color_first;
     }
+    &:hover .categories__item-image img{
+        filter: brightness(100%);
+    }    
 }
 
 .categories {
@@ -951,11 +954,13 @@
         &-link-outer {
             @include v_rhytm('text', $l_h);
             z-index: $zindex_icon;
-            font-size: $font_small;
-            text-transform: lowercase;
-            letter-spacing: $l_s;
             padding-left: $categories_padding_horizontal;
-            padding-right: $categories_padding_horizontal;
+            padding-right: $categories_padding_horizontal;            
+            font-size: $font_small;
+            // text-transform: lowercase;
+            // letter-spacing: $l_s;
+            @include typo_scheme('link');
+            font-weight: 100;
         }
         &-link {
             @extend %link_decor;
@@ -972,11 +977,16 @@
             }
         }
         &-image {
-            position: absolute;
-            top: 0;
-            right: 0;
+            // position: absolute;
+            // top: 0;
+            // right: 0;
+            @include pseudoelement_right_top(0, 0);
             margin-top: 1 * $l_h;
             margin-right: 1 * $l_h;
+            img {
+                filter: brightness(85%);
+                transition: all $trns_dur;
+            }            
         }
         $hue_ratio: 30;
         $hue_steps: 360 / $hue_ratio; // @for $i from 1 through $hue_steps {
@@ -1170,7 +1180,8 @@
         font-weight: 400;
         color: $text;
         &-value {
-            font-weight: 500;
+            // font-weight: 500;
+            @include typo_scheme('promocode');
             &--in-stock {
                 color: $accent_dark;
             }
@@ -1242,7 +1253,7 @@
                     vertical-align: middle;
                 }
             }
-            
+
         }
     }
     &__button-outer {
@@ -1312,23 +1323,22 @@
             img {}
         }
         &-content {}
-        &-title-outer {
-            // @include height_leveling('heading');
-            @include height_leveling('heading_double'); // @include height_leveling('text');
-            @include v_rhytm('text', $l_h);
-            font-size: $font_h3;
+        &-title-outer {            
+            @include text_overflow();
+            @include height_leveling('heading'); // @include height_leveling('heading_double');
+            @include v_rhytm('text', $l_h);            
+            @include typo_scheme('title'); // letter-spacing: $l_s;
             font-size: $font_h4;
             font-weight: 300;
-            letter-spacing: $l_s;
             color: $text;
         }
         &-title {
-            color: $text;
+            color: inherit;
         }
         &-text {
             @include v_rhytm('text', $l_h);
+            @include height_leveling('text');
             font-size: $fb;
-            line-height: $l_h;
         }
         &-footer {
             display: flex;
@@ -1339,9 +1349,11 @@
         &-link-outer {
             float: left;
             font-size: $font_small;
-            line-height: $l_h;
-            text-transform: lowercase;
-            letter-spacing: $l_s_big;
+            // line-height: $l_h;
+            @include height_leveling('text');
+            // text-transform: lowercase;
+            // letter-spacing: $l_s_big;
+            @include typo_scheme('link');
         }
         &-link {
             padding-right: $fb*1;
@@ -1353,7 +1365,8 @@
             align-self: flex-end;
             float: right;
             font-size: $font_small;
-            line-height: $l_h;
+            // line-height: $l_h;
+            @include height_leveling('text');
             color: $text;
         }
     }
@@ -1478,9 +1491,9 @@
 */
 
 .footer {
-    padding-top: 2*$l_h;
-    background-color: $grey_lighter;
     @extend .section__block;
+    @include color_scheme('grey');
+    padding-top: 2*$l_h;    
 }
 .home .footer  {
     margin: 0;
@@ -1556,8 +1569,10 @@
         font-size: $font_small; // line-height: $l_h;
         line-height: $fb * strip-unit($l_h); // @include height_leveling('text');
         font-weight: 100;
+        @include color_scheme('grey');
         a {
-            color: $grey_dark;
+            // color: $grey_dark;
+            color: inherit;
             &:hover {
                 color: $accent_dark;
             }
@@ -1588,7 +1603,8 @@
             font-size: $font_small;
             line-height: auto;
             font-weight: 100;
-            color: $grey_dark;
+            // color: $grey_dark;
+            @include color_scheme('grey');
             &:hover {
                 color: $accent_dark;
             }
@@ -1600,7 +1616,8 @@
             font-size: $font_small;
             line-height: auto;
             font-weight: 100;
-            color: $grey_dark;
+            // color: $grey_dark;
+            @include color_scheme('grey');
         }
     }
 }
@@ -1610,7 +1627,8 @@
     @include v_rhytm('text', $l_h);
     font-size: $font_small;
     font-weight: 100;
-    color: $grey_dark;
+    // color: $grey_dark;
+    @include color_scheme('grey');
 }
 
 
@@ -2561,9 +2579,7 @@ body .selectric-items {
                 // input, .button {
                 .field-outer,
                 .button {
-                    @include v_rhytm('item', $l_h);
-
-                    
+                    @include v_rhytm('item', $l_h);                    
                 }
             } 
     }        
@@ -2576,4 +2592,21 @@ body .selectric-items {
 
 .reviews-counter {
 
+}
+
+
+.test-hexagon {
+
+    .hexagon {
+        // %transition;
+        transition: all $trns_dur;
+        // transform: rotate(0deg);
+        font-size: 1rem;
+        // @include hexagon(200px, $accent, 20px,  $accent_dark);
+        @include hexagon_bg(200px, $accent, 20px,  $accent_dark, 'http://malahov-web.ru/wp-content/uploads/2018/03/portfolio_item_msm_auto_t-467x291.jpg');
+
+        &:hover {
+            // transform: rotate(90deg);
+        }
+    }
 }

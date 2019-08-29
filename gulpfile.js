@@ -34,6 +34,9 @@ var del = require('del'); // Подключаем библиотеку для удаления файлов и папок
 
 var cleanCSS = require('gulp-clean-css');
 
+var notify = require("gulp-notify");  // Выводит сообщения
+
+var gulpif = require('gulp-if');
 
 // Vars
 var fontName = 'themify';
@@ -46,7 +49,9 @@ var js_selectric = 'app/libs/jquery-selectric/public/jquery.selectric.min.js';
 		return gulp.src('app/sass/**/*.scss')
 
 		.pipe(sourcemaps.init())
-		.pipe(plumber())
+        .pipe(plumber( {  
+            errorHandler: notify.onError()
+        } ))
 		// .pipe(postcss(processors, {syntax: syntax_scss})) // linting
 		.pipe(sass()) // Преобразуем scss в CSS посредством gulp-sass
 		// .pipe(sass().on('error', sass.logError))
@@ -67,7 +72,7 @@ var js_selectric = 'app/libs/jquery-selectric/public/jquery.selectric.min.js';
             notify: false // Отключаем уведомления
         });
     });
-	
+
 	
 	// Svgmin - оптимизация svg
 	gulp.task('Svgmin', function () {
@@ -170,7 +175,7 @@ gulp.task('watch', ['browser-sync', 'scss'], function() {
 
 gulp.task('watchjs', ['browser-sync', 'js'], function() {
 
-	gulp.watch('app/js/*.js', ['js']);		
+	gulp.watch('app/js/*.js', ['js']);
 });	
 
 // gulp.task('makesvgfont', ['Svgmin', 'Iconfont']);

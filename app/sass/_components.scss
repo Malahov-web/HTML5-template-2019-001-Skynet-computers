@@ -676,7 +676,8 @@ input.field-radio{
 
         &-button {
             // float: left;
-            background-color: $grey_lighter;
+            // background-color: $grey_lighter;
+            @include color_scheme('grey');
             margin-right: 1px;
 
             @media (min-width: #{map-get($devices, 'tb_')}px) {
@@ -685,22 +686,16 @@ input.field-radio{
 
             a {
                 @extend %nav_primary_item;
-                //background-color: ;
-                color: $grey_dark;
-
+                color: inherit;
 
                 &:hover {
-                    background-color: $accent_light;
-                    color: $white;
+                    @include color_scheme('accent_light');
                 }
             }
-
-
         }
         &-button.active {
             a {
-                background-color: $accent;
-                color: $white;
+                @include color_scheme('accent');
             }
 
         }

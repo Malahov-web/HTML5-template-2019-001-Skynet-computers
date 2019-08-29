@@ -91,3 +91,84 @@
 }
 
 
+@mixin typo_scheme($type) {
+
+    @if $type == heading {
+        // font-family: $font_family_head;
+        // font-weight: 400;
+        // letter-spacing: $l_s_big;
+    }
+    @else if $type == title {
+        // letter-spacing: $l_s;
+    }    
+
+
+    @else if $type == text {
+        
+    }
+
+    @else if $type == link {  // 3
+        text-transform: lowercase;
+        letter-spacing: $l_s_big;
+        // font-weight: 100; // ? плохо рендерится малый размер
+    }
+    @else if $type == promocode { // 2
+        font-weight: 500;
+        letter-spacing: $l_s;
+    }
+    @else if $type == tools { // tools // +
+        font-weight: 400;
+        letter-spacing: $l_s;  
+        // tools &__item     
+        
+    }
+
+    @else if $type == type_name { //   
+        font-weight: 500;
+        letter-spacing: $l_s_big;  
+        // submenu > li > a
+       
+    }
+
+
+
+// &-promocode &-value
+// .product __availability
+        // font-weight: 500;
+        // letter-spacing: $l_s;
+
+// .submenu > li > a
+        // font-weight: 500;
+        // letter-spacing: $l_s_big;
+}
+
+
+@mixin color_scheme ($type) {
+
+    @if $type == default { // 
+        background-color: $white;
+        color: $text; 
+    }
+    @else if $type == 'grey' { // 
+        background-color: $grey_lighter;
+        color: $grey_dark; 
+    }
+    @else if $type == 'grey_light' { // 
+        background-color: $grey_super_light;
+        color: $grey_dark; 
+    }
+
+    @else if $type == 'accent' { // 
+        background-color: $accent;
+        color: $white; 
+    }
+    @else if $type == 'accent_dark' { // 
+        background-color: $accent_dark;
+        color: $white; 
+    } 
+    @else if $type == 'accent_light' { // 
+        background-color: $accent_light;
+        color: $white; 
+    } 
+
+}

@@ -148,13 +148,15 @@ module.exports = {
     "selector-pseudo-class-case": "lower",
     "selector-pseudo-class-parentheses-space-inside": "never",
     "selector-pseudo-element-case": "lower",
-    "selector-pseudo-element-colon-notation": "double",
+    "selector-pseudo-element-colon-notation": "single",    
     "selector-type-case": "lower",
     "unit-case": "lower",
     "value-list-comma-newline-after": "always-multi-line",
     "value-list-comma-space-after": "always-single-line",
     "value-list-comma-space-before": "never",
     "value-list-max-empty-lines": 0,
+
+    "font-family-no-missing-generic-family-keyword": false
   },
 }
 
