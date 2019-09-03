@@ -148,6 +148,8 @@ jQuery(document).ready(function($) {
 
     owlCurrentSlideEffect();
 
+    modals();
+
 
     if ( isMobileResolution(mobile_breakpoint) ) {
 

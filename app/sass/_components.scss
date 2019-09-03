@@ -616,6 +616,25 @@ input.field-radio{
     }
 }
 
+$button_close_width: 2*$l_h;
+.button-close {
+    width: $button_close_width;
+    height: $button_close_width;
+    background-color: $accent;
+    cursor: pointer;
+
+    i {
+        @include pseudoelement_left_top(50%, 50%);
+        transform: translate(-50%, -50%);
+        font-size: 125%;
+        color: $white;
+    }
+
+    &:hover {
+        background-color: $accent_dark;
+    }
+}
+
 /* 19. rating
  * **********************************************************************
  *  
@@ -725,4 +744,127 @@ input.field-radio{
 .js-tabs__content-item.active{
     display: block;
     
+}
+
+/* modals */
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparentize($text, 1-0.95);
+    z-index: $zindex_modal;
+
+
+
+    &-inner {
+        @include pseudoelement_left_top(0, 0);
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;   
+    }
+
+    .modal {
+
+    }
+}
+
+.modal {
+    @extend %shadow;
+    margin: 0 auto;
+    width: 90%;
+    background-color: $white;
+    position: relative;
+
+    position: absolute;
+    z-index: $zindex_modal;
+
+    @media (min-width: #{map-get($devices, 'ds_')}px) {
+        width: 100%;
+        max-width: 600px;
+    }
+    &__close {
+        font-size: $font_h4;
+        @include pseudoelement_right_top(0, 0);
+        height: 100%;
+                  
+    }
+
+    &-header {
+        position: relative;
+        padding: 0.5*$l_h  $button_close_width;
+        border-bottom: 1px solid $grey_lighter;
+        border-bottom: 1px solid $grey_light;
+    }
+    &__title {
+
+    }
+
+    &-content {
+        @include h_rhytm('modal', $fb);
+    }
+    &__subtitle {
+        font-size: $font_h4;
+        @include height_leveling('text');
+        @include v_rhytm('text', $l_h);
+    }    
+    &__form {
+        .field-outer {
+            @include v_rhytm('text', $l_h);    
+        }
+        input.field-text {
+            max-width: none;
+        }
+        textarea {
+            max-width: 100%;
+        }
+        .button-send {
+            @include v_rhytm('item', $l_h);  
+        }
+    }
+
+    &-footer {
+        padding: 0.5*$l_h 0;
+    }
+
+
+
+    &--subscribe  {
+        // background: url('../images/the-terminator-sarah-connor-robot-graphic.jpg') bottom left no-repeat;
+        // background: url('../images/the-terminator-sarah-connor-robot-graphic.png') bottom left no-repeat;
+        // background: $white url('../images/the-terminator-sarah-connor-robot-graphic--clean.png') bottom left no-repeat;
+        background: $white url('../images/the-terminator-sarah-connor-robot-graphic--clean--reverse-x--muted.png') bottom 0 left -85px no-repeat;
+        background-size: 50% auto;
+
+        &:hover {
+            background-image: url('../images/the-terminator-sarah-connor-robot-graphic--clean--reverse-x.png');
+        }
+    } 
+    &--subscribe &__slogan {
+        padding: 1*$l_h  0;
+        font-size: $font_h3;
+        font-weight: bold;
+        color: $grey_super_dark;
+        color: darken($grey, 28%); // #;;
+    } 
+    &--subscribe &__subtitle {
+        padding-top: 1*$l_h;
+
+    } 
+ 
+
+
+}
+
+.modal--subscribe {
+
+}
+
+.js-modal {
+    display: none;
 }

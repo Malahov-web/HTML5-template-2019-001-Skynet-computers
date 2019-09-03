@@ -88,6 +88,16 @@
         padding-left: $fs * 2;
         padding-right: $fs * 2;         
     }
+    @else if $type == modal {
+
+        padding-left: $fs * 2;
+        padding-right: $fs * 2;
+        @media (min-width: #{map-get($devices, 'tb_')}px) {
+
+        padding-left: $fs * 4;
+        padding-right: $fs * 4;
+        }
+    }    
 }
 
 
