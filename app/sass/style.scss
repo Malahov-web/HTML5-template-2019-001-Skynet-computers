@@ -826,6 +826,7 @@
 */
 
 .actions {
+        @include v_rhytm('block', $l_h);  
     &__item {
         // @extend %clearfix;
         @include v_rhytm('item', $l_h);
@@ -1613,6 +1614,46 @@
             color: $text;
         }
     }
+}
+
+.news{
+
+    &--grid &__item {
+        margin-bottom: 1.5 * $l_h;
+
+        // &-title-outer {     
+        //     overflow: visible;
+        //     text-overflow: none;
+        //     white-space: normal ;
+
+        //     // @include text_overflow();
+        //     @include height_leveling('heading'); // @include height_leveling('heading_double');
+        //     @include v_rhytm('text', $l_h);            
+        //     @include typo_scheme('title'); // letter-spacing: $l_s;
+        //     font-size: $font_h4;
+        //     font-weight: 300;
+        //     color: $text;
+        // }
+        // &-title {
+        //     display: block;
+        //     height: 2*$l_h_head;
+        //     overflow: hidden;
+        // }
+
+        &-image-outer {}
+        &-image {
+            position: relative;
+            padding-bottom: 57.8947%;
+            overflow: hidden;
+            img {
+
+                @include image_center_cover();
+            }
+        } 
+
+    }    
+
+
 }
 
 /* 9. about

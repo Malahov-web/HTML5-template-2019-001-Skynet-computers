@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Skynet Computers - news</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0">
+    <meta content='true' name='HandheldFriendly'>
+    <meta content='width' name='MobileOptimized'>
+    <meta content='yes' name='apple-mobile-web-app-capable'>
+
+    <meta name="theme-color" content="#2491dd"> 
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#2491dd"> 
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#2491dd"> 
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> 
+    <!-- Яндекс.Браузер -->
+    <meta name="viewport" content="ya-title=#2491dd,ya-dock=fade">    
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body class="home">
+
+<header class="header">
+    <div class="header-top">
+        <div class="container">
+            <div class="row">
+                <div class="mv_3 tb_7">
+
+                    <div class="menu-top-outer js-mobile_menu-outer">
+                        <div class="menu-top-trigger js-mobile_menu__title"><span>
+                            <i class="users__item-icon themify themify-menu"></i>
+                        </span></div>
+                        <ul class="menu-top js-mobile_menu js-dropdown_list" data-animation-temp="">
+                            <li><a href="#">О компании</a></li>
+                            <li><a href="#">Доставка</a></li>
+                            <li><a href="#">Оплата</a></li>
+                            <li><a href="#">Гарантия</a>
+                                <ul class="submenu-top">
+                                    <li><a href="#">О компании</a></li>
+                                    <li><a href="#">Доставка</a></li>
+                                    <li><a href="#">Оплата</a></li>
+                                    <li><a href="#">Гарантия</a></li>
+                                    <li><a href="#">Магазины</a></li>
+                                    <li><a href="#">Новости</a></li>
+                                </ul>                            
+                            </li>
+                            <li><a href="#">Магазины</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mv_9 tb_5">
+                    <div class="users">
+                        <div class="users__item users__item--account">
+                            <i class="users__item-icon themify themify-user"></i> <span class="tb_hidden">Личный кабинет</span>   
+                            <div class="users__form-outer">
+                                 <form class="users__form form--users">                                
+                                    <div class="field-outer">
+                                        <input type="text" class="field-text" placeholder="E-mail">
+                                    </div>
+                                    <div class="field-outer">
+                                        <input type="text" class="field-text" placeholder="Пароль">
+                                    </div>                                    
+                                    <div class="field-outer">
+                                        <a href="#" class="button button-send"><span>Войти</span></a>
+                                    </div>                                        
+                                 </form>
+                            </div>                    
+                        </div>
+                        <a href="#" class="users__item users__item--wish">
+                            <i class="users__item-icon themify  themify-heart"></i><span class="tb_hidden">Избранное</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>      
+    </div>
+
+    <div class="header-bottom">
+        <div class="search-modal">
+            <div class="container"> 
+                <div class="search-modal-close"><i class="themify  themify-close"></i></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row-flex middle">
+                <div class="mv_6 mv_offset_3 mh_4 mh_offset_0  tb_3 ds_3">
+                    <a href="#" class="logo"><img src="images/logo.png" alt=""></a>
+                </div>
+                <div class="mv_5 mh_3 tb_5 tb_offset_1 ds_4 ds_offset_0">
+                    <div class="search-trigger"><i class="themify  themify-search"></i></div>
+                    <div class="search">
+                        <input class="search__field field-text" type="text" placeholder="Search items..">
+                        <a class="search__button button button-search"><i class="themify  themify-search"></i></a>                    
+                    </div>                    
+                </div>
+                <div class="mv_6 mh_4 tb_3 tb_offset_0 ds_4 ds_offset_1">
+                    <div class="row-flex middle tools">
+                        <div class="mv_6 ds_6">    
+                            <div class="tools__item contacts">
+                                <i class="users__item-icon themify themify-headphone-alt  js-modal-open" data-target="modal-callback"></i>
+                                <div class="contacts__phone ds_hidden">
+                                    <a href="tel:84955555555">8(495) 555-55-55</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mv_6 ds_6">
+                            <div class="tools__item cart">
+                                <i class="users__item-icon themify  themify-shopping-cart"></i>
+                                <span class="cart__title ds_hidden">Корзина</span>
+                                <span class="cart__counter">0</span>                            
+                            </div>                        
+                        </div>                        
+                    </div>
+                </div>
+            </div>        
+        </div>
+    </div>
+</header>
+
+
+<div class="menu-main-outer section">
+    <div class="container js-mobile_menu-outer">
+        <div class="menu-main-trigger js-mobile_menu__title"></div>
+        <ul class="menu-main megamenu js-mobile_menu js-dropdown_list" data-js="menu-responsive" data-animation-temp="400">
+            <li class="menu-main__item"><a href="#" class="menu-main__link">Notebooks</a>
+                <ul class="submenu">
+                    <li data-image-url="uploads/products-grid/0185414_3.JPG" title="Изображение категории Office">
+                        <!-- <span class="submenu__item-image"><img src="uploads/products-grid/0185414_3.JPG"></span> -->                        
+                        <a href="">Office</a>
+                        <ul class="sub-submenu">
+                            <li><a href="#">Apple</a></li>
+                            <li><a href="#">Digma</a></li>
+                            <li><a href="#">HP</a></li>
+                            <li><a href="#">Huawei</a></li>
+                            <li><a href="#">IRBIS</a></li>
+                            <li><a href="#">LG</a></li>
+                            <li><a href="#">Prestigio</a></li>
+                        </ul>
+                    </li>
+                    <li data-image-url="uploads/categories/comp.png">                        
+                        <a href="">Home</a>
+                        <ul class="sub-submenu">
+                            <li><a href="#">Apple</a></li>
+                            <li><a href="#">Digma</a></li>
+                            <li><a href="#">HP</a></li>
+                            <li><a href="#">Huawei</a></li>
+                            <li><a href="#">IRBIS</a></li>
+                            <li><a href="#">LG</a></li>
+                            <li><a href="#">Prestigio</a></li>
+                        </ul>
+                    </li>
+                    <li data-image-url="uploads/categories/phone.png">
+                        <a href="">Pro</a>
+                        <ul class="sub-submenu">
+                            <li><a href="#">Apple</a></li>
+                            <li><a href="#">Digma</a></li>
+                            <li><a href="#">HP</a></li>
+                            <li><a href="#">Huawei</a></li>
+                            <li><a href="#">IRBIS</a></li>
+                        </ul>                        
+                    </li>
+                </ul>
+            </li>
+            <li class="menu-main__item"><a href="#" class="menu-main__link">PC</a></li>
+            <li class="menu-main__item"><a href="#" class="menu-main__link">Tablets & Phones</a></li>
+            <li class="menu-main__item"><a href="#" class="menu-main__link">Peripherals</a></li>
+            <li class="menu-main__item"><a href="#" class="menu-main__link">Motherboards</a></li>
+            <li class="menu-main__item"><a href="#" class="menu-main__link">Video</a></li>
+            <li class="menu-main__item"><a href="#" class="menu-main__link">HDD</a></li>
+            <li class="menu-main__item"><a href="#" class="menu-main__link">Cables</a></li>
+        </ul>
+        
+    </div>
+</div>
+
+
+<section class="section">
+    <div class="container ">
+
+            <div class="row">
+                <div class="mv_12">
+                    <div class="">
+                        <h1 class="h1 page-title">Новости</h1>
+                    </div>
+                    
+                </div>
+            </div>
+    </div>
+</section>
+
+
+<section class="section section-news">
+
+    <!--div class="container section__title">
+
+        <div class="row">
+            <div class="mv_12">
+                <h2 class="h1">News</h2>
+            </div>
+        </div>
+    </div-->
+
+    <!-- <div class="container section__block">     -->
+    <div class="container ">    
+        <div class="news-outer">
+            <div class="row news news--grid">
+
+                <div class="mv_12 tb_6 ds_4">
+                    <div class="news__item">
+                        <div class="news__item-image-outer">
+                            <div class="news__item-image"><img src="uploads/news/news_item_image_1.jpg" alt="QCYBER MOBILE: оторвись от проводов!"></div>
+                        </div>
+                        <div class="news__item-content">
+                            <h3 class="news__item-title-outer">
+                                <a href="#" class="news__item-title">QCYBER MOBILE: оторвись от проводов! QCYBER MOBILE: оторвись от проводов! QCYBER MOBILE: оторвись от проводов!</a>
+                            </h3>
+                            <div class="news__item-text">беспроводная зарядка, доступная любому смартфону</div>
+                        </div>
+                        <div class="news__item-footer">
+                            <div class="news__item-link-outer">
+                                <a href="#" class="news__item-link">подробнее<i class="themify themify-angle-right"></i></a>
+                            </div>                        
+                            <time class="news__item-date" datetime="2019-02-01">01.02.2019</time>
+                        </div>
+                    </div>
+                </div>
+                <div class="mv_12 tb_6 ds_4">
+                    <div class="news__item">
+                        <div class="news__item-image-outer">
+                            <div class="news__item-image"><img src="uploads/news/news_item_image_2.jpg" alt="10 удивительных ноутбуков с выставки CES 2019"></div>
+                        </div>
+                        <div class="news__item-content">
+                            <div class="news__item-title-outer">
+                                <a href="#" class="news__item-title">10 удивительных ноутбуков с выставки CES 2019</a>
+                            </div>
+                            <div class="news__item-text">беспроводная зарядка, доступная любому смартфону</div>
+                        </div>
+                        <div class="news__item-footer">
+                            <div class="news__item-link-outer">
+                                <a href="#" class="news__item-link">подробнее<i class="themify themify-angle-right"></i></a>
+                            </div>                        
+                            <time class="news__item-date" datetime="2019-02-01">01.02.2019</time>
+                        </div>
+                    </div>
+                </div>
+                <div class="mv_12 tb_6 ds_4">
+                    <div class="news__item">
+                        <div class="news__item-image-outer">
+                            <div class="news__item-image"><img src="uploads/news/news_item_image_3.jpg" alt="QCYBER MOBILE: оторвись от проводов!"></div>
+                        </div>
+                        <div class="news__item-content">
+                            <div class="news__item-title-outer">
+                                <a href="#" class="news__item-title">QCYBER MOBILE: оторвись от проводов! </a>
+                            </div>
+                            <div class="news__item-text">беспроводная зарядка, доступная любому смартфону</div>
+                        </div>
+                        <div class="news__item-footer">
+                            <div class="news__item-link-outer">
+                                <a href="#" class="news__item-link">подробнее<i class="themify themify-angle-right"></i></a>
+                            </div>                        
+                            <time class="news__item-date" datetime="2019-02-01">01.02.2019</time>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mv_12 tb_6 ds_4">
+                    <div class="news__item">
+                        <div class="news__item-image-outer">
+                            <div class="news__item-image"><img src="uploads/news/news_item_image_4.jpg" alt="HUAWEI получила более двадцати наград на международной выставке IFA-2019"></div>
+                        </div>
+                        <div class="news__item-content">
+                            <h3 class="news__item-title-outer">
+                                <a href="#" class="news__item-title">HUAWEI получила более двадцати наград на международной выставке IFA-2019</a>
+                            </h3>
+                            <div class="news__item-text">беспроводная зарядка, доступная любому смартфону</div>
+                        </div>
+                        <div class="news__item-footer">
+                            <div class="news__item-link-outer">
+                                <a href="#" class="news__item-link">подробнее<i class="themify themify-angle-right"></i></a>
+                            </div>                        
+                            <time class="news__item-date" datetime="2019-02-01">07.09.2019</time>
+                        </div>
+                    </div>
+                </div>
+                <div class="mv_12 tb_6 ds_4">
+                    <div class="news__item">
+                        <div class="news__item-image-outer">
+                            <div class="news__item-image"><img src="uploads/news/news_item_image_5.jpg" alt="Обзор на модульную систему Edelkrone"></div>
+                        </div>
+                        <div class="news__item-content">
+                            <h3 class="news__item-title-outer">
+                                <a href="#" class="news__item-title">Обзор на модульную систему Edelkrone</a>
+                            </h3>
+                            <div class="news__item-text">беспроводная зарядка, доступная любому смартфону</div>
+                        </div>
+                        <div class="news__item-footer">
+                            <div class="news__item-link-outer">
+                                <a href="#" class="news__item-link">подробнее<i class="themify themify-angle-right"></i></a>
+                            </div>                        
+                            <time class="news__item-date" datetime="2019-02-01">07.09.2019</time>
+                        </div>
+                    </div>
+                </div>
+                <div class="mv_12 tb_6 ds_4">
+                    <div class="news__item">
+                        <div class="news__item-image-outer">
+                            <div class="news__item-image"><img src="uploads/news/news_item_image_6.jpg" alt="Российский рынок смартфонов вырос на 6%"></div>
+                        </div>
+                        <div class="news__item-content">
+                            <h3 class="news__item-title-outer">
+                                <a href="#" class="news__item-title">Российский рынок смартфонов вырос на 6%</a>
+                            </h3>
+                            <div class="news__item-text">беспроводная зарядка, доступная любому смартфону</div>
+                        </div>
+                        <div class="news__item-footer">
+                            <div class="news__item-link-outer">
+                                <a href="#" class="news__item-link">подробнее<i class="themify themify-angle-right"></i></a>
+                            </div>                        
+                            <time class="news__item-date" datetime="2019-02-01">07.09.2019</time>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+            <div class="row section-pagination">
+                <div class="mv_12 ">
+                    <div class="pagination-outer">
+                        <ul class="pagination">
+                            <li class="pagination__item pagination__item--active"><span>1</span></li>
+                            <li class="pagination__item"><a href="#">2</a></li>
+                            <li class="pagination__item"><a href="#">3</a></li>
+                            <li class="pagination__item"><a href="#">4</a></li>
+                            <li class="pagination__item pagination__item--next"><a href="#"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>        
+    </div>
+
+</section>
+
+
+<section class="section section-banner">
+
+    <div class="container section__title">
+        <div class="row">
+            <div class="mv_12 banner-outer">
+                <div class="banner">
+                    <a href="#"><img src="uploads/banners/banner_1180x92.jpg" alt=""></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+<section class="section section-subscribe section__block">
+    <div class="container">
+        <div class="row row-flex middle subscribe">
+            <div class="mv_12 tb_12 ds_2 ds_hidden">
+                <div class="subscribe__title"><i class="users__item-icon themify themify-email"></i>Куда слать?</div>
+            </div>
+            <div class="mv_12 tb_12 ds_7">
+                <form class="subscribe__form form--subscribe centered">
+                    <div class="field-outer">
+                        <input type="text" class="field-text" placeholder="Ваше имя">
+                    </div>
+                    <div class="field-outer">
+                        <input type="text" class="field-text" placeholder="E-mail">
+                    </div>
+                    <div class="field-outer">
+                        <a href="#" class="button button-send js-modal-open" data-target="modal-subscribe"><span>Отправить</span></a>
+                    </div> 
+                </form>
+            </div>
+            <div class="mv_12 tb_12 ds_2">
+                <div class="subscribe__social">
+                    <ul class="social-links">
+                        <li><a href="#" class="vk">
+                            <i class="si-vk"></i>
+                        </a></li>                        
+                        <li><a href="#" class="fb">
+                            <i class="si-fb"></i>
+                        </a></li>
+                        <li><a href="#" class="tw">
+                            <i class="si-tw"></i>
+                        </a></li>
+                    </ul>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<footer class="footer section">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row-flex">
+
+                <div class="mv_12 tb_6 ds_3 footer__column footer__contacts-outer">
+                    <div class="footer__contacts contacts contacts-footer footer__item js-accordeon">
+                        <div class="contacts__title footer__title js-accordeon__title">Контакты<i class="themify themify-plus"></i></div>
+
+                        <div class="js-accordeon__content">
+                            <div class="contacts__item">
+                                <div class="contacts__item-title">Адрес:</div>
+                                <div class="contacts__item-text">Москва, Ореховый бульвар, д. 15</div>
+                            </div>
+                            <div class="contacts__item">
+                                <div class="contacts__item-title">Телефоны:</div>
+                                <div class="contacts__item-text">                                
+                                    <a href="tel:84955555555">8(495) 555-55-55</a>
+                                </div>
+                                <div class="contacts__item-text">
+                                    <a href="tel:84955555555">8(495) 555-55-55</a>
+                                </div>                            
+                            </div>
+                            <div class="contacts__item">
+                                <div class="contacts__item-title">E-mail:</div>
+                                <div class="contacts__item-text">
+                                    <a href="mailto:info@skynet.com">info@skynet.com</a>        
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="mv_12 tb_6 ds_3 footer__column">
+                    <div class="footer__menu menu-footer js-accordeon">
+                        <div class="menu-footer__title footer__title js-accordeon__title">Магазин <i class="themify themify-plus"></i></div>
+                        <ul class="menu-footer__list js-accordeon__content">
+                            <li class="menu-footer__item"><a href="#">О нас</a></li>
+                            <li class="menu-footer__item"><a href="#">Адреса магазинов</a></li>
+                            <li class="menu-footer__item"><a href="#">Доставка</a></li>
+                            <li class="menu-footer__item"><a href="#">Способы оплаты</a></li>
+                            <li class="menu-footer__item"><a href="#">Пункты выдачи</a></li>
+                            <li class="menu-footer__item"><a href="#">Бонусная программа</a></li>
+                        </ul>
+                        
+                    </div>
+                </div>
+
+                <div class="mv_12 tb_6 ds_3 footer__column">
+                    <div class="footer__menu menu-footer js-accordeon">
+                        <div class="menu-footer__title footer__title js-accordeon__title">Категории <i class="themify themify-plus"></i></div>
+                        <ul class="menu-footer__list js-accordeon__content">
+                            <li class="menu-footer__item"><a href="#">О нас</a></li>
+                            <li class="menu-footer__item"><a href="#">Адреса магазинов</a></li>
+                            <li class="menu-footer__item"><a href="#">Доставка</a></li>
+                            <li class="menu-footer__item"><a href="#">Способы оплаты</a></li>
+                            <li class="menu-footer__item"><a href="#">Пункты выдачи</a></li>
+                            <li class="menu-footer__item"><a href="#">Бонусная программа</a></li>
+                        </ul>
+                        
+                    </div>
+                </div>
+
+
+
+                <div class="mv_12 tb_6 ds_3 footer__column footer__blog-outer">
+                    <div class="footer__blog blog-footer js-accordeon">
+                        <div class="blog-footer__title footer__title js-accordeon__title">Блог <i class="themify themify-plus"></i></div>
+
+
+                        <div class="mv_12 collapse js-accordeon__content">
+                            <div class="blog-footer__item">
+                                <div class="blog-footer__item-image"><img src="uploads/blog/blog_item_1.jpg" alt=""></div>
+                                <div class="blog-footer__item-conent">
+                                    <div class="blog-footer__item-title"><a href="#">QCYBER MOBILE: оторвись</a></div>
+                                    <time class="blog-footer__item-date" datetime="2019-02-01">01.02.2019</time>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mv_12 collapse js-accordeon__content">
+                            <div class="blog-footer__item">
+                                <div class="blog-footer__item-image"><img src="uploads/blog/blog_item_2.jpg" alt=""></div>
+                                <div class="blog-footer__item-conent">
+                                    <div class="blog-footer__item-title"><a href="#">QCYBER MOBILE: оторвись от проводов!<a></div>
+                                    <time class="blog-footer__item-date" datetime="2019-02-01">01.02.2019</time>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>                  
+
+            </div>
+        </div>
+
+
+
+                <!-- .mv_12.tb_6.ds_3> 
+
+       
+
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="copyrights">© 1984—2019. Все права защищены. Skynet Computers Inc.</div>
+        </div>
+    </div>
+</footer>
+
+
+<!-- modals -->
+
+<div class="overlay" id="overlay">
+
+    <div class="overlay-inner">
+
+                <div class="modal modal--subscribe js-modal" id="modal-subscribe">
+                    <div class="modal-inner">
+                        <div class="modal-header">
+                            <div class="modal__title h3 centered">Вы подписались на рассылку!</div>
+                            <span class="modal__close button button-close js-modal-close"><i class="themify  themify-close"></i></span>
+                        </div>
+
+                        <div class="modal-content">
+
+                            <div class="modal__subtitle centered">
+                                Вы подписались на нашу рассылку.
+                                <br>Проверьте свой почтовый ящик <br>и подтвердите подписку.
+                            </div>
+
+                            <div class="modal__slogan centered">
+                                Ждите Нас.
+                            </div>                            
+
+                            <div class="modal__form form form--modal">
+                                <form action="#" method="">
+
+                                    <div class="row field-outer centered">                           
+                                        <div class="mv_12">
+                                            <a href="#" class="button button-send"><span>Закрыть</span></a>
+                                        </div>
+                                    </div>
+                                </form>
+
+                            </div>
+
+                        </div>
+
+                        <div class="modal-footer"></div>
+                    </div>
+                </div>
+
+                <div class="modal js-modal" id="modal-callback" style="">
+                    <div class="modal-inner">
+                        <div class="modal-header">
+                            <div class="modal__title h3 centered">Обратный звонок</div>
+                            <span class="modal__close button button-close js-modal-close"><i class="themify  themify-close"></i></span>
+                        </div>
+
+                        <div class="modal-content">
+                            <div class="modal__subtitle centered">Мы Вам перезвоним, <br>заполните форму ниже</div>
+                            <div class="modal__form form form--modal">
+                                <form action="#" method="">
+                                    <div class="row field-outer">
+                                        <div class="mv_12 tb_6">  
+                                            <label>Ваше Имя</label>
+                                            <input type="text" class="field-text" placeholder="Ваше Имя"> 
+                                        </div>
+                                        <div class="mv_12 tb_6">  
+                                            <label>Телефон</label>
+                                            <input type="text" class="field-text" placeholder="E-mail"> 
+                                        </div>
+                                    </div>
+                                    <div class="row field-outer">
+                                        <div class="mv_12">  
+                                            <label>Примечание</label>
+                                            <textarea name="" class="textarea"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="row field-outer centered">                           
+                                        <div class="mv_12">
+                                            <a href="#" class="button button-send"><span>Заказать звонок</span></a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+
+                        <div class="modal-footer"></div>
+                    </div>
+                </div>
+
+    </div>                
+
+</div>
+
+
+
+
+<!-- JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<!-- owl -->
+    <!-- <link href="libs/owl.carousel/dist/assets/owl.carousel.min.css" rel="stylesheet"> -->
+<!-- Scripts project -->
+    <script src="js/min/scripts.min.js"> </script> 
+
+</body>
+</html>
