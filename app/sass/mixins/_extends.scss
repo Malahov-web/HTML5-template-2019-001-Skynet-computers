@@ -73,3 +73,9 @@
             background-color: $grey_super_light;
         }
 }
+%border_circle {
+    border-radius: 50%;
+}
+%transition {
+    transition: all $trns_dur;
+}

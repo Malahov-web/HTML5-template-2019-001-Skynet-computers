@@ -36,6 +36,13 @@
  *
 */
 
+.inline {
+
+}
+.row-flex.inline {
+    flex-wrap: nowrap; 
+}
+
 .collapse {
     padding-left: 0; // padding-right: 0;
     & > .row {
@@ -100,7 +107,9 @@
     width: 100%;
     &-inner {
         padding: 1px 30px;
-        padding: $l_h 30px; // background-color: $grey_lighter;
+        // padding: $l_h 30px; // background-color: $grey_lighter;
+        padding: $l_h 0; // background-color: $grey_lighter;
+        @include h_rhytm('sidebar', $l_h);
         @include color_scheme('grey_light');
         & > div:first-child {
             margin-top: 0;
@@ -410,7 +419,7 @@
         display: inline-block;
         width: $l_h;
         height: $l_h;
-        border-radius: 50%;
+        @extend %border_circle;
         background-color: $grey_lighter;
         font-size: $fb;
         line-height: $l_h;
@@ -526,7 +535,7 @@
         line-height: $l_h;
         letter-spacing: $l_s;
         color: $white;
-        transition: all 0.3s; */
+        @extend %transition; */
         @extend %nav_primary_item;
         border-left: 1px solid $accent_light;
         color: $white;
@@ -586,6 +595,7 @@
             @include height_leveling('text');
             // font-weight: 500;
             // letter-spacing: $l_s_big;
+            @include typo_scheme('submenu');
             color: $text;
         }
         .submenu__item-image {
@@ -622,7 +632,7 @@
     font-size: $fb;
     line-height: $l_h;
     color: $white;
-    transition: all 0.3s;
+    @extend %transition;
     position: relative;
     @extend .themify;
     &:before {
@@ -661,7 +671,7 @@
                 line-height: $l_h;
                 letter-spacing: $l_s;
                 color: $white;
-                transition: all 0.3s;
+                @extend %transition;
                 &:hover {
                     background-color: $accent;
                 }
@@ -700,7 +710,8 @@
                 letter-spacing: $l_s;
                 background-color: $accent; // color: $accent;
                 color: $white;
-                transition: all 0.3s;
+                // @extend %transition;
+                transition: all $trns_dur;
                 &:hover, &:active {
                     background-color: $accent_light;
                 }
@@ -949,7 +960,7 @@
             font-weight: 300;
             letter-spacing: $l_s_big;
             color: $text;
-            transition: all, 0.3s;
+            @extend %transition;
         }
         &-link-outer {
             @include v_rhytm('text', $l_h);
@@ -967,11 +978,11 @@
             @extend %link_with_icon;
             padding-right: $fb*1;
             color: transparentize($white, 0.25);
-            transition: all, 0.3s;
+            @extend %transition;
             &:hover {
                 color: transparentize($white, 0.0);
                 i.themify {
-                    transition: all, 0.3s;
+                    @extend %transition;
                     right: -4px;
                 }
             }
@@ -985,7 +996,7 @@
             margin-right: 1 * $l_h;
             img {
                 filter: brightness(85%);
-                transition: all $trns_dur;
+                @extend %transition;
             }            
         }
         $hue_ratio: 30;
@@ -1123,7 +1134,7 @@
                     margin: 0 0.5em;
                     width: 2px;
                     height: 2px;
-                    border-radius: 50%;
+                    @extend %border_circle;
                     background-color: $grey_light;
                     display: inline-block;
                     vertical-align: middle;
@@ -1149,10 +1160,22 @@
         font-weight: bold;
         color: $text;
     }
+    &__price-label {
+        font-size: $font_small;
+        font-weight: 400;
+        color: $text;
+    }
+    &__price-label-summary {
+        @include typo_scheme('promocode');
+        padding-right: 1*$l_h;
+        font-size: $font_h4;        
+        color: $text;   
+    }
     &__price--productfull {
-
         font-size: $font_h3;
-
+    }
+    &__price--summary {
+        color: $accent_dark;
     }
     &__price-old {
         @include height_leveling('text');
@@ -1198,6 +1221,93 @@
         font-size: $fb;
         font-size: $font_small;
     }
+
+    &__quantity {
+        $quantity_button_metric: 2*$fb;
+
+        &-inner {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+
+        &-field {
+            display: flex;
+            justify-content: center;
+            align-items: center; // align-items: stretch;            
+        }
+        &-button {
+            // @include height_leveling('forms_element');
+            // @include h_rhytm('forms_element', $font_forms_elements); 
+
+            width: $quantity_button_metric; 
+            height: $quantity_button_metric;
+
+            // font-size: $font_small;
+            font-size: $font_smaller;
+            // background-color: $grey_lighter;
+            // color: $grey_dark;
+            // cursor: pointer;
+            @include color_scheme('grey');
+            @extend %transition;
+            &:hover {
+                // color: $accent_dark;
+
+                // background-color: $accent;
+                // color: $white;
+                @include color_scheme('accent');
+            }
+            i {
+                font-size: $fb;
+            }
+        }
+        &-value {
+            width: 1.5*$quantity_button_metric; 
+            height: $quantity_button_metric;
+            padding-left: 0!important; padding-right: 0!important;
+            border: none!important;
+            text-align: center;
+        }        
+    }
+
+    // &__quantity {
+    //     // @include flex(flex-start, center);
+    //     &-field {
+    //         @include flex(flex-start, stretch);
+
+    //     }
+    //     &-button {
+    //         position: relative;
+    //         width: 2*$l_h_base;
+    //         // border: 1px solid $border_color;
+
+    //         border: 1px solid $grey_light;
+    //         color: $black_text;
+    //         i {
+    //             @include pseudoelement_left_top(50%, 50%);
+    //             transform: translate(-50%, -50%);
+    //             // font-size: 12px;
+    //             @include font_size('smaller');
+    //             color: inherit;
+    //         }
+
+    //         &:hover {
+    //             // border-color: $accent;
+    //             color: $accent;
+    //         }
+    //         &:active {
+    //             @include color_scheme('black-orange');
+    //         }            
+    //     }
+    //     &-value { // input
+    //         width: 2*$l_h_base;
+    //         padding: 0 !important;
+    //         border-width: 1px 0!important;
+    //         text-align: center;
+    //     }
+    // }
+
 }
 
 .products-list{
@@ -1247,7 +1357,7 @@
                     margin: 0 0.5em;
                     width: 2px;
                     height: 2px;
-                    border-radius: 50%;
+                    @extend %border_circle;
                     background-color: $grey_light;
                     display: inline-block;
                     vertical-align: middle;
@@ -1306,6 +1416,139 @@
         float: right;
     }
 }
+
+
+.products-list-cart {
+    // @include v_rhytm('block-card', $l_h);
+}
+.products-list-cart .product{
+    display: flex;
+    justify-content: center;
+    align-items: center; align-items: stretch;
+
+    padding-top: $columns_gap+px;
+    padding-bottom: $columns_gap+px;
+    border-top: 1px solid $grey_super_light;
+    &-outer {
+        margin-top: 0; margin-bottom: 0;
+        &:last-child {
+            .product {
+                border-bottom: 1px solid $grey_super_light; 
+            }
+        }
+    }
+
+    &__image {
+        width: 25%;
+        // background-color: #eee;
+    }
+    &__content {
+        width: calc(100% - 25% - 160px);
+        padding-left: 2*$columns_gap+px;
+        border-left: 1px solid $grey_super_light;  
+    }
+
+    &__meta{
+        width: 160px;
+        display: flex; align-items: flex-start;
+        text-align: right;
+        &>div{
+            width: 100%;
+        }
+    }
+
+    &__parameters {
+        &-list {
+            li{
+                display: list-item; display: inline-block;
+                &:before {
+                    display: none;
+                }
+                &:after {
+                    content: "";
+                    margin: 0 0.5em;
+                    width: 2px;
+                    height: 2px;
+                    @extend %border_circle;
+                    background-color: $grey_light;
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+            }
+
+        }
+    }
+
+    &__status-container {
+        margin-left: 0; margin-right: 0;
+        &>div {
+            margin-right: $columns_gap+px;
+        }
+    }
+
+    &__remove-outer {
+        
+    }
+    &__remove {
+        display: block;
+        @include height_leveling('heading');
+        @include v_rhytm('text', $l_h);        
+        font-size: $font_h4;
+        // @include pseudoelement_right_top(0, 0);
+        // height: 100%;  
+        color: $grey_dark;      
+        &:hover {
+            color: $accent;
+            color: $error_color;
+        }
+        i {
+
+        }
+    }
+}
+
+.promocode {
+    border-bottom: 1px solid $grey_super_light;
+    &__form {
+        @include v_rhytm('text', $l_h);
+        width: 100%;
+        &-label {
+            @include height_leveling('text');
+            // @include v_rhytm('text', $l_h);
+            @include typo_scheme('tools');
+            font-size: $font_h4;
+            color: $text;
+        }
+    }
+}
+
+.cart {
+
+    &__promocode {
+        // display: flex;
+        padding: 0.5*$l_h  0;
+
+    }
+
+    &__footer {
+        padding:  0.5*$l_h  0;
+    }
+
+    &__total {
+
+    }
+    &__buttons {
+        .row-flex {
+            justify-content: flex-end;
+            .button {
+                margin-left: 1*$l_h;
+            }            
+        }
+
+    } 
+
+}
+
 
 /* 8. news
  * **********************************************************************
@@ -1409,8 +1652,10 @@
         position: relative;
         padding-left: $fb*(3+1);
         font-size: $font_h4;
-        line-height: $l_h;
-        font-weight: 500;
+        // line-height: $l_h;
+        @include height_leveling('text');
+        // font-weight: 500;
+        @include typo_scheme('promocode');
         color: $accent_dark;
         i.themify {
             @include pseudoelement_left_top(0, 50%);
@@ -1462,15 +1707,16 @@
             position: relative;
             margin: 0.5 * $fb;
             font-size: $fb;
-            line-height: $l_h;
             width: 2 * $fb;
             height: 2 * $fb;
-            background-color: $accent_dark;
-            border-radius: 50%;
-            color: $accent_light;
-            transition: all 0.3s;
+            // background-color: $accent_dark;
+            // color: $accent_light; 
+            @include height_leveling('text');            
+            @include color_scheme('accent_blue');
+            @extend %border_circle;
+            @extend %transition;
             &:hover {
-                color: $white;
+                @include color_scheme('accent_dark');
             }
             i {
                 @include pseudoelement_left_top(50%, 50%);
@@ -1520,10 +1766,12 @@
     &__title {
         @include height_leveling('text');
         @include v_rhytm('text', $l_h);
-        font-size: $fb; // line-height: $l_h;
-        font-weight: 400;
-        color: $grey_dark;
-        letter-spacing: $l_s_big;
+        font-size: $fb; 
+        // font-weight: 400;
+        // letter-spacing: $l_s_big;
+        @include typo_scheme('title');
+
+        color: $grey_dark;        
         i.themify {
             display: none;
         }
@@ -1544,8 +1792,9 @@
             @include height_leveling('text'); // @include v_rhytm('text', $l_h);             
             font-size: $font_small;
             font-size: 14px;
-            font-weight: 400;
-            letter-spacing: $l_s_big;
+            // font-weight: 400;
+            // letter-spacing: $l_s_big;
+            @include typo_scheme('title');
         }
         &-text {
             @include height_leveling('text'); // @include v_rhytm('text', $l_h);             
@@ -2083,7 +2332,7 @@ body .selectric-items {
         a {
             font-size: $font_small;
             color: $grey_dark;
-            transition: all 0.3s;
+            @extend %transition;
 
             &:hover {
                 color: $accent;
@@ -2599,7 +2848,7 @@ body .selectric-items {
 
     .hexagon {
         // %transition;
-        transition: all $trns_dur;
+        @extend %transition;
         // transform: rotate(0deg);
         font-size: 1rem;
         // @include hexagon(200px, $accent, 20px,  $accent_dark);
@@ -2608,5 +2857,52 @@ body .selectric-items {
         &:hover {
             // transform: rotate(90deg);
         }
+    }
+}
+
+
+/* 20 cart
+ * **********************************************************************
+ *  
+*/
+
+
+
+/* 21 . brands-menu
+ * **********************************************************************
+ *  
+*/
+
+.brands-menu-outer {
+    margin-top: 1*$l_h;
+}
+.brands-menu {
+    > li {
+        margin-bottom: 1px;
+        a {
+            padding: 0.75em 0;
+            padding: 0.5em 0;
+            @include h_rhytm('sidebar', $l_h);
+            @include height_leveling('text');
+            display: block;
+            // background-color: $grey_super_light;
+            // color: $text;
+            // color: $grey_dark;
+            @include color_scheme('grey_light');
+
+            font-size: $fb;
+            letter-spacing: $l_s;
+            // @include color_scheme('');
+            @extend %transition;
+
+            &:hover {
+                @include color_scheme('accent_light');
+            }
+
+        }
+        &.active a {
+            @include color_scheme('accent_dark'); 
+        }
+
     }
 }

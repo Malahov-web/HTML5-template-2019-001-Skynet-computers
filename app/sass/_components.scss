@@ -183,6 +183,31 @@
     }    
 }
 
+.button-callback {
+    text-align: left;
+    overflow: visible;
+
+    padding-left: 1.5 * $l_h;
+    font-size: $fb;
+    @include typo_scheme('tools');
+    @include color_scheme('default');
+
+    i.themify {
+        @include pseudoelement_left_top(0, 50%);
+        transform: translateY(-50%);
+        font-size: 2 * $fb;
+        color: $black;
+    }
+    &:hover {
+        color: $accent_dark;
+        text-decoration: underline;
+        text-decoration-style: dotted;
+        i.themify, a {
+            color: $accent_dark;
+        }
+    }
+
+}
 
 /* 
 .button-filter{
@@ -224,6 +249,18 @@
 /*
  * 2. Forms elements
 */
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+button {
+    border: none;
+}
 
 input,
 textarea{
@@ -431,6 +468,20 @@ input.field-radio{
     }
 
 }
+
+
+.form--inline {
+    // display: flex;
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    float: left; width: 100%;
+    .form-outer {
+        padding-left: $columns_gap+px;
+        padding-right: $columns_gap+px;
+    }
+}
+
 
 /*
  * 3. Components
