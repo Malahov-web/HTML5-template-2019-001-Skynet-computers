@@ -29,6 +29,7 @@ body{
 }
 
 a{
+    @extend %transition;
     text-decoration : none;
     &:hover{
         // color: $accent_dark; // Иконки в кнопках <a> задевает
@@ -73,6 +74,10 @@ p{
 img{
     display: block;
     max-width: 100%; width: 100%; height: auto;
+}
+
+strong, b {
+    font-weight: 500;
 }
 
 .themify:before,

@@ -108,7 +108,7 @@
 
 @mixin typo_scheme($type) {
 
-    @if $type == heading {
+    @if $type == headingold {
         // font-family: $font_family_head;
         // font-weight: 400;
         // letter-spacing: $l_s_big;
@@ -138,11 +138,13 @@
         // tools &__item     
         
     }
-
-    @else if $type == submenu { // submenu ?  
+    // @else if $type == submenu { // submenu ?  heading!
+    @else if $type == heading {
+        
         font-weight: 500;
         letter-spacing: $l_s_big;  
         // submenu > li > a
+        // content h1-h4
        
     }
 
@@ -174,7 +176,7 @@
         background-color: $grey_lighter;
         color: $grey_dark; 
     }
-    @else if $type == 'grey_light' { // 
+    @else if $type == 'grey_light' { // +++
         background-color: $grey_super_light;
         color: $grey_dark; 
     }
