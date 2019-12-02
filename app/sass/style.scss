@@ -154,6 +154,10 @@
     color: $grey;    
 }
 
+.breadcrumbs-outer {
+    // @include v_rhytm('text', $l_h);
+    margin-bottom: 1*$l_h;
+}
 .breadcrumbs-outer + .page-title {
     @include v_rhytm('text', $l_h);
 }

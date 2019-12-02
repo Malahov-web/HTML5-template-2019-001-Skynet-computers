@@ -38,6 +38,8 @@ var notify = require("gulp-notify");  // Выводит сообщения
 
 var gulpif = require('gulp-if');
 
+var imagemin = require('gulp-imagemin');
+
 // Vars
 var fontName = 'themify';
 var js_owl = 'app/libs/owl.carousel/dist/owl.carousel.min.js';
@@ -197,9 +199,11 @@ gulp.task('build', ['clean'],  function () {
 		.pipe(gulp.dest('dist/fonts'))
 
 	gulp.src('app/images/**/*')
+        .pipe(imagemin())	
 		.pipe(gulp.dest('dist/images'))
 
 	gulp.src('app/uploads/**/*')
+        .pipe(imagemin())	
 		.pipe(gulp.dest('dist/uploads'))	
 	
 });

@@ -102,7 +102,7 @@
                     <div class="row-flex middle tools">
                         <div class="mv_6 ds_6">    
                             <div class="tools__item contacts">
-                                <i class="users__item-icon themify themify-headphone-alt"></i>
+                                <i class="users__item-icon themify themify-headphone-alt  js-modal-open" data-target="modal-callback"></i>
                                 <div class="contacts__phone ds_hidden">
                                     <a href="tel:84955555555">8(495) 555-55-55</a>
                                 </div>
@@ -861,14 +861,14 @@
                             <div class="news__item-image"><img src="uploads/news/news_item_image_1.jpg" alt="QCYBER MOBILE: оторвись от проводов!"></div>
                         </div>
                         <div class="news__item-content">
-                            <div class="news__item-title-outer">
-                                <a href="#" class="news__item-title">QCYBER MOBILE: оторвись от проводов! QCYBER MOBILE: оторвись от проводов! QCYBER MOBILE: оторвись от проводов!</a>
-                            </div>
+                            <h3 class="news__item-title-outer">
+                                <a href="news__item.html" class="news__item-title">QCYBER MOBILE: оторвись от проводов! QCYBER MOBILE: оторвись от проводов! QCYBER MOBILE: оторвись от проводов!</a>
+                            </h3>
                             <div class="news__item-text">беспроводная зарядка, доступная любому смартфону</div>
                         </div>
                         <div class="news__item-footer">
                             <div class="news__item-link-outer">
-                                <a href="#" class="news__item-link">подробнее<i class="themify themify-angle-right"></i></a>
+                                <a href="news__item.html" class="news__item-link">подробнее<i class="themify themify-angle-right"></i></a>
                             </div>                        
                             <time class="news__item-date" datetime="2019-02-01">01.02.2019</time>
                         </div>
@@ -881,13 +881,13 @@
                         </div>
                         <div class="news__item-content">
                             <div class="news__item-title-outer">
-                                <a href="#" class="news__item-title">10 удивительных ноутбуков с выставки CES 2019</a>
+                                <a href="news__item.html" class="news__item-title">10 удивительных ноутбуков с выставки CES 2019</a>
                             </div>
                             <div class="news__item-text">беспроводная зарядка, доступная любому смартфону</div>
                         </div>
                         <div class="news__item-footer">
                             <div class="news__item-link-outer">
-                                <a href="#" class="news__item-link">подробнее<i class="themify themify-angle-right"></i></a>
+                                <a href="news__item.html" class="news__item-link">подробнее<i class="themify themify-angle-right"></i></a>
                             </div>                        
                             <time class="news__item-date" datetime="2019-02-01">01.02.2019</time>
                         </div>
@@ -900,13 +900,13 @@
                         </div>
                         <div class="news__item-content">
                             <div class="news__item-title-outer">
-                                <a href="#" class="news__item-title">QCYBER MOBILE: оторвись от проводов! </a>
+                                <a href="news__item.html" class="news__item-title">QCYBER MOBILE: оторвись от проводов! </a>
                             </div>
                             <div class="news__item-text">беспроводная зарядка, доступная любому смартфону</div>
                         </div>
                         <div class="news__item-footer">
                             <div class="news__item-link-outer">
-                                <a href="#" class="news__item-link">подробнее<i class="themify themify-angle-right"></i></a>
+                                <a href="news__item.html" class="news__item-link">подробнее<i class="themify themify-angle-right"></i></a>
                             </div>                        
                             <time class="news__item-date" datetime="2019-02-01">01.02.2019</time>
                         </div>
@@ -1045,7 +1045,7 @@
                         <input type="text" class="field-text" placeholder="E-mail">
                     </div>
                     <div class="field-outer">
-                        <a href="#" class="button button-send"><span>Отправить</span></a>
+                        <a href="#" class="button button-send js-modal-open" data-target="modal-subscribe"><span>Отправить</span></a>
                     </div> 
                 </form>
             </div>
@@ -1069,8 +1069,30 @@
         </div>
     </div>
 </section>
+ 
 
-           
+
+
+<section class="section" style="display: none;">
+    <div class="container">
+        <div class="row">
+            <div class="mv_12">
+                <div class="test-hexagon">
+                    <div class="hexagon">
+<!--                         <div class="hexTop"></div>
+                        <div class="hexBottom"></div> -->
+                        <div class="hexagon-top"></div>
+                        <div class="hexagon-bottom"></div>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
 <footer class="footer section">
     <div class="footer-top">
         <div class="container">
@@ -1181,6 +1203,96 @@
         </div>
     </div>
 </footer>
+
+
+<!-- modals -->
+
+<div class="overlay" id="overlay">
+
+    <div class="overlay-inner">
+
+                <div class="modal modal--subscribe js-modal" id="modal-subscribe">
+                    <div class="modal-inner">
+                        <div class="modal-header">
+                            <div class="modal__title h3 centered">Вы подписались на рассылку!</div>
+                            <span class="modal__close button button-close js-modal-close"><i class="themify  themify-close"></i></span>
+                        </div>
+
+                        <div class="modal-content">
+
+                            <div class="modal__subtitle centered">
+                                Вы подписались на нашу рассылку.
+                                <br>Проверьте свой почтовый ящик <br>и подтвердите подписку.
+                            </div>
+
+                            <div class="modal__slogan centered">
+                                Ждите Нас.
+                            </div>                            
+
+                            <div class="modal__form form form--modal">
+                                <form action="#" method="">
+
+                                    <div class="row field-outer centered">                           
+                                        <div class="mv_12">
+                                            <a href="#" class="button button-send"><span>Закрыть</span></a>
+                                        </div>
+                                    </div>
+                                </form>
+
+                            </div>
+
+                        </div>
+
+                        <div class="modal-footer"></div>
+                    </div>
+                </div>
+
+                <div class="modal js-modal" id="modal-callback" style="">
+                    <div class="modal-inner">
+                        <div class="modal-header">
+                            <div class="modal__title h3 centered">Обратный звонок</div>
+                            <span class="modal__close button button-close js-modal-close"><i class="themify  themify-close"></i></span>
+                        </div>
+
+                        <div class="modal-content">
+                            <div class="modal__subtitle centered">Мы Вам перезвоним, <br>заполните форму ниже</div>
+                            <div class="modal__form form form--modal">
+                                <form action="#" method="">
+                                    <div class="row field-outer">
+                                        <div class="mv_12 tb_6">  
+                                            <label>Ваше Имя</label>
+                                            <input type="text" class="field-text" placeholder="Ваше Имя"> 
+                                        </div>
+                                        <div class="mv_12 tb_6">  
+                                            <label>Телефон</label>
+                                            <input type="text" class="field-text" placeholder="E-mail"> 
+                                        </div>
+                                    </div>
+                                    <div class="row field-outer">
+                                        <div class="mv_12">  
+                                            <label>Примечание</label>
+                                            <textarea name="" class="textarea"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="row field-outer centered">                           
+                                        <div class="mv_12">
+                                            <a href="#" class="button button-send"><span>Заказать звонок</span></a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+
+                        <div class="modal-footer"></div>
+                    </div>
+                </div>
+
+    </div>                
+
+</div>
+
+
 
 
 <!-- JS -->
